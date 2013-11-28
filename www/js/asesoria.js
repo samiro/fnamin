@@ -78,10 +78,10 @@ function solicitar_llamada(){
                     
                     ir("asesoria-exitosa");
                   }else{
-                    navigator.notification.alert(error_msj, "", "Error", "Aceptar")
+                    navigator.notification.alert(error_msj, "", "Ha ocurrido un error", "Aceptar")
                   }
                 }catch (e) {
-                    navigator.notification.alert("Lo sentimos. Inténtalo de nuevo", "", "Error", "Aceptar")
+                    navigator.notification.alert("Lo sentimos. Inténtalo de nuevo", "", "Ha ocurrido un error", "Aceptar")
                 }
           }
         }

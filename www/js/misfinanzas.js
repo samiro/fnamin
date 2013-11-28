@@ -94,7 +94,7 @@ $(document).on('ready', function(){
 			if(ing_vacios=="S"){
                 navigator.notification.alert("Debe diligenciar todos los datos. El valor debe ser numérico y sin puntos.", "", "Error", "Aceptar");
 			}else{
-                navigator.notification.alert("Información almacenada.", "", "Exito", "Aceptar");
+                navigator.notification.alert("Información almacenada.", "", "Transacción exitosa", "Aceptar");
 				RealizarConsultaIngre();
 				ir("inicio_finanzas");
 			}
@@ -134,7 +134,7 @@ $(document).on('ready', function(){
     // Transaction success callback
     //
     function efectuadaOperacion() {
-        navigator.notification.alert("Información almacenada.", "", "Exito", "Aceptar");
+        navigator.notification.alert("Información almacenada.", "", "Transacción exitosa", "Aceptar");
         RealizarConsultaIngre();
         RealizarConsultaEgre();
     }
@@ -204,7 +204,7 @@ $(document).on('ready', function(){
 			if(egr_vacios=="S"){
                 navigator.notification.alert("Debe diligenciar todos los datos. El valor de ser númerico y sin puntos.", "", "Error", "Aceptar");
 			}else{
-                navigator.notification.alert("Información almacenada.", "", "Exito", "Aceptar");
+                navigator.notification.alert("Información almacenada.", "", "Transacción exitosa", "Aceptar");
 				RealizarConsultaEgre();
 				ir("inicio_finanzas");
 			}

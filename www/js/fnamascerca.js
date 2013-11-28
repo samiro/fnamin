@@ -453,9 +453,9 @@ var MapaObjeto = {
                     var error = xmlDoc.getElementsByTagName("CodigoError")[0].childNodes[0].nodeValue
                     var error_msj = xmlDoc.getElementsByTagName("MensajeError")[0].childNodes[0].nodeValue
                     if(error != "0"){
-                        navigator.notification.alert(error_msj, "", "Error", "Aceptar");
+                        navigator.notification.alert(error_msj, "", "Ha ocurrido un error", "Aceptar");
                     }else{
-                        navigator.notification.alert(error_msj, "", "Exito", "Aceptar");
+                        navigator.notification.alert(error_msj, "", "Transacción exitosa", "Aceptar");
                         $.mobile.changePage("#map-page")
                         
                         $("#input-puntos").val(1).slider('refresh');
@@ -463,7 +463,7 @@ var MapaObjeto = {
                         $("#input-opinion").val("")
                     }
                 }catch (e) {
-                    navigator.notification.alert("Lo sentimos. Intentalo de nuevo.", "", "Error", "Aceptar");
+                    navigator.notification.alert("Lo sentimos. Intentalo de nuevo.", "", "Ha ocurrido un error", "Aceptar");
                 }
             }
         }

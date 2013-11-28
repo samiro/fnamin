@@ -1,0 +1,70 @@
+@font-face {
+    font-family: "MyriadPro";
+    font-weight: normal;
+    src: url("MyriadPro.ttf") format("opentype");   
+}
+@font-face {
+    font-family: "MyriadPro";
+    font-weight: bold;
+    src: url("MyriadPro-Bold.ttf") format("opentype");   
+}
+@font-face {
+    font-family: "MyriadPro";
+    font-weight: bold;
+    font-style: italic;
+    src: url("MyriadPro-Bold_Italic.ttf") format("opentype");   
+}
+@font-face {
+    font-family: "MyriadPro";
+    font-style: italic;
+    src: url("MyriadPro-Italic.ttf") format("opentype");   
+}
+
+body *{
+    font-family: 'MyriadPro' !important;
+}
+
+
+
+body .ui-header .ui-title, 
+body .ui-footer .ui-title{
+    font-size: 22px;
+    margin: 0.2em 28% .8em;
+    font-style: italic;
+}
+
+body #inicio .navegacion a label{
+    color: #ccc;
+    font-size: 17px;
+line-height: 20px;
+font-weight: normal;
+font-style: italic;
+}
+
+body .ui-btn-text{
+    font-size: 15px;
+}
+
+body .imagen-head p{
+    font-size: 22px;
+    line-height: 24px;
+    font-style: italic;
+    font-weight: bold;
+}
+body .lista-portafolio p{
+    font-size: 17px;
+}
+body .ui-li-heading {
+    font-size: 20px;
+    line-height: 22px;
+}
+body .ui-block-a.servicios-tit strong{
+    font-size: 24px;
+    line-height: 26px;
+    font-style: italic;
+    font-weight: bold;
+}
+body .servicios-desc{
+    font-size: 16px;
+    line-height: 20px;
+}

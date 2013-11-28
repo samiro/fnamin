@@ -1,0 +1,772 @@
+/**
+
+    Codigo de colores que se debe usar con FNA y su marca
+
+    Verde: #C1D82F
+    Azul: #1A3C8F
+    
+
+    Colores para los botones azules
+
+    bg normal 1A3C8F
+    borde normal 12317F
+
+    bg hover, active 1A4990
+    borde normal 12317F
+*/
+
+
+
+
+html, body {
+    height : 100%;
+    font-family: 'MyriadPro' !important;
+}
+
+
+body .ui-header{
+    background: #dddddd;
+    text-shadow: 0 1px 0 #eee;
+    color: #777;
+    border-color: #bbb;
+    height : 50px;
+    padding-top: 6px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body .ui-header .ui-btn-left{
+    margin-top: 5px;
+}
+body .ui-header .ui-btn-right{
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    border-radius: 0;
+    border: 0;
+    border-left: 1px solid #bbb;
+    
+    background: transparent;
+
+    text-shadow: 0 1px 0 #eee;
+    box-shadow: none;
+    color: #777;
+}
+body .ui-header .ui-btn-left-2{
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    border-radius: 0;
+    border: 0;
+    border-right: 1px solid #bbb;
+    
+    background: transparent;
+
+    text-shadow: 0 1px 0 #eee;
+    box-shadow: none;
+    color: #777;
+    margin-top: 0;
+}
+body .ui-header .ui-btn-left-2 .ui-btn-inner,
+body .ui-header .ui-btn-right .ui-btn-inner{
+    padding: 13px 11px 0;
+}
+
+body .ui-footer{
+    background: #dddddd;
+    text-shadow: 0 1px 0 #eee;
+    color: #777;
+    border-color: #bbb;
+
+    position: fixed;
+    z-index: 100;
+    height: 50px;
+    bottom: 0;
+    width: 100%;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}  
+body .ui-footer a{
+    display: block;
+    width: 25%;
+    height: 100%;
+
+    background: #0190d2;
+    background: #1A3C8F;
+
+    color: #efefef;
+    border: 1px solid #006fb4;
+    border: 1px solid #12317F;
+
+    border-radius: 0;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    float: left;
+    position: relative;
+    text-decoration: none;
+    text-shadow: none;
+    box-shadow: none;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body .ui-footer>div{
+    height: 100%;
+}
+
+body .ui-footer a span{
+    display: inline-block;
+    margin-top: 10px;
+    background: transparent url('../img/sprite.png') no-repeat 0 0;
+}
+
+body #flink-puntos span{
+    background-position: -1px -1px;
+    width: 17px;
+    height: 25px;
+}
+body #flink-portafolio span{
+    background-position: -21px -2px;
+    width: 23px;
+    height: 26px;
+}
+body #flink-asesoria span{
+    background-position: -47px -3px;
+    width: 28px;
+    height: 25px;
+}
+body #flink-finanzas span{
+    background-position: -77px -3px;
+    width: 20px;
+    height: 26px;
+}
+
+body .ui-content{
+    padding-bottom: 50px;
+}
+
+#map-page {
+    height : 100%;
+}
+#map-page .ui-content {
+    position : absolute;
+    top      : 50px;
+    right    : 0;
+    bottom   : 50px;
+    left     : 0;
+    padding: 2px 0 0 0;
+}
+#map-page #map-canvas{
+    height: 100%;
+}
+
+#map-page .ui-footer{
+    position : absolute;
+    bottom   : 0;
+    left     : 0;
+    width    : 100%;
+    height   : 50px;
+}
+
+
+
+
+#inicio .imagen_inicio{
+    width: 100%;
+    position: relative;
+    z-index: 10;
+}
+#inicio .ui-content{
+    position : absolute;
+    top      : 50px;
+    right    : 0;
+    bottom   : 0;
+    left     : 0;
+    padding: 0;
+}
+#inicio .contenedor-inicio{
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height:  100%;
+    overflow: hidden;
+}
+
+#inicio .navegacion{
+    position:  absolute;
+    bottom: 0;
+    height: 50%;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    z-index: 12;
+}
+#inicio .navegacion a{
+    display: block;
+    width: 50%;
+    height: 50%;
+    background: #1A3C8F;
+    color: #efefef;
+    border: 1px solid #12317F;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    float: left;
+    position: relative;
+    text-decoration: none;
+    text-shadow: none;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body .ui-footer a:hover,
+body .ui-footer a:hover,
+#inicio .navegacion a:hover,
+#inicio .navegacion a:active{
+    background: #1A4990;
+}
+
+#inicio .navegacion a span{
+    width: 50px;
+    height: 50px;
+    margin: 18px auto 0 auto;
+    background: transparent url('../img/sprite.png') no-repeat 0 0;
+}
+#inicio #link-puntos span{
+    background-position: 0 -30px;
+    width: 22px;
+    height: 34px;
+}
+#inicio #link-portafolio span{
+    background-position: -21px -31px;
+    width: 29px;
+    height: 34px;
+}
+#inicio #link-asesoria span{
+    background-position: -50px -32px;
+    width: 35px;
+    height: 34px;
+}
+#inicio #link-finanzas span{
+    background-position: -85px -32px;
+    width: 26px;
+    height: 34px;
+}
+#inicio .navegacion a label{
+    margin: 0 auto;
+    width: 60%;
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: normal;
+}
+#inicio .navegacion a label,
+#inicio .navegacion a span{
+    display:  block;
+    padding-top: 5px;
+}
+
+
+#map-page .btn-filter .label{
+    display: inline-block;
+    font-style: normal;
+}
+#map-page .btn-filter .icon-filter{
+    display: inline-block;
+    background: transparent url('../img/sprite.png') no-repeat -3px -69px;
+    width: 17px;
+    height: 13px;
+    vertical-align: top;
+    margin-top: 2px;
+    margin-right: 2px;
+}
+
+
+
+#filter-maps h1{
+    color: #00a5e5;
+    color: #1A3C8F;
+    font-size: 20px;
+    margin: 0;
+}
+#filter-maps p{
+    font-size: 16px;
+}
+#filter-maps .filter{
+    overflow:  hidden;
+}
+#filter-maps .filter label{
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 16px;    
+}
+#filter-maps .filter select{
+    vertical-align: top;
+    float: right;
+    margin-top: 5px;
+}
+#filter-maps .filter .ui-slider-switch{
+    float: right;
+}
+.info-window{
+    padding: 20px;
+    max-width: 250px;
+}
+.info-window h2{
+    font-weight: normal;
+    margin: 0;
+    font-size: 15px;
+    color: #00a5e5;
+}
+.info-window h1{
+    font-weight: bold;
+    margin: 0;
+    font-size: 20px;
+    color: #00a5e5; 
+    margin-bottom: 10px;
+}
+.info-window h3{
+    font-weight: normal;
+    margin: 0;
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+}
+body .info-window div.info1{
+    font-size: 15px;
+    line-height: 20px;
+    margin-bottom: 5px;
+}
+body .info-window div.info1 span{
+    font-weight: bold;
+}
+body .info-window div.btns{
+    text-align: center;
+    padding: 5px 0;
+}
+body .info-window div.btns .boton{
+    margin: 0 10px;
+}
+.logo{
+    overflow: hidden;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.logo img{
+    width: 100%;
+}
+.boton{
+    display: inline-block;
+    background: #0190d2;
+    background: #1A3C8F;
+    color: #efefef;
+    border: 1px solid #006fb4;
+    border: 1px solid #12317F;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+    position: relative;
+    text-decoration: none;
+    text-shadow: none;
+    padding: 8px 12px;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.boton:hover,
+.boton:active{
+    background: #00a5e5;
+    background: #1A4990;
+}
+
+.lista-portafolio h2{
+    color: #1A3C8F;
+    margin: 0;
+}
+.lista-portafolio p{
+    color: #aaa;
+    margin-top: 5px;
+    font-size: 15px;
+}
+.ui-content{
+    padding: 0;
+}
+.imagen-head{
+    position: relative;
+    overflow: hidden;
+    max-height: 150px;
+}
+.imagen-head img{
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+.imagen-head .titulo{
+    position: absolute;
+    color: #fff;
+    font-size: 22px;
+    line-height: 28px;
+    top: 10px;
+    left: 40px;
+    right: 40px;
+    text-align: center;
+    font-weight: normal;
+    text-shadow: none;
+}
+
+body .ui-block-a strong{
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 24px;
+    text-align: center; 
+    display: block;
+}
+body .ui-block-a p{
+    color: #444;
+}
+
+body .ui-field-contain{
+    padding-left: 10px;
+    padding-right: 20px;
+}
+
+.content-base{
+    padding: 20px;
+}
+
+
+.finanzas-head{
+    height: 120px;
+    background: #77c3e7;
+    border-bottom: 1px solid #bbb;
+}
+.finanzas-head img{
+    z-index: 0;
+}
+.finanzas-head label{
+    position: relative;
+    display: block;
+    text-shadow: none;
+}
+.finanzas-head .title{
+    font-size: 20px;
+    line-height: 20px;
+    padding: 5px 0;
+    padding-top: 20px;
+    color: #fff;
+    text-align: center;
+    font-weight: normal;
+}
+.finanzas-head [data-finanzas="balance"]{
+    font-weight: bold;
+    font-size: 35px;
+    line-height: 35px;
+    color: #222;
+    display: block;
+    position: relative;
+    text-align: center;
+    padding: 10px 0;
+}
+
+
+body #puntuar .ui-header{
+    height: auto;
+}
+body #puntuar .ui-header p.tit{
+    font-weight: bold;
+    color: #1A3C8F;
+    text-align: left;
+    padding: 0 20px;
+    text-shadow: none;
+    margin-bottom: 0;
+    font-size: 20px;
+}
+body #puntuar .ui-header p.desc{
+    font-weight: normal;
+    text-align: left;
+    padding: 0 20px;
+    text-shadow: none;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+body #puntuar textarea{
+    resize:none;
+}
+body #puntuar label{
+    font-size: 14px;
+}
+
+body .ui-btn-up-b{
+    border: 1px solid #12317F;
+    background: #1A3C8F;
+
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#1A3C8F),to(#1A3C8F));
+    background-image: -webkit-linear-gradient(#1A3C8F,#1A3C8F);
+    background-image: -moz-linear-gradient(#1A3C8F,#1A3C8F);
+    background-image: -ms-linear-gradient(#1A3C8F,#1A3C8F);
+    background-image: -o-linear-gradient(#1A3C8F,#1A3C8F);
+    background-image: linear-gradient(#1A3C8F,#1A3C8F);
+}
+
+
+body .ui-btn-up-b:hover,
+body .ui-btn-hover-b{
+    background: #1A4990;
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#1A4990),to(#1A4990));
+    background-image: -webkit-linear-gradient(#1A4990,#1A4990);
+    background-image: -moz-linear-gradient(#1A4990,#1A4990);
+    background-image: -ms-linear-gradient(#1A4990,#1A4990);
+    background-image: -o-linear-gradient(#1A4990,#1A4990);
+    background-image: linear-gradient(#1A4990,#1A4990);
+}
+
+body .ui-btn-up-b:active,
+body .ui-btn-down-b{
+    background: #0D2152;
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#0D2152),to(#1A4990));
+    background-image: -webkit-linear-gradient(#0D2152,#1A4990);
+    background-image: -moz-linear-gradient(#0D2152,#1A4990);
+    background-image: -ms-linear-gradient(#0D2152,#1A4990);
+    background-image: -o-linear-gradient(#0D2152,#1A4990);
+    background-image: linear-gradient(#0D2152,#1A4990);
+}
+
+/*
+bg normal 1A3C8F
+    borde normal 12317F
+
+    bg hover, active 1A4990
+    borde normal 12317F
+*/
+
+.servicios-desc{
+    padding: 15px;
+    font-size: 14px;
+    line-height: 17px;
+    margin: 0;
+}
+body .ui-block-a .servicios-tit,
+.servicios-tit{
+    padding: 0 15px 5px;
+    margin: 0;
+    color: #1A3C8F;
+    font-weight: bold;
+}
+
+
+#inicio_finanzas .imagen-head{
+    max-height: auto;
+    height: 200px;
+}
+
+#inicio_finanzas .imagen-head .balance{
+    position: absolute;
+    color: #fff;
+    font-size: 18px;
+    line-height: 22px;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    text-align: center;
+    font-style: italic;
+}
+
+#inicio_finanzas .imagen-head .balance label{
+    display: block;
+    text-shadow: none;
+}
+
+#inicio_finanzas .imagen-head .balance p{
+    color: #000;
+    margin: 0;
+    padding: 5px 0;
+    font-size: 45px;
+    line-height: 40px;
+}
+
+#inicio_finanzas .ui-mini .ui-btn-inner{
+    padding: .2em 11px .2em;
+}
+
+#inicio_finanzas .subtitulo{
+    font-size: 19px;
+    line-height: 19px;
+    color: #888;
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+}
+#inicio_finanzas .entradas-fechas {
+    padding: 0 10px;
+}
+#inicio_finanzas .entradas-fechas table{
+    width: 100%;
+}
+#inicio_finanzas .entradas-fechas table .center{
+    text-align: center;
+}
+#inicio_finanzas .entradas-fechas label{
+    font-size: 16px;
+    line-height: 16px;
+    color: #888;
+}
+#inicio_finanzas .entradas-fechas div.ui-input-text{
+    padding: 5px 0;
+    margin: 0;
+    margin-right: 10px;
+    display: inline-block;
+}
+#inicio_finanzas .entradas-fechas div.ui-input-text input{
+    width: 100%;
+}
+
+
+#inicio_finanzas .entrada-finanzas{
+    padding: 10px;
+    border-bottom: 1px solid #B1D4F5;
+    background: #DEEEFC;
+}
+#inicio_finanzas #entradas-ingresos .entrada-finanzas{
+    border-right: 1px solid #bbb;
+}
+#inicio_finanzas #entradas-egresos .entrada-finanzas{
+    border-left: 1px solid #bbb;
+}
+#inicio_finanzas .entrada-finanzas .fecha{
+    display: block;
+    font-size: 14px;
+    line-height: 14px;
+}
+#inicio_finanzas .entrada-finanzas .valor{
+    display: block;
+    font-size: 25px;
+    line-height: 30px;
+    font-weight: bold;
+    font-style: italic;
+    color: #1A3C8F;
+}
+
+.titulo-bg{
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #bbb;
+    border-width: 1px 0;
+    margin-top: 20px;
+}
+.titulo-bg label{
+    font-style: italic;
+    font-size: 19px;
+    line-height: 19px;
+    font-weight: bold;
+    color: #888;
+}
+
+.titulo-bg .ui-btn{
+    float: right;
+    vertical-align: top;
+    margin: 0;
+    margin-top: -3px;
+}
+#inicio_finanzas .ui-content{
+    padding-bottom: 70px;
+}
+
+#asesoria-exitosa .logo h2,
+#asesoria-error .logo h2{
+    font-weight: normal;
+    font-size: 32px;
+    font-style: italic;
+    line-height: 40px;
+    position: absolute;
+    left: 15%;
+    top: 50%;
+    right: 50%;
+    height: 80px;
+    margin: 0;
+    margin-top: -40px;
+    color: #C1D82F;
+    text-align: left;
+}
+
+#asesoria-error .logo h2{
+    color: #FE2E2E;
+    left: 12%;
+    height: 120px;
+    margin-top: -60px;
+}
+
+
+#asesoria-exitosa .logo,
+#asesoria-error .logo{
+    height: 150px;
+    background: #fff;
+    text-align: right;
+    line-height: 150px;
+}
+#asesoria-exitosa .logo img,
+#asesoria-error .logo img{
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: middle;
+}
+#asesoria-exitosa .respuesta,
+#asesoria-error .respuesta{
+    padding: 0 25px;
+}
+#asesoria-exitosa .respuesta h1,
+#asesoria-error .respuesta h1{
+    text-align: center;
+    font-style: italic;
+    font-weight: normal;
+    line-height: 38px;
+    font-size: 32px;
+    margin: 40px 0;
+}
+
+#acerca .ui-content{
+    text-align: center;
+}
+#acerca .ui-content p{
+    margin: 0;
+    padding: 0;
+}
+#acerca img{
+    vertical-align: middle;
+}
+#acerca .ui-header .ui-title{
+    margin-top: 12px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+#acerca .ui-header .ui-title small{
+    color: #aaa;
+}
+#acerca .ui-content p.subtitulo{
+    padding-top: 15px;
+}
+#acerca .ui-content p.desarrollado{
+    padding-top: 20px;
+}
+#acerca .ui-content p.claro{
+    color: #666;
+    padding-bottom: 40px;
+    padding-top: 5px;
+}
+#acerca .engenial{
+    margin: 10px 0 20px;
+}

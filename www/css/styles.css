@@ -544,6 +544,33 @@ body .ui-btn-down-b{
     background-image: linear-gradient(#0D2152,#1A4990);
 }
 
+
+
+#inicio .ui-header .ui-btn-up-b:hover,
+#inicio .ui-header .ui-btn-hover-b{
+    background: #aaa;
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#aaa),to(#aaa));
+    background-image: -webkit-linear-gradient(#aaa,#aaa);
+    background-image: -moz-linear-gradient(#aaa,#aaa);
+    background-image: -ms-linear-gradient(#aaa,#aaa);
+    background-image: -o-linear-gradient(#aaa,#aaa);
+    background-image: linear-gradient(#aaa,#aaa);
+}
+
+#inicio .ui-header .ui-btn-up-b:active,
+#inicio .ui-header .ui-btn-down-b{
+    background: #aaa;
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#aaa),to(#aaa));
+    background-image: -webkit-linear-gradient(#aaa,#aaa);
+    background-image: -moz-linear-gradient(#aaa,#aaa);
+    background-image: -ms-linear-gradient(#aaa,#aaa);
+    background-image: -o-linear-gradient(#aaa,#aaa);
+    background-image: linear-gradient(#aaa,#aaa);
+}
+
+
+
+
 /*
 bg normal 1A3C8F
     borde normal 12317F

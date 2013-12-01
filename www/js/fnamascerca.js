@@ -1,4 +1,4 @@
-/***
+﻿/***
 Estos objetos y atributos están dispuestos para la manipulación,
 de los mapas usados en la sección FNA Mas Cerca, de la aplicación
 FNA En Tu Bolsillo
@@ -153,7 +153,7 @@ var MapaObjeto = {
         function( error ){
             console.log("error")
             console.log(error)
-            navigator.notification.alert("OMP: " + error.message , "",  "C: " + error.code, , "Aceptar");
+            navigator.notification.alert("OMP: " + error.message , "",  "C: " + error.code, "Aceptar");
             if(error.code == PositionError.POSITION_UNAVAILABLE){
                 navigator.notification.alert("OMP: No es posible localizar tu posición", "", "Error", "Aceptar");
             }else if(error.code == PositionError.TIMEOUT){

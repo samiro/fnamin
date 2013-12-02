@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+	<title>Mis Finanzas</title>
+	<link rel="stylesheet" type="text/css" href="css/finanzas.css">
+</head>
+<body>
+	<div class="header">
+		<a href="__inicio.html" class="btn-left">Inicio</a>
+			
+		<h1 role="heading" aria-level="1">Mis Finanzas</h1>
+			
+		<a href="#compartir" class="btn-right">Compartir</a>
+	</div>
+
+
+
+	<div class="wrapper" id="inicio_finanzas">
+
+     	<div class="imagen-head">
+	        <img src="img/finanzas.png">
+	        <div class="balance">
+	          <label>Ahorro en el periodo</label>
+	          <p id="sActual">0</p>
+	          <div>
+	          	<button class="btn-white" type="button">Ver histórico</button>
+	          </div>
+	        </div>
+     	</div>
+
+
+      <h2 class="subtitulo">Seleccione el periodo</h2>
+
+      <div class="entradas-fechas">
+        <table>
+              <tbody>
+                <tr>
+                  <td><label for="desde">Desde:</label></td>
+                  <td><label for="hasta">Hasta:</label></td>
+                </tr>
+                <tr class="center">
+                  <td><div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c"><input type="date" name="desde" id="f_desde" onchange="RealizarLaConsulta()" class="ui-input-text ui-body-c"></div></td>
+                  <td><div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c"><input type="date" name="hasta" id="f_hasta" onchange="RealizarLaConsulta()" class="ui-input-text ui-body-c"></div></td>
+                </tr>
+              </tbody>
+        </table>
+      </div>
+
+
+      <div class="ui-grid-a">
+        <div class="ui-block-a">
+          <div class="titulo-bg btn-agregar-ingreso">
+            <label>Ingresos</label>
+            <button type="button" >+</button>
+          </div>
+        </div>
+
+        <div class="ui-block-b">
+          <div class="titulo-bg btn-agregar-egreso">
+            <label>Egresos</label>
+            <button type="button">+</button>
+          </div>
+        </div>
+      </div>
+
+		<div class="ui-grid-a">
+        <div id="entradas-ingresos" class="ui-block-a">
+          <div class="entrada-finanzas">
+            <label class="fecha">2013/01/31</label>
+            <label class="valor">$50000</label>
+          </div>
+        </div>
+        <div  id="entradas-egresos" class="ui-block-b">
+          <div class="entrada-finanzas">
+            <label class="fecha">2013/01/31</label>
+            <label class="valor">$50000</label>
+          </div>
+        </div>
+      </div>
+
+    </div>
+	</div>
+
+
+
+
+	<div class="footer">
+		<div>
+			<a href="__mapas.html" id="flink-puntos" class="ui-link">
+				<span></span>
+			</a>
+			<a href="__portafolio.html" id="flink-portafolio" class="ui-link">
+				<span></span>
+			</a>
+			<a href="__asesoria.html" id="flink-asesoria" class="ui-link">
+				<span></span>
+			</a>
+			<a href="__finanzas.html" id="flink-finanzas" class="external ui-link" >
+				<span></span>
+			</a>
+		</div>
+	</div>
+
+
+
+	<div id="loading" class="ui-loader ui-corner-all ui-body-a ui-loader-verbose">
+		<span class="ui-icon ui-icon-loading"></span>
+		<h1> -- </h1>
+	</div>
+
+
+	<script type="text/javascript" src="js/lib/jquery.js"></script>
+	<script type="text/javascript" src="js/debug.js"></script>
+	<script type="text/javascript" src="js/scripts/general.js"></script>
+</body>
+</html>

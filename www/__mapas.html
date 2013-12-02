@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+	<title>Mapas</title>
+	<link rel="stylesheet" type="text/css" href="css/mapas.css">
+</head>
+<body>
+	<div class="header">
+		<a href="__inicio.html" class="btn-left">Inicio</a>
+			
+		<h1 role="heading" aria-level="1">Mapas</h1>
+			
+		<a href="#compartir" class="btn-right">Filtro</a>
+	</div>
+
+
+
+	<div class="wrapper">
+		<div id="map-canvas"></div>
+	</div>
+
+
+
+
+	<div class="footer">
+		<div>
+			<a href="__mapas.html" id="flink-puntos" class="ui-link">
+				<span></span>
+			</a>
+			<a href="__portafolio.html" id="flink-portafolio" class="ui-link">
+				<span></span>
+			</a>
+			<a href="__asesoria.html" id="flink-asesoria" class="ui-link">
+				<span></span>
+			</a>
+			<a href="__finanzas.html" id="flink-finanzas" class="external ui-link" >
+				<span></span>
+			</a>
+		</div>
+	</div>
+
+
+
+	<div id="loading" class="ui-loader ui-corner-all ui-body-a ui-loader-verbose">
+		<span class="ui-icon ui-icon-loading"></span>
+		<h1> -- </h1>
+	</div>
+
+
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.9&sensor=true"></script>
+	<script type="text/javascript" src="js/lib/jquery.js"></script>
+	<script type="text/javascript" src="js/debug.js"></script>
+	<script type="text/javascript" src="js/scripts/general.js"></script>
+	<script type="text/javascript" src="js/scripts/mapas.js"></script>
+</body>
+</html>

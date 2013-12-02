@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.phonegap.helloworld" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>Fondo Nacional del Ahorro</name>
+    <name>FNA En Tu Bolsillo</name>
 
     <description>
-        Con FNA En Tu Bolsillo generamos juntos cultura del ahorro.
+        Lleva al Fondo Nacional del Ahorro en tu bolsillo, y generemos juntos  cultura del ahorro.
     </description>
 
     <author email="dev@engenial.co" href="http://www.engenial.co">
@@ -63,6 +63,6 @@
 
     <access origin="*" />
 
-    <content src="index.html" />
+    <content src="__inicio.html" />
 
 </widget>

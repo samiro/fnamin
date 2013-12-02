@@ -12,3 +12,4 @@ navigator.notification.alert = function(mensaje, callback, titulo, boton){
 }
 
 PositionError = {}
+

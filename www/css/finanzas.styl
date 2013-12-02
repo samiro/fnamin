@@ -1,0 +1,148 @@
+@import 'styl/font.styl'
+@import 'styl/normalize.styl'
+@import 'styl/header.styl'
+@import 'styl/footer.styl'
+
+#inicio_finanzas 
+    .imagen-head
+        max-height: auto;
+        height: 200px;
+
+        .balance
+            position: absolute;
+            color: #fff;
+            font-size: 18px;
+            line-height: 22px;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            text-align: center;
+            font-style: italic;
+        label
+            display: block;
+            text-shadow: none;
+
+
+        p
+            color: #000;
+            margin: 0;
+            padding: 5px 0;
+            font-size: 45px;
+            line-height: 40px;
+
+
+    .subtitulo
+        font-size: 20px;
+        line-height: 22px;
+        color: #888;
+        text-align: center;
+        font-weight: bold;
+        font-style: italic;
+        margin 20px 0
+
+    .entradas-fechas 
+        padding: 0 10px;
+
+        table
+            width: 100%;
+
+            .center
+                text-align: center;
+
+        label
+            font-size: 16px;
+            line-height: 16px;
+            color: #888;
+
+        div.ui-input-text
+            padding: 5px 0;
+            margin: 0;
+            margin-right: 10px;
+            display: inline-block;
+
+            input
+                width: 100%;
+                color #eee
+                background #444
+                border 1px solid #333
+                border-bottom-width 2px
+                border-radius 4px
+                padding 5px 0
+                font-size 16px
+
+
+    .entrada-finanzas
+        padding: 10px;
+        border-bottom: 1px solid #B1D4F5;
+        background: #DEEEFC;
+        .fecha
+            display: block;
+            font-size: 14px;
+            line-height: 14px;
+        .valor
+            display: block;
+            font-size: 25px;
+            line-height: 30px;
+            font-weight: bold;
+            font-style: italic;
+            color: #1A3C8F;
+
+    #entradas-ingresos 
+        .entrada-finanzas
+            border-right: 1px solid #bbb;
+
+    #entradas-egresos
+        .entrada-finanzas
+            border-left: 1px solid #bbb;
+
+    .titulo-bg
+        background: #eee;
+        padding: 15px;
+        border: 1px solid #bbb;
+        border-width: 1px 0;
+        margin-top: 20px;
+        cursor pointer
+
+        label
+            font-style: italic;
+            font-size: 19px;
+            line-height: 19px;
+            font-weight: bold;
+            color: #888;
+            cursor pointer
+
+        button
+            float: right;
+            vertical-align: top;
+            margin: 0;
+            margin-top: -3px;
+            font-weight bold
+            font-size 20px
+            line-height 19px
+            background transparent
+            border 0
+            color #888
+
+    .titulo-bg:hover, .titulo-bg:active
+        background #f4f4f4
+    
+    .btn-agregar-egreso
+        border-left 1px solid #bbb
+
+.ui-grid-a .ui-block-a
+    clear: left;
+
+.ui-block-a, .ui-block-b
+    margin: 0;  
+    padding: 0;
+    border: 0;
+    float: left;
+    min-height: 1px;
+    webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+
+.ui-grid-a>:nth-child(n)
+    width: 50%;
+    margin-right: -.5px;

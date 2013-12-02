@@ -421,11 +421,7 @@ var MapaObjeto = {
 
         
 
-        $.mobile.loading('show', {
-            text: "Enviando puntuación",
-            textVisible: true,
-            textonly: false
-        });
+        $.loading('show', text: "Enviando puntuación");
 
         var data =  '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pun="http://PuntuacionHackatonService/PuntuacionService">' +
                         '<soapenv:Header/>' +
@@ -445,7 +441,7 @@ var MapaObjeto = {
         xmlhttp.open('POST', 'https://www.fna.gov.co:8445/PuntuacionHackatonServiceWeb/sca/WSPuntuacionServiceExport', true);
         xmlhttp.setRequestHeader('Content-Type', 'text/xml');
         xmlhttp.onreadystatechange = function () {
-            $.mobile.loading( "hide" );
+            $.loading( "hide" );
             if (xmlhttp.readyState == 4) {
                 try {
                     var parser = new DOMParser();

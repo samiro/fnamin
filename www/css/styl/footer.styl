@@ -1,35 +1,62 @@
 .footer
-    background #1A4990
+    background #1A3C8F
     border-top 1px solid #12317F
+    position: fixed
 
-    position: fixed;
-    z-index: 100;
+    z-index: 100
+    width 100%
     left 0
-	right 0
-	height 50px
-    box-sizing: border-box;
-
-.footer a
-    display: block;
-    width: 25%;
-    height: 100%;
-    border: 1px solid #12317F;
-
-    text-align: center
-    float: left
-    position: relative
-    text-decoration: none;
-    text-shadow: none;
-    box-shadow: none;
-
-    box-sizing: border-box;
-
-.footer>div
-    height: 100%;
+    bottom 0
+    height 50px
 
 
-.footer a span
-    display: inline-block;
-    margin-top: 10px;
-    background: transparent url('../img/sprite.png') no-repeat 0 0;
+    >div
+        height: 100%
 
+    a
+        display: block
+        width: 25%
+        height: 100%
+        border: 1px solid #12317F
+        border-width 1px 1px 0
+
+        text-align: center
+        float: left
+        position: relative
+        text-decoration: none
+        text-shadow: none
+        box-shadow: none
+
+        box-sizing: border-box
+
+        span
+            display: inline-block
+            margin-top: 10px
+            background: transparent url('../img/sprite.png') no-repeat 0 0
+
+    #flink-puntos 
+        span
+            background-position: -1px -1px
+            width: 17px
+            height: 25px
+
+    #flink-portafolio
+        span
+            background-position: -21px -2px
+            width: 23px
+            height: 26px
+
+    #flink-asesoria 
+        span
+            background-position: -47px -3px
+            width: 28px
+            height: 25px
+
+    #flink-finanzas 
+        span
+            background-position: -77px -3px
+            width: 22px
+            height: 26px
+
+    a:hover, a:active
+        background #1A4990

@@ -81,6 +81,9 @@ p
 	margin-top 30px
 	padding-bottom 30px
 
+.btn-block
+	width 100%
+	box-sizing border-box 
 
 .btn-blue,
 .btn-white
@@ -218,3 +221,64 @@ p
 		bottom 0
 		left 0
 		right 0
+
+.window
+	background rgba(255,255,255,0.5)
+	position fixed
+	top 0
+	left 0
+	bottom 0
+	right 0
+	overflow auto
+	display none
+	z-index 999
+
+	>div
+		width: 92.5%;
+		max-width: 500px;
+		margin: 10% auto 15px;
+		padding: 0;
+		position: relative;
+		top: -15px;
+		background: none repeat scroll 0 0 #DDDDDD
+		border-radius 4px
+		box-shadow 0 0 30px rgba(0,0,0,0.5)
+
+	.ui-header .ui-title
+		margin-top: 12px;
+		margin-left: 10%;
+		margin-right: 10%;
+
+	.ui-header .ui-title small
+		color: #aaa;
+
+	.superior
+		text-align: center;
+		border-bottom: 1px solid #ccc;
+
+	.superior h1
+		text-shadow: 0 1px 0 #eee;
+		color: #777;
+		font-style: italic;
+		font-size: 22px;
+		line-height: 50px;
+		text-align: center;
+		display: inline-block;
+
+	.window-content
+		padding 20px
+
+.btn-close
+	background transparent
+	font-weight bold
+	font-size 30px
+	line-height 30px
+	height 30px
+	width 30px
+
+	color #444
+	position absolute
+	top -15px
+	right -15px
+	border 0
+	text-align center

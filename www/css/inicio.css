@@ -16,6 +16,7 @@ p{color:#444}
 .ui-loader-verbose h1{font-size:17px;margin:0;text-align:center;font-weight:normal}
 .ui-loader-verbose{width:200px;opacity:.88;box-shadow:0 1px 1px -1px #fff;height:auto;margin-left:-110px;margin-top:-43px;padding:10px}
 .btns-center{text-align:center;margin-top:30px;padding-bottom:30px}
+.btn-block{width:100%;box-sizing:border-box}
 .btn-blue,.btn-white{border:1px solid #12317f;background:#1a3c8f;-webkit-border-radius:4px;-moz-border-radius:4px;-ms-border-radius:4px;-o-border-radius:4px;border-radius:4px;padding:.6em 20px;min-width:.75em;cursor:pointer;color:#fff;font-size:16px;line-height:16px}
 .btn-white{color:#444;border:1px solid #ccc;background:#ddd;border-bottom-width:2px}
 .btn-blue:hover,.btn-blue:active{background:#1a4990}
@@ -34,6 +35,14 @@ p{color:#444}
 .input_text input:hover,.input_text input:active,.input_text input:focus{outline:none}
 .input_text input:focus + .line{border-color:#666}
 .input_text .line{border-bottom:1px solid #aaa;border-left:1px solid #aaa;border-right:1px solid #aaa;height:5px;position:absolute;bottom:0;left:0;right:0}
+.window{background:rgba(255,255,255,0.5);position:fixed;top:0;left:0;bottom:0;right:0;overflow:auto;display:none;z-index:999;}
+.window >div{width:92.5%;max-width:500px;margin:10% auto 15px;padding:0;position:relative;top:-15px;background:none repeat scroll 0 0 #ddd;border-radius:4px;box-shadow:0 0 30px rgba(0,0,0,0.5)}
+.window .ui-header .ui-title{margin-top:12px;margin-left:10%;margin-right:10%}
+.window .ui-header .ui-title small{color:#aaa}
+.window .superior{text-align:center;border-bottom:1px solid #ccc}
+.window .superior h1{text-shadow:0 1px 0 #eee;color:#777;font-style:italic;font-size:22px;line-height:50px;text-align:center;display:inline-block}
+.window .window-content{padding:20px}
+.btn-close{background:transparent;font-weight:bold;font-size:30px;line-height:30px;height:30px;width:30px;color:#444;position:absolute;top:-15px;right:-15px;border:0;text-align:center}
 .header{background:#ddd;position:fixed;top:0;left:0;right:0;height:50px;border-bottom:1px solid #bbb;overflow:hidden;z-index:100;text-align:center;}
 .header h1{text-shadow:0 1px 0 #eee;color:#777;font-style:italic;font-size:22px;line-height:50px;text-align:center;display:inline-block;}
 .header a{text-shadow:0 1px 0 #eee;color:#777;font-weight:bold;height:50px;display:block;line-height:50px;font-size:16px;padding:0 10px;vertical-align:top}
@@ -61,3 +70,12 @@ p{color:#444}
 #inicio .navegacion #link-portafolio span{background-position:-21px -31px;width:29px;height:28px}
 #inicio .navegacion #link-asesoria span{background-position:-50px -32px;width:35px;height:28px}
 #inicio .navegacion #link-finanzas span{background-position:-85px -32px;width:26px;height:34px}
+#acerca .ui-content{text-align:center}
+#acerca .ui-content p{margin:0;padding:0}
+#acerca img{vertical-align:middle}
+#acerca .ui-content p.subtitulo{padding-top:15px}
+#acerca .ui-content p.desarrollado{padding-top:20px}
+#acerca .ui-content p.claro{color:#666;padding-bottom:40px;padding-top:5px}
+#acerca .engenial{margin:10px 0 20px}
+#acerca small{color:#aaa}
+#acerca .subtitulo,#acerca .subtitulov{color:#222;font-weight:400;text-shadow:0 1px 0 #fff}

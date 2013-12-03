@@ -13,7 +13,7 @@
 			
 		<h1 role="heading" aria-level="1">Educación</h1>
 			
-		<a href="#compartir" class="btn-right">Compartir</a>
+		<a href="javascript: void(0)" class="btn-right tap-compartir">Compartir</a>
 	</div>
 
 
@@ -63,6 +63,28 @@
 
 
 
+	<div id="window_compartir" class="window">
+		<div id="compartir">
+			<button class="btn-close">x</button>
+			<div class="superior">
+				<h1 class="ui-header ui-title">FNA Social</h1>
+			</div>
+			<div class="ui-content ui-body-b">
+				<div class="window-content">
+					<button class="btn-blue btn-block" onclick="window.open('https://plus.google.com/share?url=http://fna.gov.co', '_system');">Google+</button>
+	
+					<button class="btn-blue btn-block" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=http://fna.gov.co', '_system');">Facebook</button>
+
+					<button class="btn-blue btn-block" onclick="window.open('https://twitter.com/intent/tweet?text=Visita fna.gov.co', '_system');">Twitter</button>
+
+					<button class="btn-blue btn-block" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=http://fna.gov.co', '_system');">Linkedin</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
 	<div id="loading" class="ui-loader ui-corner-all ui-body-a ui-loader-verbose">
 		<span class="ui-icon ui-icon-loading"></span>
 		<h1> -- </h1>
@@ -70,6 +92,7 @@
 
 
 	<script type="text/javascript" src="js/lib/jquery.js"></script>
+	<script type="text/javascript" src="js/lib/jquery.mobile-events.js"></script>
 	<script type="text/javascript" src="js/debug.js"></script>
 	<script type="text/javascript" src="js/scripts/general.js"></script>
 </body>

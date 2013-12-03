@@ -44,8 +44,8 @@
 				<div class="line"></div>
 			</div>
 			<div class="btns-center">
-				<button class="btn-white">Limpiar campos</button>
-				<button class="btn-blue">Solicitar asesoría</button>
+				<button onclick="limpiar_campos()" class="btn-limpiar btn-white">Limpiar</button>
+				<button onclick="solicitar_llamada()" class="btn-solicitar btn-blue">Solicitar asesoría</button>
 			</div>
 		</div>
 	</div>
@@ -93,6 +93,34 @@
 	</div>
 
 
+	<div id="window_asesoria-exitosa" class="window">
+		<div id="asesoria-exitosa">
+			<div class="superior">
+				<a href="__inicio.html" class="btn-left">Inicio</a>
+				<h1 class="ui-header ui-title">Solicitud Exitosa</h1>
+				<a href="javascript: asesoria_exitosa('hide')" class="btn-right">Cerrar</a>
+			</div>
+			<div class="ui-content ui-body-b">
+				<div class="ui-grid-solo">
+		              <div class="ui-block-a logo">
+		              	<img src="img/call-center2.png">
+		              	<h2>¡Solicitud <br> enviada!</h2>
+		              </div>
+		            </div>
+		            <div class="ui-grid-solo">
+		              <div class="respuesta">
+		              	<h1>En breve un asesor de FNA se comunicará con usted.</h1>
+		              </div>
+		            </div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
 	<div id="loading" class="ui-loader ui-corner-all ui-body-a ui-loader-verbose">
 		<span class="ui-icon ui-icon-loading"></span>
 		<h1> -- </h1>
@@ -100,8 +128,8 @@
 
 
 	<script type="text/javascript" src="js/lib/jquery.js"></script>
-	<script type="text/javascript" src="js/lib/jquery.mobile-events.js"></script>
 	<script type="text/javascript" src="js/debug.js"></script>
 	<script type="text/javascript" src="js/scripts/general.js"></script>
+	<script type="text/javascript" src="js/scripts/asesoria.js"></script>
 </body>
 </html>

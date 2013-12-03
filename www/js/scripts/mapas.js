@@ -405,7 +405,7 @@ var MapaObjeto = {
     //Mostrar la ventana de la puntuación
     ocultar_puntuacion: function(){
         $("#input-puntos").val(1)
-        $("#input-puntos-txt").text(1)
+        /*$("#input-puntos-txt").text(1)*/
         $("#input-tipo").val("")
         $("#input-opinion").val("")
         $("#window_puntuacion").css("display", "none")
@@ -465,7 +465,7 @@ var MapaObjeto = {
                         MapaObjeto.ocultar_puntuacion()
                         
                         $("#input-puntos").val(1)
-                        $("#input-puntos-txt").text(1)
+                        /*$("#input-puntos-txt").text(1)*/
                         $("#input-tipo").val("")
                         $("#input-opinion").val("")
                     }

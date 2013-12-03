@@ -98,9 +98,19 @@
 				</p>
 
 				<div class="input_text">
-					<label for="input-puntos">Calificación (de 1 a 5):</label>
-					<span class="txt-range" id="input-puntos-txt">1</span>
-					<input type="range" name="input-puntos" id="input-puntos" value="1" min="1" max="5" required>
+					<label for="input-puntos">Calificación:</label>
+					<!--
+						<span class="txt-range" id="input-puntos-txt">1</span>
+						<input type="range" name="input-puntos" id="input-puntos" value="1" min="1" max="5" required>
+					-->
+					<select id="input-puntos">
+					  <option value="1">Malo</option>
+					  <option value="2">Regular</option>
+					  <option value="3">Bueno</option>
+					  <option value="4">Muy bueno</option>
+					  <option value="5">Excelente</option>
+					</select>
+
 				</div>
 
 				<div class="input_text">

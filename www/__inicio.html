@@ -6,14 +6,17 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
 	<title>Inicio</title>
 	<link rel="stylesheet" type="text/css" href="css/inicio.css">
+
 </head>
 <body>
 	<div class="header">
-		<a href="javascript: void(0)" class="btn-left tap-acerca">Acerca de</a>
+		
+		<a href="javascript: Funciones.acerca_de('show')" class="btn-left tap-acerca">Acerca de</a>
 			
 		<h1 role="heading" aria-level="1">Inicio</h1>
 			
-		<a href="javascript: void(0)" class="btn-right tap-compartir">Compartir</a>
+		<a href="javascript: Funciones.compartir('show')" class="btn-right tap-compartir">Compartir</a>
+
 	</div>
 
 
@@ -46,7 +49,7 @@
 
 
 
-	<div id="window_acerca" class="window">
+	<div id="window_acerca" class="window" onclick="Funciones.acerca_de('hide')">
 		<div id="acerca">
 			<button class="btn-close">x</button>
 			<div class="superior">
@@ -71,7 +74,7 @@
 
 
 
-	<div id="window_compartir" class="window">
+	<div id="window_compartir" class="window" onclick="Funciones.compartir('hide')">
 		<div id="compartir">
 			<button class="btn-close">x</button>
 			<div class="superior">
@@ -100,8 +103,9 @@
 
 
 	<script type="text/javascript" src="js/lib/jquery.js"></script>
-	<script type="text/javascript" src="js/lib/jquery.mobile-events.js"></script>
+	<!--<script type="text/javascript" src="js/lib/jquery.mobile-events.js"></script>-->
 	<script type="text/javascript" src="js/debug.js"></script>
 	<script type="text/javascript" src="js/scripts/general.js"></script>
+	
 </body>
 </html>

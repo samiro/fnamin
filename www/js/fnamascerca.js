@@ -421,7 +421,7 @@ var MapaObjeto = {
 
         
 
-        $.loading('show', text: "Enviando puntuación");
+        $.loading('show', "Enviando puntuación");
 
         var data =  '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pun="http://PuntuacionHackatonService/PuntuacionService">' +
                         '<soapenv:Header/>' +

@@ -8,20 +8,27 @@ $.loading = function(accion, texto){
 	}
 }
 
-$( "#window_compartir, #window_acerca" ).tap(function(event){
+/*$( "#window_compartir, #window_acerca" ).tap(function(event){
 	$(this).css("display", "none")
-})
+})*/
 
 
+var Funciones = {
+	acerca_de: function(accion){
+		if(accion == 'show'){
+			$("#window_acerca").css("display", "block")
+		}else if(accion == 'hide'){
+			$("#window_acerca").css("display", "none")
+		}
+	},
 
 
-
-
-$( ".tap-acerca" ).tap( function( event ){
-	$("#window_acerca").css("display", "block")
-})
-
-$( ".tap-compartir" ).tap( function( event ){
-	$("#window_compartir").css("display", "block")
-})
+	compartir: function(accion){
+		if(accion == 'show'){
+			$("#window_compartir").css("display", "block")
+		}else if(accion == 'hide'){
+			$("#window_compartir").css("display", "none")
+		}
+	}
+}
 

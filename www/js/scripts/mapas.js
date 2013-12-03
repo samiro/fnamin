@@ -12,6 +12,7 @@ var directionsDisplay;
 var geocoder;
 var directionsService = new google.maps.DirectionsService();
 var info_window = new google.maps.InfoWindow({content: ''});
+var markersArray = [];
 /*
     Éste objeto tiene todos los atributos usados para la sección mapas del FNA
 */
@@ -98,6 +99,7 @@ var MapaAtributos = {
     //Configuración del filtro
     filtros: {
         horario_extendido: true,
+        sin_horario_extendido: true,
         sin_costo: true,
         con_costo: true,
         puntos_atencion: true,
@@ -209,7 +211,7 @@ var MapaObjeto = {
     //
     // Funcion que filtra el objeto según los criterios configurador MapaAtributos
     pasa_filtros: function(obj){
-        return true;
+        //return true;
 
 
 
@@ -220,7 +222,23 @@ var MapaObjeto = {
         var es_atencion =  MapaAtributos.general.txt_punto_atencion.toUpperCase().indexOf(obj.tipodeentidad.toUpperCase()) !== -1? true : false
         var es_recaudo = !es_atencion
 
-        // Primer filtro de si es punto de atencion o recaudo
+        /*// Primer filtro de si es punto de atencion o recaudo
+        if(MapaAtributos.filtros.puntos_atencion == false && es_atencion) return false;
+        if(MapaAtributos.filtros.puntos_recaudo == false && es_recaudo) return false;*/
+
+        // Segundo fitro de si es con costo
+        if(MapaAtributos.filtros.sin_costo && sin_costo) return true;
+        if(MapaAtributos.filtros.con_costo && con_costo) return true;
+
+        // Tercer filtro de si es con horario extendido
+        if(MapaAtributos.filtros.horario_extendido && hor_extendido) return true;
+        if(MapaAtributos.filtros.sin_horario_extendido && !hor_extendido) return true;
+
+        // Pasó los filtros
+        return false;
+
+
+        /*// Primer filtro de si es punto de atencion o recaudo
         if(MapaAtributos.filtros.puntos_atencion == false && es_atencion) return false;
         if(MapaAtributos.filtros.puntos_recaudo == false && es_recaudo) return false;
 
@@ -232,18 +250,18 @@ var MapaObjeto = {
         if(MapaAtributos.filtros.horario_extendido == false && hor_extendido) return false;
 
         // Pasó los filtros
-        return true;
+        return true;*/
         
     },
     //
     //Actualiza las variables de filtros según el formulario de filtros
-    actualizar_filtros: function(){
+    /*actualizar_filtros: function(){
         MapaAtributos.filtros.horario_extendido = $("#horario-extendido").val() == "true"? true:false
         MapaAtributos.filtros.sin_costo = $("#sin-costo").val() == "true"? true:false
         MapaAtributos.filtros.con_costo = $("#con-costo").val() == "true"? true:false
         MapaAtributos.filtros.puntos_atencion = $("#puntos-atencion").val() == "true"? true:false
         MapaAtributos.filtros.puntos_recaudo = $("#puntos-recaudo").val() == "true"? true:false
-    },
+    },*/
     //
     // Cargar los puntos que retorna el setdatos
     cargar_todos_puntos: function(por_ciudad, callback){
@@ -252,10 +270,10 @@ var MapaObjeto = {
         MapaAtributos.mapa.setZoom(15);
 
         //Ésta instrucción debe estar habilitada para que funcione en Manizales
-        MapaAtributos.ciudad = ''
+        //MapaAtributos.ciudad = ''
 
         if(MapaAtributos.ciudad != ''){
-            url += "&$filter=municipio='"+MapaAtributos.ciudad+"'"
+            url += "&$filter=municipio LIKE '%"+MapaAtributos.ciudad+"%'"
         }
 
         $.ajax({
@@ -305,6 +323,8 @@ var MapaObjeto = {
                                 map: MapaAtributos.mapa,
                                 clickable: true
                             });
+
+                            markersArray.push(marker);
 
 
                             marker.info  = '<div ><div class="info-window"><h2>'+ (bool_atencion? 'Punto de atención FNA': 'Punto de recaudo') +'</h2> '
@@ -452,7 +472,7 @@ var Contenido = {
     // Carga el contenido segun la petición de página que le halla llegado
     cargar: function(){
             if ( Contenido.tiene_conexion() ){
-                MapaObjeto.actualizar_filtros()
+                //MapaObjeto.actualizar_filtros()
                 $.loading('show', "Iniciando Google Maps");
                 MapaObjeto.inicializar( function(){
                     $.loading( "hide" );
@@ -503,8 +523,88 @@ google.maps.event.addDomListener(window, 'load', function(){
 
 
 $(document).on("ready", function(){
-    /*$(".btn-enviar-puntuacion").tap(function(event){
+    /*
+    $(".btn-enviar-puntuacion").tap(function(event){
         event.preventDefault()
         MapaObjeto.enviar_puntuacion()
-    })*/
+    })
+    */
+
+    $('#filtro #con_h_extendido').change(function() {
+        var checkbox = $(this)
+        MapaAtributos.filtros.horario_extendido = checkbox.is(":checked")
+        renderizar_checkbox(checkbox)
+    });
+
+    $('#filtro #sin_h_extendido').change(function() {
+        var checkbox = $(this)
+        MapaAtributos.filtros.sin_horario_extendido = checkbox.is(":checked")
+        renderizar_checkbox(checkbox)
+    });
+
+    $('#filtro #con_costo').change(function() {
+        var checkbox = $(this)
+        MapaAtributos.filtros.con_costo = checkbox.is(":checked")
+        renderizar_checkbox(checkbox)
+    });
+
+    $('#filtro #sin_costo').change(function() {
+        var checkbox = $(this)
+        MapaAtributos.filtros.sin_costo = checkbox.is(":checked")
+        renderizar_checkbox(checkbox)
+    });
+
+
+
+    var chk_1 = $('#filtro #con_h_extendido').attr('checked', MapaAtributos.filtros.horario_extendido );
+    renderizar_checkbox(chk_1)
+    var chk_2 = $('#filtro #sin_h_extendido').attr('checked', MapaAtributos.filtros.sin_horario_extendido );
+    renderizar_checkbox(chk_2)
+    var chk_3 = $('#filtro #con_costo').attr('checked', MapaAtributos.filtros.con_costo );
+    renderizar_checkbox(chk_3)
+    var chk_4 = $('#filtro #sin_costo').attr('checked', MapaAtributos.filtros.sin_costo );
+    renderizar_checkbox(chk_4)
+
 })
+
+function clearOverlays() {
+  for (var i = 0; i < markersArray.length; i++ ) {
+    markersArray[i].setMap(null);
+  }
+  markersArray.length = 0;
+}
+
+
+function renderizar_checkbox(checkbox){
+    var parent = checkbox.parent('.input_checkbox')
+
+    if(checkbox.is(":checked")) {
+        parent.addClass("checked")
+    }else{
+        parent.removeClass("checked")
+    }
+}
+
+
+var Filtro = {
+    filtro: function(accion){
+        if(accion == 'show'){
+            $("#window_filtro").css("display", "block")
+        }else if(accion == 'hide'){
+            $("#window_filtro").css("display", "none")
+        }
+    },
+
+
+    listo: function(){
+        clearOverlays();
+        $("#window_filtro").css("display", "none")
+        $.loading( "hide" );
+        $.loading('show', "Filtrando puntos FNA");
+        MapaObjeto.cargar_todos_puntos( true, function(){
+            MapaObjeto.resize_trigger()
+            MapaObjeto.centrarme()
+            $.loading( "hide" );
+        })
+    }
+}

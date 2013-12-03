@@ -29,15 +29,6 @@ var Funciones = {
 		}else if(accion == 'hide'){
 			$("#window_compartir").css("display", "none")
 		}
-	},
-
-
-	filtro: function(accion){
-		if(accion == 'show'){
-			$("#window_filtro").css("display", "block")
-		}else if(accion == 'hide'){
-			$("#window_filtro").css("display", "none")
-		}
 	}
 }
 

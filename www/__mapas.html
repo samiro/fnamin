@@ -13,7 +13,7 @@
 			
 		<h1 role="heading" aria-level="1">Mapas</h1>
 			
-		<a href="javascript: Funciones.filtro('show')" class="btn-right">Filtro</a>
+		<a href="javascript: Filtro.filtro('show')" class="btn-right">Filtro</a>
 	</div>
 
 
@@ -47,29 +47,72 @@
 
 	<div id="window_filtro" class="window" >
 		<div id="filtro">
-			<button class="btn-close">x</button>
+
 			<div class="superior">
-				<a href="javascript: Funciones.filtro('hide')" class="btn-left tap-acerca">Listo</a>
 				<h1 class="ui-header ui-title">Filtra el mapa</h1>
-				<a href="javascript: Funciones.filtro('hide')" class="btn-right tap-acerca">Cancelar</a>
+				<a href="javascript: Filtro.listo()" class="btn-right tap-acerca">Listo</a>
 			</div>
+
 			<div class="ui-content ui-body-b">
+
 				<div class="input_checkbox">
-					<label>Con horario extendido</label>
-					<input type="checkbox">
+					<label for="con_h_extendido">Con horario extendido</label>
+					<input id="con_h_extendido" type="checkbox">
 				</div>
+
 				<div class="input_checkbox">
-					<label>Sin horario extendido</label>
-					<input type="checkbox">
+					<label for="sin_h_extendido">Sin horario extendido</label>
+					<input id="sin_h_extendido" type="checkbox">
 				</div>
+
 				<div class="input_checkbox">
-					<label>Transacción con costo</label>
-					<input type="checkbox">
+					<label for="con_costo">Transacción con costo</label>
+					<input id="con_costo" type="checkbox">
 				</div>
+
 				<div class="input_checkbox">
-					<label>Transacción gratuita</label>
-					<input type="checkbox">
+					<label for="sin_costo">Transacción gratuita</label>
+					<input id="sin_costo" type="checkbox">
 				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+	<div id="window_puntuacion" class="window" >
+		<div id="puntuacion">
+
+			<div class="superior">
+				<h1 class="ui-header ui-title">Filtra el mapa</h1>
+				<a href="javascript: Filtro.listo()" class="btn-right tap-acerca">Listo</a>
+			</div>
+
+			<div class="ui-content ui-body-b">
+
+				<div class="input_checkbox">
+					<label for="con_h_extendido">Con horario extendido</label>
+					<input id="con_h_extendido" type="checkbox">
+				</div>
+
+				<div class="input_checkbox">
+					<label for="sin_h_extendido">Sin horario extendido</label>
+					<input id="sin_h_extendido" type="checkbox">
+				</div>
+
+				<div class="input_checkbox">
+					<label for="con_costo">Transacción con costo</label>
+					<input id="con_costo" type="checkbox">
+				</div>
+
+				<div class="input_checkbox">
+					<label for="sin_costo">Transacción gratuita</label>
+					<input id="sin_costo" type="checkbox">
+				</div>
+
 			</div>
 		</div>
 	</div>

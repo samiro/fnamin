@@ -179,6 +179,19 @@ p
 	li
 		margin-left 20px
 
+.input_checkbox
+	display block
+	position relative
+	margin-top 30px
+	overflow hidden
+
+	label
+		font-size 20px
+		line-height 22px
+		font-style italic
+	
+	input
+		float right
 
 .input_text
 	display block
@@ -225,8 +238,8 @@ p
 		right 0
 
 .window
-	background #fff
-	background rgba(255,255,255,0.5)
+	background #444
+	background rgba(0,0,0,0.8)
 	position fixed
 	top 0
 	left 0
@@ -259,14 +272,37 @@ p
 		text-align: center;
 		border-bottom: 1px solid #ccc;
 
-	.superior h1
-		text-shadow: 0 1px 0 #eee;
-		color: #777;
-		font-style: italic;
-		font-size: 22px;
-		line-height: 50px;
-		text-align: center;
-		display: inline-block;
+		h1
+			text-shadow: 0 1px 0 #eee;
+			color: #777;
+			font-style: italic;
+			font-size: 22px;
+			line-height: 50px;
+			text-align: center;
+			display: inline-block;
+
+
+		a
+			text-shadow: 0 1px 0 #eee
+			color: #777
+			font-weight bold
+			height 50px
+			display block
+			line-height 50px
+			font-size 16px
+			padding 0 10px
+			vertical-align top
+
+		a:hover, a:active
+			background #eee
+
+		.btn-left
+			float left
+			border-right 1px solid #bbb
+
+		.btn-right
+			float right
+			border-left 1px solid #bbb
 
 	.window-content
 		padding 20px

@@ -34,9 +34,11 @@ p{color:#444}
 .input_checkbox input{position:absolute;right:10px;top:50%;margin-top:-10px;height:20px;width:20px}
 .input_checkbox.checked{background:#fff}
 .input_text{display:block;position:relative;margin-top:30px;}
-.input_text label{font-style:italic;font-size:18px;line-height:20px;color:#1a3c8f;font-weight:bold}
-.input_text input{display:block;width:100%;padding:10px 14px;font-size:20px;line-height:22px;font-style:italic;color:#3b3b3b;background-color:#fff;border:1px solid #fff;border-radius:4px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
+.input_text label,.input_text span{font-style:italic;font-size:18px;line-height:20px;color:#1a3c8f;font-weight:bold}
+.input_text input,.input_text textarea{display:block;width:100%;padding:10px 14px;font-size:20px;line-height:22px;font-style:italic;color:#3b3b3b;background-color:#fff;border:1px solid #fff;border-radius:4px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
 .input_text input:hover,.input_text input:active,.input_text input:focus{outline:none}
+.input_text input[type="range"]{background:transparent;width:80%}
+.input_text .txt-range{position:absolute;width:20%;text-align:center;right:0;bottom:0;font-size:30px;line-height:44px}
 .input_text input:focus + .line{border-color:#666}
 .input_text .line{border-bottom:1px solid #aaa;border-left:1px solid #aaa;border-right:1px solid #aaa;height:5px;position:absolute;bottom:0;left:0;right:0}
 .window{background:#444;background:rgba(0,0,0,0.8);position:fixed;top:0;left:0;bottom:0;right:0;overflow:auto;display:none;z-index:999;}
@@ -75,4 +77,4 @@ p{color:#444}
 .info-window div.info1 span{font-weight:bold}
 .info-window div.btns{text-align:center;padding:5px 0;}
 .info-window div.btns .boton{margin:0 10px}
-#filtro .ui-content{padding:20px}
+#filtro .ui-content,#window_puntuacion .ui-content{padding:20px}

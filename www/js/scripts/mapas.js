@@ -398,8 +398,17 @@ var MapaObjeto = {
     //
     //Mostrar la ventana de la puntuación
     mostrar_puntuacion: function(){
-        alert("mostrar puntuacion")
+        $("#window_puntuacion").css("display", "block")
         //$.mobile.changePage("#puntuar", {transition: 'pop', role: 'dialog'})
+    },
+    //
+    //Mostrar la ventana de la puntuación
+    ocultar_puntuacion: function(){
+        $("#input-puntos").val(1)
+        $("#input-puntos-txt").text(1)
+        $("#input-tipo").val("")
+        $("#input-opinion").val("")
+        $("#window_puntuacion").css("display", "none")
     },
     //
     //Envia la puntuacion al webservice
@@ -451,11 +460,13 @@ var MapaObjeto = {
                         navigator.notification.alert(error_msj, "", "Ha ocurrido un error", "Aceptar");
                     }else{
                         navigator.notification.alert(error_msj, "", "Transacción exitosa", "Aceptar");
-                        alert("ir a mapas")
+                        //alert("ir a mapas")
                         //$.mobile.changePage("#map-page")
+                        MapaObjeto.ocultar_puntuacion()
                         
-                        $("#input-puntos").val(1).slider('refresh');
-                        $("#input-tipo").val("").selectmenu('refresh');
+                        $("#input-puntos").val(1)
+                        $("#input-puntos-txt").text(1)
+                        $("#input-tipo").val("")
                         $("#input-opinion").val("")
                     }
                 }catch (e) {
@@ -508,7 +519,6 @@ var Contenido = {
             return true;
         }
     }
-
 }
 
 
@@ -565,7 +575,12 @@ $(document).on("ready", function(){
     var chk_4 = $('#filtro #sin_costo').attr('checked', MapaAtributos.filtros.sin_costo );
     renderizar_checkbox(chk_4)
 
+
+    $("#input-puntos").change(function(event){
+        $("#input-puntos-txt").text($(this).val())
+    })
 })
+
 
 function clearOverlays() {
   for (var i = 0; i < markersArray.length; i++ ) {
@@ -586,7 +601,7 @@ function renderizar_checkbox(checkbox){
 }
 
 
-var Filtro = {
+var MapaWindow = {
     filtro: function(accion){
         if(accion == 'show'){
             $("#window_filtro").css("display", "block")
@@ -596,7 +611,7 @@ var Filtro = {
     },
 
 
-    listo: function(){
+    filtro_listo: function(){
         clearOverlays();
         $("#window_filtro").css("display", "none")
         $.loading( "hide" );

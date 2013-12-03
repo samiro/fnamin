@@ -210,7 +210,8 @@ p
 	position relative
 	margin-top 30px
 
-	label
+	label,
+	span
 		font-style italic
 		font-size 18px
 		line-height 20px
@@ -218,7 +219,8 @@ p
 		font-weight bold
 
 
-	input
+	input,
+	textarea
 		display: block
 		width: 100%
 		padding: 10px 14px
@@ -235,6 +237,19 @@ p
 
 	input:hover, input:active, input:focus
 		outline: none
+
+	input[type="range"]
+		background transparent
+		width 80%
+
+	.txt-range
+		position absolute
+		width 20%
+		text-align center
+		right 0
+		bottom 0
+		font-size 30px
+		line-height 44px
 
 	input:focus + .line
 		border-color #666

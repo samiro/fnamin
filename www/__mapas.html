@@ -13,7 +13,7 @@
 			
 		<h1 role="heading" aria-level="1">Mapas</h1>
 			
-		<a href="javascript: Filtro.filtro('show')" class="btn-right">Filtro</a>
+		<a href="javascript: MapaWindow.filtro('show')" class="btn-right">Filtro</a>
 	</div>
 
 
@@ -50,7 +50,7 @@
 
 			<div class="superior">
 				<h1 class="ui-header ui-title">Filtra el mapa</h1>
-				<a href="javascript: Filtro.listo()" class="btn-right tap-acerca">Listo</a>
+				<a href="javascript: MapaWindow.filtro_listo()" class="btn-right">Listo</a>
 			</div>
 
 			<div class="ui-content ui-body-b">
@@ -87,32 +87,37 @@
 		<div id="puntuacion">
 
 			<div class="superior">
-				<h1 class="ui-header ui-title">Filtra el mapa</h1>
-				<a href="javascript: Filtro.listo()" class="btn-right tap-acerca">Listo</a>
+				<a href="javascript: MapaObjeto.ocultar_puntuacion()" class="btn-left">Cancelar</a>
+				<h1 class="ui-header ui-title">Opinión</h1>
+				<a href="javascript: MapaObjeto.enviar_puntuacion()" class="btn-right">Enviar</a>
 			</div>
 
 			<div class="ui-content ui-body-b">
+				<p>
+					Califica un punto de atención o recaudo, según tu experiencia con nosotros.
+				</p>
 
-				<div class="input_checkbox">
-					<label for="con_h_extendido">Con horario extendido</label>
-					<input id="con_h_extendido" type="checkbox">
+				<div class="input_text">
+					<label for="input-puntos">Calificación (de 1 a 5):</label>
+					<span class="txt-range" id="input-puntos-txt">1</span>
+					<input type="range" name="input-puntos" id="input-puntos" value="1" min="1" max="5" required>
 				</div>
 
-				<div class="input_checkbox">
-					<label for="sin_h_extendido">Sin horario extendido</label>
-					<input id="sin_h_extendido" type="checkbox">
+				<div class="input_text">
+					<label for="input-tipo">Lo que calificas:</label>
+					<select id="input-tipo">
+					  <option value="">-- Seleccione uno --</option>
+					  <option value="servi">Servicio</option>
+					  <option value="insta">Instalaciones</option>
+					  <option value="otro">Otro</option>
+					</select>
 				</div>
 
-				<div class="input_checkbox">
-					<label for="con_costo">Transacción con costo</label>
-					<input id="con_costo" type="checkbox">
+				<div class="input_text">
+					<label for="input-opinion">Un comentario adicional:</label>
+					<textarea id="input-opinion" rows="3" maxlength="140" placeholder="Escribe tu opinión"></textarea>
+					<div class="line"></div>
 				</div>
-
-				<div class="input_checkbox">
-					<label for="sin_costo">Transacción gratuita</label>
-					<input id="sin_costo" type="checkbox">
-				</div>
-
 			</div>
 		</div>
 	</div>

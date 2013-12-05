@@ -16,6 +16,14 @@ var Insertar = {
 			$("#window_egreso").css("display", "none")
 		}
 	}
+	
+	ver_historia: function(accion){
+		if(accion == 'show'){
+			$("#window_egreso").css("display", "block")
+		}else if(accion == 'hide'){
+			$("#window_egreso").css("display", "none")
+		}
+	}
 }
 
 

@@ -1,8 +1,8 @@
 $(document).on('ready', function(){
-    $(".btn-historico").tap(function(event){
-        event.preventDefault()
-        historia()
-    })
+    //$(".btn-historico").tap(function(event){
+      //  event.preventDefault()
+      //  historia()
+   // })
     
     $(".btn-agregar-ingreso").tap(function(event){
         event.preventDefault()
@@ -322,20 +322,43 @@ $(document).on('ready', function(){
         
         for (var i=0; i<len; i++){
           $("#egresos_historico tbody").append("<tr><td>$"+results.rows.item(i).valor_eg+"</td><td>"+results.rows.item(i).fecha_eg+"</td><td>"+results.rows.item(i).tipo_eg+"</td><td>"+results.rows.item(i).nota_eg+"</td></tr>");
-        }
-        
+        }        
         $.mobile.loading( "hide" );
     }
 	
     
-	function formu_ing(tx) {
-	  window.location.href = "finanzas.html#agregar_ingreso";
+	function formu_ing() {
+	  window.location.href = "__finanzas _ingresos.html";
 	  $("#agregar_ingreso input[name='montoIng']").val("");
 	  $("#agregar_ingreso input[name='notaIng']").val("");
     }
 	
-	function formu_Egre(tx) {
-	  window.location.href = "finanzas.html#agregar_gasto";
+	function formu_Egre() {
+	  window.location.href = "__finanzas _egresos.html";
 	  $("#agregar_gasto input[name='montoEgr']").val("");
 	  $("#agregar_gasto input[name='notaEgr']").val("");
     }
+	
+	
+	/////////////////////////////////////////////////////7
+	//////////////////////////////////////////////////77
+	///////////////////////////////////////////////////////7
+	
+var Funciones = {
+	agr_ingreso: function(accion){
+		if(accion == 'show'){
+			$("#window_acerca").css("display", "block")
+		}else if(accion == 'hide'){
+			$("#window_acerca").css("display", "none")
+		}
+	},
+
+
+	agr_egreso: function(accion){
+		if(accion == 'show'){
+			$("#window_compartir").css("display", "block")
+		}else if(accion == 'hide'){
+			$("#window_compartir").css("display", "none")
+		}
+	}
+}

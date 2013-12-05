@@ -6,6 +6,8 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
 	<title>Mis Finanzas</title>
 	<link rel="stylesheet" type="text/css" href="css/finanzas.css">
+	<script type="text/javascript" src="js/lib/jquery.js"></script>
+	<script type="text/javascript" src="js/__finanzas.js"></script>
 </head>
 <body>
 	<div class="header">
@@ -54,14 +56,14 @@
         <div class="ui-block-a">
           <div class="titulo-bg btn-agregar-ingreso">
             <label>Ingresos</label>
-            <button type="button" >+</button>
+            <button type="button" onclick="Insertar.agr_ingreso('show')">+</button>	
           </div>
         </div>
 
         <div class="ui-block-b">
           <div class="titulo-bg btn-agregar-egreso">
             <label>Egresos</label>
-            <button type="button">+</button>
+            <button type="button" onclick="Insertar.agr_egreso('show')">+</button>	
           </div>
         </div>
       </div>
@@ -84,7 +86,80 @@
     </div>
 	</div>
 
-
+	<div id="window_egreso" class="window">
+		<div id="egreso">
+			<div class="superior">
+				<h1 class="ui-header ui-title">Agregar gasto</h1>
+				<a href="javascript: Insertar.agr_egreso('hide')" class="btn-right">Cerrar</a>
+			</div>
+			<div class="ui-content ui-body-b">
+				<div class="window-content">
+					<div class="input_text">
+						<label for="montoEgr">Valor:</label>
+						<input type="number" name="montoEgr" id="montoEgr" placeholder="Escríbelo aquí" required>
+						<div class="line"></div>
+					</div>
+					<div class="input_text">
+						<label for="tipoEgr">Tipo:</label>
+						<select id="tipoEgr" name="tipoEgr">
+						  <option value="Hogar">Hogar</option>
+						  <option value="Transporte">Transporte</option>
+						  <option value="Alimentación">Alimentación</option>
+						  <option value="Ropa">Ropa</option>
+						  <option value="Entretenimiento">Entretenimiento</option>
+						  <option value="fna">FNA / Crédito</option>
+						</select> 
+						<div class="line"></div>
+					</div>
+					<div class="input_text">
+						<label for="notaEgr">Nota:</label>
+						<input type="text" name="notaEgr" id="notaEgr" placeholder="Escríbelo aquí" required>
+						<div class="line"></div>
+					</div>
+					<div class="btns-center">
+						<button onclick="listoAgregarEgreso()" class="btn-solicitar btn-blue">Guardar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<div id="window_ingreso" class="window">
+		<div id="ingreso">
+			<div class="superior">
+				<h1 class="ui-header ui-title">Agregar Ingreso</h1>
+				<a href="javascript: Insertar.agr_ingreso('hide')" class="btn-right">Cerrar</a>
+			</div>
+			<div class="ui-content ui-body-b">
+				<div class="window-content">
+					<div class="input_text">
+						<label for="montoIng">Valor:</label>
+						<input type="number" name="montoIng" id="montoIng" placeholder="Escríbelo aquí" required>
+						<div class="line"></div>
+					</div>
+					<div class="input_text">
+						<label for="tipoIng">Tipo:</label>
+						<select id="tipoIng" name="tipoIng">
+						  <option value="Salario">Salario</option>
+						  <option value="Renta">Renta</option>
+						  <option value="Otros">Otros</option>
+						</select> 
+						<div class="line"></div>
+					</div>
+					<div class="input_text">
+						<label for="notaIng">Nota:</label>
+						<input type="text" name="notaIng" id="notaIng" placeholder="Escríbelo aquí" required>
+						<div class="line"></div>
+					</div>
+					<div class="btns-center">
+						<button onclick="GuardarNuevoIngreso()" class="btn-solicitar btn-blue">Guardar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
 
 
 	<div class="footer">
@@ -135,7 +210,7 @@
 <!-- 	
   <script type="text/javascript" src="cordova.js"></script>
  -->
-  <script type="text/javascript" src="js/lib/jquery.js"></script>
+  
 
   <script type="text/javascript" src="js/debug.js"></script>
 

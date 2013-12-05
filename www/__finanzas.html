@@ -6,8 +6,7 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
 	<title>Mis Finanzas</title>
 	<link rel="stylesheet" type="text/css" href="css/finanzas.css">
-	<script type="text/javascript" src="js/lib/jquery.js"></script>
-	<script type="text/javascript" src="js/__finanzas.js"></script>
+	
 </head>
 <body>
 	<div class="header">
@@ -34,46 +33,46 @@
      	</div>
 
 
-      <h2 class="subtitulo">Seleccione el periodo</h2>
+	      <h2 class="subtitulo">Seleccione el periodo</h2>
 
-      <div class="entradas-fechas">
-        <table>
-              <tbody>
-                <tr>
-                  <td><label for="desde">Desde:</label></td>
-                  <td><label for="hasta">Hasta:</label></td>
-                </tr>
-                <tr class="center">
-                  <td><div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c"><input type="date" name="desde" id="f_desde" onchange="RealizarLaConsulta()" class="ui-input-text ui-body-c"></div></td>
-                  <td><div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c"><input type="date" name="hasta" id="f_hasta" onchange="RealizarLaConsulta()" class="ui-input-text ui-body-c"></div></td>
-                </tr>
-              </tbody>
-        </table>
-      </div>
+	      <div class="entradas-fechas">
+	        <table>
+	              <tbody>
+	                <tr>
+	                  <td><label for="desde">Desde:</label></td>
+	                  <td><label for="hasta">Hasta:</label></td>
+	                </tr>
+	                <tr class="center">
+	                  <td><div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c"><input type="date" name="desde" id="f_desde" onchange="RealizarLaConsulta()" class="ui-input-text ui-body-c"></div></td>
+	                  <td><div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c"><input type="date" name="hasta" id="f_hasta" onchange="RealizarLaConsulta()" class="ui-input-text ui-body-c"></div></td>
+	                </tr>
+	              </tbody>
+	        </table>
+	      </div>
 
 
-      <div class="ui-grid-a">
-        <div class="ui-block-a">
-          <div class="titulo-bg btn-agregar-ingreso">
-            <label>Ingresos</label>
-            <button type="button" onclick="Insertar.agr_ingreso('show')">+</button>	
-          </div>
-        </div>
+	      <div class="ui-grid-a">
+	        <div class="ui-block-a">
+	          <div class="titulo-bg btn-agregar-ingreso">
+	            <label>Ingresos</label>
+	            <button type="button" onclick="Insertar.agr_ingreso('show')">+</button>	
+	          </div>
+	        </div>
 
-        <div class="ui-block-b">
-          <div class="titulo-bg btn-agregar-egreso">
-            <label>Egresos</label>
-            <button type="button" onclick="Insertar.agr_egreso('show')">+</button>	
-          </div>
-        </div>
-      </div>
+	        <div class="ui-block-b">
+	          <div class="titulo-bg btn-agregar-egreso">
+	            <label>Egresos</label>
+	            <button type="button" onclick="Insertar.agr_egreso('show')">+</button>	
+	          </div>
+	        </div>
+	      </div>
 
-	<div class="ui-grid-a">
-        <div id="entradas-ingresos" class="ui-block-a">
-        </div>
-        <div  id="entradas-egresos" class="ui-block-b"> 
-        </div>
-    </div>
+		<div class="ui-grid-a">
+	        <div id="entradas-ingresos" class="ui-block-a">
+	        </div>
+	        <div  id="entradas-egresos" class="ui-block-b"> 
+	        </div>
+	    </div>
 
     </div>
 	
@@ -203,10 +202,11 @@
   <script type="text/javascript" src="cordova.js"></script>
  -->
   
-
+   <script type="text/javascript" src="js/lib/jquery.js"></script>
   <script type="text/javascript" src="js/debug.js"></script>
 
 
 	<script type="text/javascript" src="js/scripts/general.js"></script>
+	<script type="text/javascript" src="js/scripts/finanzas.js"></script>
 </body>
 </html>

@@ -106,7 +106,8 @@
 					</div>
 					<div class="input_text">
 						<label for="notaEgr">Nota:</label>
-						<textarea name="notaEgr" id="notaEgr" cols="30" rows="2" placeholder="Escríbelo aquí" ></textarea>
+						<input type="text" name="notaEgr" id="notaEgr" cols="30" rows="2" placeholder="Escríbelo aquí" />
+						<div class="line"></div>
 					</div>
 					<div class="btns-center">
 						<button onclick="listoAgregarEgreso()" class="btn-solicitar btn-blue">Guardar</button>
@@ -141,11 +142,62 @@
 					</div>
 					<div class="input_text">
 						<label for="notaIng">Nota:</label>
-						<textarea name="notaIng" id="notaIng" cols="30" rows="2" placeholder="Escríbelo aquí" ></textarea>
+						<input type="text" name="notaIng" id="notaIng" cols="30" rows="2" placeholder="Escríbelo aquí" />
+						<div class="line"></div>
 					</div>
 					<div class="btns-center">
 						<button onclick="GuardarNuevoIngreso()" class="btn-solicitar btn-blue">Guardar</button>
 					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	<div id="window_historia" class="window">
+		<div id="historia">
+			<div class="superior">
+				<h1 class="ui-header ui-title">Histórico</h1>
+				<a href="javascript: Insertar.ver_historia('hide')" class="btn-right">Cerrar</a>
+			</div>
+			<div class="ui-content ui-body-b">
+				
+				<div class="titulo-bg">
+					<label>Ingresos</label>
+				</div>
+					
+				<div data-role="fieldcontain">
+					<table data-role="table" id="ingresos_historico" data-mode="no-reflow" class="table-stroke">
+						<thead>
+							<tr>
+								<th>Monto</th>
+								<th>Fecha</th>
+								<th>Tipo</th>
+								<th>Nota</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="titulo-bg">
+					<label>Egresos</label>
+				</div>
+				<div data-role="fieldcontain"> 
+					<table data-role="table" id="egresos_historico" data-mode="no-reflow" class="table-stroke">
+						<thead>
+							<tr>
+								<th>Monto</th>
+								<th>Fecha</th>
+								<th>Tipo</th>
+								<th>Nota</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
 				</div>
 			</div>
 		</div>

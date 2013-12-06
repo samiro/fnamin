@@ -19,9 +19,11 @@ var Insertar = {
 	
 	ver_historia: function(accion){
 		if(accion == 'show'){
-			$("#window_egreso").css("display", "block")
+			$("#window_historia").css("display", "block")
+			ConsultarHistoriaIngre();
+			ConsultarHistoriaEgr();
 		}else if(accion == 'hide'){
-			$("#window_egreso").css("display", "none")
+			$("#window_historia").css("display", "none")
 		}
 	}
 }
@@ -99,6 +101,7 @@ var Insertar = {
         var hoy = anio+"-"+setDateZero(mes)+"-"+setDateZero(dia);
         var tipo = $("#ingreso [name='tipoIng']").val();
         var nota = $("#ingreso input[name='notaIng']").val();
+		
 		ing_vacios = "";
 		
 		if(valor != ""){
@@ -219,3 +222,48 @@ var Insertar = {
         }
         RealizarSumaIngresos();
     }
+	
+	function ConsultarHistoriaIngre() {
+		var db = window.openDatabase("bd_finanzas", "1.0", "Mis finanzas", 200000);
+        db.transaction(historiaIngresos, errorOperacion, cargoHistoria);
+    }
+
+    function historiaIngresos(tx) {
+	    tx.executeSql("SELECT * FROM ingresos", [], ResultadoHistoriaIng, function(error){
+            console.log("Error historia ingresos");
+        });
+    }
+
+    function ResultadoHistoriaIng(tx, results) {
+       var len = results.rows.length;
+       $("#ingresos_historico tbody").html("");
+        
+        for (var i=0; i<len; i++){
+          $("#ingresos_historico tbody").append("<tr><td>$"+results.rows.item(i).valor_ing+"</td><td>"+results.rows.item(i).fecha_ing+"</td><td>"+results.rows.item(i).tipo_ing+"</td><td>"+results.rows.item(i).nota_ing+"</td></tr>");
+        }
+    }
+	
+	function cargoHistoria() {
+       console.log("Cargó Historia!");
+    }
+	
+	
+    function ConsultarHistoriaEgr() {
+        var db = window.openDatabase("bd_finanzas", "1.0", "Mis finanzas", 200000);
+        db.transaction(historiaEgresos, errorOperacion, cargoHistoria);
+    }
+
+    function historiaEgresos(tx) {
+        tx.executeSql("SELECT * FROM egresos", [], ResultadoHistoriaEgr, function(error){
+            console.log("Error historia egresos");
+        });
+    }
+
+    function ResultadoHistoriaEgr(tx, results) {
+		var len = results.rows.length;
+        $("#egresos_historico tbody").html("");
+        for (var i=0; i<len; i++){
+			$("#egresos_historico tbody").append("<tr><td>$"+results.rows.item(i).valor_eg+"</td><td>"+results.rows.item(i).fecha_eg+"</td><td>"+results.rows.item(i).tipo_eg+"</td><td>"+results.rows.item(i).nota_eg+"</td></tr>");
+        }
+    }
+

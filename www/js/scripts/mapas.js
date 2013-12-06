@@ -528,8 +528,7 @@ var MapaObjeto = {
     //
     // Funcion que filtra el objeto según los criterios configurador MapaAtributos
     pasa_filtros: function(obj){
-        return true;
-
+        //return true;
 
         var municipio = obj.municipio
         var sin_costo = obj.costodetransaccion.toUpperCase() == "GRATUITO"? true : false
@@ -598,7 +597,7 @@ var MapaObjeto = {
     cargar_todos_puntos: function(por_ciudad, callback){
         var url = MapaAtributos.general.puntos_json
 
-        MapaAtributos.mapa.setZoom(15);
+        MapaAtributos.mapa.setZoom(17);
 
         //Ésta instrucción debe estar habilitada para que funcione en Manizales
         //MapaAtributos.ciudad = ''
@@ -773,7 +772,7 @@ var MapaObjeto = {
     //
     //Mostrar la ventana de la puntuación
     ocultar_puntuacion: function(){
-        $("#input-puntos").val(1)
+        $("#input-puntos").val("")
         /*$("#input-puntos-txt").text(1)*/
         $("#input-tipo").val("")
         $("#input-opinion").val("")

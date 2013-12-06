@@ -50,3 +50,63 @@
 #window_puntuacion
     .ui-content
         padding 20px
+
+
+.message-window
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    right: 5px;
+    z-index: 50;
+    background: #fff;
+    padding: 10px 20px;
+    text-align: left;
+    border 1px solid #ccc
+
+    >div
+        position relative
+
+    label
+        display block
+        font-size 16px
+        line-height 30px
+        height 30px
+        padding-bottom 10px
+        color #666
+
+    select
+        background: #fefefe;
+        border 1px solid #aaa
+        font-size 16px
+        line-height 16px
+        padding 5px 10px
+        text-align: center;
+        width 100%
+        -webkit-box-sizing border-box
+        -moz-box-sizing border-box
+        box-sizing border-box
+
+    .my_pos
+        display block
+        position absolute
+        top 0px
+        right 0px
+        background: #fff;
+        padding: 5px 15px;
+        border 1px solid #aaa
+        font-size 14px
+        cursor pointer
+
+    .my_pos:hover, .my_pos:active
+        background #eee
+
+.centered
+    bottom 40%
+    padding 30px 20px
+
+    .my_pos
+        display none
+
+    select
+        font-size 20px
+        line-height 20px

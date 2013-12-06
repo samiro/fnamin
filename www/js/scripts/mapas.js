@@ -1,3 +1,10 @@
+/*
+
+
+
+*/
+
+
 
 /***
 Estos objetos y atributos están dispuestos para la manipulación,
@@ -18,8 +25,14 @@ var markersArray = [];
 */
 var MapaAtributos = {
     //
+    //Ciudad donde el usuario está ubicado ó que ha elejido.
+    mi_ciudad: '',
+    //
     //Ciudad donde el usuario está ubicado
     ciudad: '',
+    //
+    //Departamento donde el usuario está ubicado
+    departamento: '',
     //
     //Objeto que contiene el mapa
     mapa: null,
@@ -105,6 +118,293 @@ var MapaAtributos = {
         puntos_atencion: true,
         puntos_recaudo: true
     },
+    //
+    //Ciudades. Ésto se hace a través de un script
+    ciudades: [
+        "LETICIA@AMAZONAS",
+        "MEDELLIN@ANTIOQUIA",
+        "APARTADO@ANTIOQUIA",
+        "ARAUCA@ARAUCA",
+        "BARRANQUILLA@ATLÁNTICO",
+        "TUNJA@BOYACÁ",
+        "MANIZALES@CALDAS",
+        "FLORENCIA@CAQUETÁ",
+        "POPAYÁN@CAUCA",
+        "VALLEDUPAR@CESAR",
+        "QUIBDO@CHOCO",
+        "MONTERIA@CORDOBA",
+        "CUCUTA@NORTE DE SANTANDER",
+        "PUERTO INRIDA@GUAINIA",
+        "RIOHACHA@GUAJIRA",
+        "SAN JOSE DEL GUAVIARE@GUAVIARE",
+        "NEIVA@HUILA",
+        "SANTA MARTHA@MAGDALENA",
+        "VILLAVICENCIO@META",
+        "PASTO@NARIÑO",
+        "MOCOA@PUTUMAYO",
+        "OCAÑÁ@NORTE DE SANTANDER",
+        "ARMENIA@QUINDÍO",
+        "PEREIRA@RISARALDA",
+        "BUCARAMANGA@SANTANDER",
+        "SINCELEJO@SUCRE",
+        "PUERTO CARREÑO@VICHADA",
+        "IBAGUE@TOLIMA",
+        "PROVIDENCIA@SAN ANDRÉS",
+        "MITU@VAUPÉS",
+        "SOACHA@CUNDINAMARCA",
+        "BOGOTÁ@CUNDINAMARCA",
+        "CARTAGENA@BOLÍVAR",
+        "YOPAL@CASANARE",
+        "GIRARDOT@CUNDINAMARCA",
+        "ACACÍAS@META",
+        "BARBOSA@SANTANDER",
+        "SAN JOSE CUCUTA@NORTE DE SANTANDER",
+        "FUNZA@CUNDINAMARCA",
+        "FUSAGASUGA@CUNDINAMARCA",
+        "IPIALES@NARIÑO",
+        "LA DORADA@CALDAS",
+        "MADRID@CUNDINAMARCA",
+        "MAICAO@GUAJIRA",
+        "MARIQUITA@TOLIMA",
+        "PITALITO@HUILA",
+        "SOGAMOSO@BOYACÁ",
+        "TUMACO@NARIÑO",
+        "ZIPAQUIRA@CUNDINAMARCA",
+        "FACATATIVA@CUNDINAMARCA",
+        "CALI@VALLE DEL CAUCA",
+        "BUGA@VALLE DEL CAUCA",
+        "SAN PEDRO@VALLE DEL CAUCA",
+        "PALMIRA@VALLE DEL CAUCA",
+        "BUENAVENTURA@VALLE DEL CAUCA",
+        "TULUA@VALLE DEL CAUCA",
+        "GUACARI@VALLE DEL CAUCA",
+        "CANDELARIA@VALLE DEL CAUCA",
+        "YUMBO@VALLE DEL CAUCA",
+        "DAGUA@VALLE DEL CAUCA",
+        "RESTREPO@VALLE DEL CAUCA",
+        "JAMUNDI@VALLE DEL CAUCA",
+        "VIJES@VALLE DEL CAUCA",
+        "EL CERRITO@VALLE DEL CAUCA",
+        "FLORIDA@VALLE DEL CAUCA",
+        "CALIMA@VALLE DEL CAUCA",
+        "RIOFRIO@VALLE DEL CAUCA",
+        "TRUJILLO@VALLE DEL CAUCA",
+        "ANDALUCIA@VALLE DEL CAUCA",
+        "GINEBRA@VALLE DEL CAUCA",
+        "BUGALAGRANDE@VALLE DEL CAUCA",
+        "PRADERA@VALLE DEL CAUCA",
+        "LOS ANDES@NARIÑO",
+        "LA PINTADA@ANTIOQUIA",
+        "LA UNIÓN@ANTIOQUIA",
+        "RIONEGRO@ANTIOQUIA",
+        "SANTA BÁRBARA@ANTIOQUIA",
+        "PEÑOL@ANTIOQUIA",
+        "SAN RAFAEL@ANTIOQUIA",
+        "CARMEN DE VIBORAL@ANTIOQUIA",
+        "CARACOLI@ANTIOQUIA",
+        "SEGOVIA@ANTIOQUIA",
+        "GUARNE@ANTIOQUIA",
+        "ITAGUI@ANTIOQUIA",
+        "PUERTO NARE@ANTIOQUIA",
+        "RETIRO@ANTIOQUIA",
+        "SONSON@ANTIOQUIA",
+        "CONCEPCIÓN@ANTIOQUIA",
+        "ENVIGADO@ANTIOQUIA",
+        "COCORNA@ANTIOQUIA",
+        "SAN VICENTE@ANTIOQUIA",
+        "SANTO DOMINGO@ANTIOQUIA",
+        "SAN ROQUE@ANTIOQUIA",
+        "PUERTO TRIUNFO@ANTIOQUIA",
+        "EL SANTUARIO@ANTIOQUIA",
+        "CAROLINA@ANTIOQUIA",
+        "GUADALUPE@ANTIOQUIA",
+        "SAN LUIS@ANTIOQUIA",
+        "VEGACHI@ANTIOQUIA",
+        "REMEDIOS@ANTIOQUIA",
+        "GRANADA@ANTIOQUIA",
+        "AMALFI@ANTIOQUIA",
+        "SAN CARLOS@ANTIOQUIA",
+        "ABEJORRAL@ANTIOQUIA",
+        "ARGELIA@ANTIOQUIA",
+        "NARIÑO@ANTIOQUIA",
+        "CISNEROS@ANTIOQUIA",
+        "MACEO@ANTIOQUIA",
+        "YOLOMBO@ANTIOQUIA",
+        "PUERTO BERRIO@ANTIOQUIA",
+        "MARINILLA@ANTIOQUIA",
+        "LA ESTRELLA@ANTIOQUIA",
+        "LA CEJA@ANTIOQUIA",
+        "URRAO@ANTIOQUIA",
+        "SOLEDAD@ATLÁNTICO",
+        "CIÉNAGA DE ORO@MAGDALENA",
+        "PENSILVANIA@CALDAS",
+        "ZARZAL@VALLE DEL CAUCA",
+        "SEVILLA@VALLE DEL CAUCA",
+        "ANSERMA@CALDAS",
+        "VILLAMARIA@CALDAS",
+        "EL AGUILA@VALLE DEL CAUCA",
+        "DOSQUEBRADAS@RISARALDA",
+        "SALAMINA@CALDAS",
+        "PALESTINA@CALDAS",
+        "HONDA@TOLIMA",
+        "NEIRA@CALDAS",
+        "CARTAGO@VALLE DEL CAUCA",
+        "PUERTO BOYACÁ@BOYACÁ",
+        "MARMATO@CALDAS",
+        "MANZANARES@CALDAS",
+        "TORO@VALLE DEL CAUCA",
+        "MARQUETALIA@CALDAS",
+        "SAN JOSÉ@CALDAS",
+        "CHINCHINA@CALDAS",
+        "PACORA@CALDAS",
+        "BOLIVAR@VALLE DEL CAUCA",
+        "SUPIA@CALDAS",
+        "PUERTO SALGAR@CUNDINAMARCA",
+        "SAMANA@CALDAS",
+        "NORCASIA@CALDAS",
+        "ARGELIA@VALLE DEL CAUCA",
+        "ULLOA@VALLE DEL CAUCA",
+        "ANSERMANUEVO@VALLE DEL CAUCA",
+        "LA MERCED@CALDAS",
+        "VICTORIA@CALDAS",
+        "VERSALLES@VALLE DEL CAUCA",
+        "RISARALDA@CALDAS",
+        "EL DOVIO@VALLE DEL CAUCA",
+        "OBANDO@VALLE DEL CAUCA",
+        "FILADELFIA@CALDAS",
+        "BELALCAZAR@CALDAS",
+        "RIOSUCIO@CALDAS",
+        "ARANZAZU@CALDAS",
+        "LA UNION@VALLE DEL CAUCA",
+        "VITERBO@CALDAS",
+        "ROLDANILLO@VALLE DEL CAUCA",
+        "LA VICTORIA@VALLE DEL CAUCA",
+        "AGUADAS@CALDAS",
+        "CAICEDONIA@VALLE DEL CAUCA",
+        "ALCALA@VALLE DEL CAUCA",
+        "PINILLOS@BOLÍVAR",
+        "LORICA@CORDOBA",
+        "CORDOBA@BOLÍVAR",
+        "SAN JUAN NEPOMUCENO@BOLÍVAR",
+        "CARMEN DE BOLIVAR@BOLÍVAR",
+        "SANTA ANA@MAGDALENA",
+        "SAN LUIS DE SINCE@SUCRE",
+        "MOMIL@CORDOBA",
+        "MAGANGUE@BOLÍVAR",
+        "SAN JACINTO@BOLÍVAR",
+        "MAHATES@BOLÍVAR",
+        "MOMPÓS@BOLÍVAR",
+        "CERETE@CORDOBA",
+        "BARRANCO DE LOBA@BOLÍVAR",
+        "SARAVENA@ARAUCA",
+        "AGUACHICA@CESAR",
+        "MUTISCUA@NORTE DE SANTANDER",
+        "ARAUQUITA@ARAUCA",
+        "CUBARA@BOYACÁ",
+        "FORTUL@ARAUCA",
+        "PAMPLONA@NORTE DE SANTANDER",
+        "MALAGA@SANTANDER",
+        "CHINACOTA@NORTE DE SANTANDER",
+        "LOS PATIOS@NORTE DE SANTANDER",
+        "VILLA DEL ROSARIO@NORTE DE SANTANDER",
+        "CAPITANEJO@SANTANDER",
+        "CERRITO@SANTANDER",
+        "PUERTO SANTANDER@NORTE DE SANTANDER",
+        "LA PLAYA@NORTE DE SANTANDER",
+        "EL CARMEN@NORTE DE SANTANDER",
+        "TAME@ARAUCA",
+        "EL ZULIA@NORTE DE SANTANDER",
+        "GAMARRA@CESAR",
+        "SARDINATA@NORTE DE SANTANDER",
+        "ARBOLEDAS@NORTE DE SANTANDER",
+        "TIBU@NORTE DE SANTANDER",
+        "CRAVO NORTE@ARAUCA",
+        "RIO DE ORO@CESAR",
+        "SAN JOSÉ DE MIRANDA@SANTANDER",
+        "RAGONVALIA@NORTE DE SANTANDER",
+        "SALAZAR@NORTE DE SANTANDER",
+        "LABATECA@NORTE DE SANTANDER",
+        "TOLEDO@NORTE DE SANTANDER",
+        "VILLA CARO@NORTE DE SANTANDER",
+        "CACHIRA@NORTE DE SANTANDER",
+        "SILOS@NORTE DE SANTANDER",
+        "HERRÁN@NORTE DE SANTANDER",
+        "CUCUTILLA@NORTE DE SANTANDER",
+        "PUERTO RONDON@ARAUCA",
+        "CHITAGA@NORTE DE SANTANDER",
+        "SAN ANDRÉS@SANTANDER",
+        "CHISCAS@BOYACÁ",
+        "EL ESPINO@BOYACÁ",
+        "GÜICAN@BOYACÁ",
+        "SAN MATEO@BOYACÁ",
+        "ABREGO@NORTE DE SANTANDER",
+        "CONVENCION@NORTE DE SANTANDER",
+        "CONCEPCION@SANTANDER",
+        "MIRANDA@CAUCA",
+        "LOPEZ@CAUCA",
+        "BARBACOAS@NARIÑO",
+        "SAMANIEGO@NARIÑO",
+        "PAEZ@CAUCA",
+        "SUAREZ@CAUCA",
+        "SANTANDER DE QUILICHAO@CAUCA",
+        "EL TAMBO@CAUCA",
+        "ANZA@ANTIOQUIA",
+        "MUTATA@ANTIOQUIA",
+        "FREDONIA@ANTIOQUIA",
+        "SABANALARGA@ANTIOQUIA",
+        "CALDAS@ANTIOQUIA",
+        "CAREPA@ANTIOQUIA",
+        "TAMESIS@ANTIOQUIA",
+        "TURBO@ANTIOQUIA",
+        "DABEIBA@ANTIOQUIA",
+        "TITIRIBI@ANTIOQUIA",
+        "JARDIN@ANTIOQUIA",
+        "SANTAFE DE ANTIOQUIA@ANTIOQUIA",
+        "CHIGORODÓ@ANTIOQUIA",
+        "CAÑASGORDAS@ANTIOQUIA",
+        "CONCORDIA@ANTIOQUIA",
+        "CIUDAD BOLIVAR@ANTIOQUIA",
+        "SOPETRAN@ANTIOQUIA",
+        "BETULIA@ANTIOQUIA",
+        "AMAGA@ANTIOQUIA",
+        "EBEJICO@ANTIOQUIA",
+        "PUEBLORRICO@ANTIOQUIA",
+        "PEQUE@ANTIOQUIA",
+        "ANGELOPOLIS@ANTIOQUIA",
+        "JERICO@ANTIOQUIA",
+        "SAN JERÖNIMO@ANTIOQUIA",
+        "VENECIA (ANT)@ANTIOQUIA",
+        "SALGAR@ANTIOQUIA",
+        "ANDES@ANTIOQUIA",
+        "NECOCLI@ANTIOQUIA",
+        "FRONTINO@ANTIOQUIA",
+        "URABA@ANTIOQUIA",
+        "MOSQUERA@CUNDINAMARCA",
+        "VILLAPINZON@CUNDINAMARCA",
+        "DISTRACCION@GUAJIRA",
+        "AGUSTIN CODAZZI@CESAR",
+        "BOSCONIA@CESAR",
+        "ASTREA@CESAR",
+        "SAN JUAN DEL CESAR@GUAJIRA",
+        "LA JAGUA DE IBIRICO@CESAR",
+        "BECERRIL@CESAR",
+        "BARRANCAS@GUAJIRA",
+        "ALBANIA@GUAJIRA",
+        "LA PAZ@CESAR",
+        "PUEBLO BELLO@CESAR",
+        "VILLANUEVA@GUAJIRA",
+        "DIBULLA@GUAJIRA",
+        "CHIMICHAGUA@CESAR",
+        "HATONUEVO@GUAJIRA",
+        "EL PASO@CESAR",
+        "MANAURE@GUAJIRA",
+        "FONSECA@GUAJIRA",
+        "EL MOLINO@GUAJIRA",
+        "SAN DIEGO@CESAR",
+        "MANAURE@CESAR",
+        "URIBIA@GUAJIRA",
+        "URUMITA@GUAJIRA",
+        "EL COPEY@CESAR"],
 }
 /*
     Éste objeto tiene todas las funciones usadas para la sección mapas del FNA
@@ -137,7 +437,13 @@ var MapaObjeto = {
                 if (status == google.maps.GeocoderStatus.OK) {
                     try{
                         var ciudad = results[1].address_components[0].long_name
+                        var departamento = results[1].address_components[1].long_name
+                        console.log("obtener_mi_posicion")
+                        console.log(results)
                         MapaAtributos.ciudad = ciudad.toUpperCase()
+                        MapaAtributos.mi_ciudad = ciudad.toUpperCase()
+                        MapaAtributos.departamento = departamento.toUpperCase()
+                        $("#sel_city").val(MapaAtributos.ciudad+ "@" + MapaAtributos.departamento)
 
                     }catch(e){
                         navigator.notification.alert("No pudimos localizar tu ciudad.", "", "Error", "Aceptar");
@@ -154,20 +460,30 @@ var MapaObjeto = {
             });
         }, 
         function( error ){
+
             console.log("error")
             console.log(error)
-            navigator.notification.alert("OMP: " + error.message , "",  "C: " + error.code, "Aceptar");
+            //navigator.notification.alert("OMP: " + error.message , "",  "C: " + error.code, "Aceptar");
             if(error.code == PositionError.POSITION_UNAVAILABLE){
-                navigator.notification.alert("OMP: No es posible localizar tu posición", "", "Error", "Aceptar");
+                //navigator.notification.alert("OMP: No es posible localizar tu posición", "", "Error", "Aceptar");
             }else if(error.code == PositionError.TIMEOUT){
-                navigator.notification.alert("OMP: No es posible localizar tu posición", "", "Tiempo fuera", "Aceptar");
+                //navigator.notification.alert("OMP: No es posible localizar tu posición", "", "Tiempo fuera", "Aceptar");
             }else if(error.code == PositionError.PERMISSION_DENIED){
-                navigator.notification.alert("OMP: Permiso denegado", "", "Permiso", "Aceptar");
-            }else{
-                navigator.notification.alert("OMP: Otro error", "", "Permiso", "Aceptar");
+                //navigator.notification.alert("OMP: Permiso denegado", "", "Permiso", "Aceptar");
             }
+
+            $.loading('hide')
+            if(MapaAtributos.ciudad == '')
+                MapaObjeto.mostrar_seleccion_ciudad("El GPS no funciona correctamente")
         },
-        { timeout: 100000 });
+        { timeout: 15000 });
+    },
+    //
+    //Si la geolocalizacion de mi ubicacion no funciona se usa esta funcion,
+    //para pedirle al usuario que seleccione una ciudad.
+    mostrar_seleccion_ciudad: function(message){
+        $("#message-txt").text(message)
+        $("#message-window-mapa").addClass("centered")
     },
     //
     // Si ya tiene mi ubicación centra el mapa en éste punto
@@ -197,6 +513,7 @@ var MapaObjeto = {
 
                 marker.setMap(MapaAtributos.mapa)
                 MapaAtributos.mapa.setCenter(point)
+
                 if(callback != undefined)
                     callback()
             }else{
@@ -211,8 +528,7 @@ var MapaObjeto = {
     //
     // Funcion que filtra el objeto según los criterios configurador MapaAtributos
     pasa_filtros: function(obj){
-        //return true;
-
+        return true;
 
 
         var municipio = obj.municipio
@@ -222,9 +538,10 @@ var MapaObjeto = {
         var es_atencion =  MapaAtributos.general.txt_punto_atencion.toUpperCase().indexOf(obj.tipodeentidad.toUpperCase()) !== -1? true : false
         var es_recaudo = !es_atencion
 
-        /*// Primer filtro de si es punto de atencion o recaudo
+        // Primer filtro de si es punto de atencion o recaudo
         if(MapaAtributos.filtros.puntos_atencion == false && es_atencion) return false;
-        if(MapaAtributos.filtros.puntos_recaudo == false && es_recaudo) return false;*/
+        if(MapaAtributos.filtros.puntos_recaudo == false && es_recaudo) return false;
+
 
         // Segundo fitro de si es con costo
         if(MapaAtributos.filtros.sin_costo && sin_costo) return true;
@@ -233,6 +550,7 @@ var MapaObjeto = {
         // Tercer filtro de si es con horario extendido
         if(MapaAtributos.filtros.horario_extendido && hor_extendido) return true;
         if(MapaAtributos.filtros.sin_horario_extendido && !hor_extendido) return true;
+
 
         // Pasó los filtros
         return false;
@@ -254,6 +572,19 @@ var MapaObjeto = {
         
     },
     //
+    //Centrar a la ciudad
+    centrar_ciudad: function(){
+        if(MapaAtributos.ciudad != ''){
+            geocoder.geocode({'address': MapaAtributos.ciudad + ', Colombia'}, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    MapaAtributos.mapa.setCenter(results[0].geometry.location, 10);
+                }else{
+                    navigator.notification.alert("No se ha podido geolocalizar a " + MapaAtributos.ciudad , "", "Falló geolocalización", "Aceptar");
+                }
+            });
+        }
+    },
+    //
     //Actualiza las variables de filtros según el formulario de filtros
     /*actualizar_filtros: function(){
         MapaAtributos.filtros.horario_extendido = $("#horario-extendido").val() == "true"? true:false
@@ -273,8 +604,14 @@ var MapaObjeto = {
         //MapaAtributos.ciudad = ''
 
         if(MapaAtributos.ciudad != ''){
-            url += "&$filter=municipio LIKE '%"+MapaAtributos.ciudad+"%'"
+            /*url += "&$filter=municipio LIKE '%" + MapaAtributos.ciudad + "%'"*/
+            url += "&$filter=municipio EQ '" + MapaAtributos.ciudad + "'"
+            if(MapaAtributos.departamento != ''){
+                url += " AND departamento EQ '" + MapaAtributos.departamento + "'"
+            }
         }
+
+        console.log(url)
 
         $.ajax({
             url: url,
@@ -284,8 +621,18 @@ var MapaObjeto = {
             success: function (data) {
                 var atencion = []
                 var recaudo = []
-                //var ciudad = "MANIZALES"
+                var bounds = new google.maps.LatLngBounds();
+
                 var es_atencion = "Punto de atención FNA"
+
+                if( data.d.length == 0){
+                    //navigator.notification.alert("No hay puntos de atención o recaudo que estén en ésta ciudad.", "", "No hay puntos", "Aceptar");
+                    $("#message-txt").text("No hay resultados.")
+                }else{
+                    $("#message-txt").text(data.d.length + " resultados")
+                }
+
+                var puntos_colocados = []
 
                 for (var i = 0; i < data.d.length; i++) {
                     if(MapaObjeto.pasa_filtros(data.d[i])){
@@ -298,8 +645,9 @@ var MapaObjeto = {
                             var hor_extendido = data.d[i].horarioextendido.toUpperCase() == "NO HAY SERVICIO"? true : false
                             var horario = data.d[i].horariodeatencion
                             var bool_atencion = tipo_entidad == es_atencion.toUpperCase()? true : false
-                            var image = ""
+                            var image = MapaAtributos.general.pin_persona
 
+                            bounds.extend(point);
 
                             if ( tipo_entidad == es_atencion.toUpperCase() ){
                                 if( tiene_costo )
@@ -325,6 +673,7 @@ var MapaObjeto = {
                             });
 
                             markersArray.push(marker);
+                            puntos_colocados.push(data.d[i])
 
 
                             marker.info  = '<div ><div class="info-window"><h2>'+ (bool_atencion? 'Punto de atención FNA': 'Punto de recaudo') +'</h2> '
@@ -337,6 +686,7 @@ var MapaObjeto = {
 
                             marker.punto = data.d[i]
 
+
                             google.maps.event.addListener(marker, 'click', function() {
                                 info_window.content = this.info;
                                 info_window.maxWidth = 300;
@@ -344,6 +694,25 @@ var MapaObjeto = {
                                 MapaAtributos.mapa.panTo(this.getPosition());
                                 MapaAtributos.punto_seleccionado = this.punto
                             });
+                    }
+                }
+
+                if(MapaAtributos.mi_ciudad != MapaAtributos.ciudad && puntos_colocados.length > 0){
+                    MapaAtributos.mapa.fitBounds(bounds);
+
+
+                    if( puntos_colocados.length == 1){
+                        MapaAtributos.mapa.setZoom(16);
+                    }else{
+                        var primero = puntos_colocados[0]
+                        var solo_uno = true
+                        for (var i = 1; i < puntos_colocados.length; i++) {
+                            var otro = puntos_colocados[i]
+                            if(primero.latitud != otro.latitud || primero.longitud != otro.longitud)
+                                solo_uno = false
+                        }
+                        if(solo_uno)
+                            MapaAtributos.mapa.setZoom(16);
                     }
                 }
 
@@ -476,11 +845,47 @@ var MapaObjeto = {
         }
         xmlhttp.send(data);
     },
+    //
+    //Esto es para ejecutarlo en la consola, de prueba
+    ciudades: function(){
+        var url = MapaAtributos.general.puntos_json
+
+        $.ajax({
+            url: url,
+            type: 'GET',
+            dataType: 'jsonp',
+            crossDomain: true,
+            success: function (data) {
+                var ciudades_tmp = {}
+                for (var i = 0; i < data.d.length; i++) {
+                    ciudades_tmp[data.d[i].municipio + "@" + data.d[i].departamento] = data.d[i].municipio
+                }
+
+                var ciudades = '[\n'
+                for (var key in ciudades_tmp){
+                    ciudades += '"' + key + '",\n'
+                }
+                ciudades += '\n]'
+
+                console.log(ciudades)+
+                console.log("Hasta aqui.")
+                navigator.notification.alert("Lísto el pollo.", "", "Error", "Aceptar");
+            },
+            error: function (x, y, z) {
+                navigator.notification.alert("Ocurrió un error al buscar las ciudades donde está presente el FNA.", "", "Error", "Aceptar");
+            }
+        });
+    },
+
 }
 
 
+
+
+
 var Contenido = {
-    // Carga el contenido segun la petición de página que le halla llegado
+    // Carga el contenido de los mapas, consultando inicialmente la posición del
+    // usuario
     cargar: function(){
             if ( Contenido.tiene_conexion() ){
                 //MapaObjeto.actualizar_filtros()
@@ -509,7 +914,24 @@ var Contenido = {
                     "Sin conexión", 
                     "Aceptar")
             }
-    }, 
+    },
+    // Carga el contenido segun la petición de página que le halla llegado
+    cargar_mi_posicion: function(){
+        clearOverlays()
+        $.loading( "hide" );
+        $.loading( 'show', "Ubicando mi posición");
+        
+        MapaAtributos.mi_posicion = null
+
+        MapaObjeto.ubicarme( function(){
+            $.loading( "hide" );
+            $.loading('show', "Cargando puntos FNA");
+            MapaObjeto.cargar_todos_puntos( true, function(){
+                MapaObjeto.resize_trigger()
+                $.loading( "hide" );
+            })
+        })
+    },
     //
     // verifica si tiene o nó conexión a internet el celular.
     tiene_conexion: function(){
@@ -524,12 +946,15 @@ var Contenido = {
 
 
 
+
 google.maps.event.addDomListener(window, 'load', function(){
     //document.addEventListener("deviceready", function(){
     //MapaObjeto.obtener_mi_posicion(function(){})
     Contenido.cargar()
     //}, false);
 });
+
+
 
 
 $(document).on("ready", function(){
@@ -564,6 +989,18 @@ $(document).on("ready", function(){
         renderizar_checkbox(checkbox)
     });
 
+    $('#filtro #ptos_recaudo').change(function() {
+        var checkbox = $(this)
+        MapaAtributos.filtros.puntos_recaudo = checkbox.is(":checked")
+        renderizar_checkbox(checkbox)
+    });
+
+    $('#filtro #ptos_atencion').change(function() {
+        var checkbox = $(this)
+        MapaAtributos.filtros.puntos_atencion = checkbox.is(":checked")
+        renderizar_checkbox(checkbox)
+    });
+
 
 
     var chk_1 = $('#filtro #con_h_extendido').attr('checked', MapaAtributos.filtros.horario_extendido );
@@ -574,12 +1011,25 @@ $(document).on("ready", function(){
     renderizar_checkbox(chk_3)
     var chk_4 = $('#filtro #sin_costo').attr('checked', MapaAtributos.filtros.sin_costo );
     renderizar_checkbox(chk_4)
+    var chk_5 = $('#filtro #ptos_recaudo').attr('checked', MapaAtributos.filtros.puntos_recaudo );
+    renderizar_checkbox(chk_5)
+    var chk_6 = $('#filtro #ptos_atencion').attr('checked', MapaAtributos.filtros.puntos_atencion );
+    renderizar_checkbox(chk_6)
 
 
     $("#input-puntos").change(function(event){
         $("#input-puntos-txt").text($(this).val())
     })
+
+    cargar_ciudades_select()
 })
+
+
+
+
+
+
+
 
 
 function clearOverlays() {
@@ -587,7 +1037,10 @@ function clearOverlays() {
     markersArray[i].setMap(null);
   }
   markersArray.length = 0;
+  //markersArray = []
 }
+
+
 
 
 function renderizar_checkbox(checkbox){
@@ -599,6 +1052,8 @@ function renderizar_checkbox(checkbox){
         parent.removeClass("checked")
     }
 }
+
+
 
 
 var MapaWindow = {
@@ -618,8 +1073,40 @@ var MapaWindow = {
         $.loading('show', "Filtrando puntos FNA");
         MapaObjeto.cargar_todos_puntos( true, function(){
             MapaObjeto.resize_trigger()
-            MapaObjeto.centrarme()
+            //MapaObjeto.centrarme()
             $.loading( "hide" );
         })
+    }
+
+
+}
+
+
+function cargar_ciudades_select(){
+    var ciudades = MapaAtributos.ciudades.sort()
+    var select = $("#sel_city").html("")
+        select.append('<option value="">Selecciona tu ciudad</option>')
+    for( var i = 0; i < ciudades.length; i++ ){
+        var datos = ciudades[i].split('@')
+        var ciudad = datos[0]
+        var depto = datos[1]
+        select.append('<option value="' + ciudades[i] + '">' + ciudad + '</option>')
+    }
+}
+
+
+
+function cambio_ciudad(){
+    $("#message-txt").text("")
+    var sel = $("#sel_city").val()
+    if(sel!=''){
+        $("#message-window-mapa").removeClass("centered")
+        var datos = sel.split('@')
+        var ciudad = datos[0]
+        var depto = datos[1]
+    
+        MapaAtributos.ciudad = ciudad
+        MapaAtributos.departamento = depto
+        MapaWindow.filtro_listo()
     }
 }

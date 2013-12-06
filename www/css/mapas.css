@@ -30,8 +30,8 @@ p{color:#444}
 .servicios-desc{padding:15px;font-size:16px;line-height:20px;margin:0;color:#444;}
 .servicios-desc >strong{display:block;padding-bottom:10px}
 .servicios-desc li{margin-left:20px}
-.input_checkbox{display:block;position:relative;margin-top:10px;overflow:hidden;padding:15px;}
-.input_checkbox label{font-size:20px;line-height:22px;font-style:italic;display:block}
+.input_checkbox{display:block;position:relative;margin-top:10px;overflow:hidden;padding:0;}
+.input_checkbox label{font-size:20px;line-height:22px;font-style:italic;display:block;padding:10px 15px}
 .input_checkbox input{position:absolute;right:10px;top:50%;margin-top:-10px;height:20px;width:20px}
 .input_checkbox.checked{background:#fff}
 .input_text{display:block;position:relative;margin-top:30px;}
@@ -79,3 +79,12 @@ p{color:#444}
 .info-window div.btns{text-align:center;padding:5px 0;}
 .info-window div.btns .boton{margin:0 10px}
 #filtro .ui-content,#window_puntuacion .ui-content{padding:20px}
+.message-window{position:absolute;bottom:5px;left:5px;right:5px;z-index:50;background:#fff;padding:10px 20px;text-align:left;border:1px solid #ccc;}
+.message-window >div{position:relative}
+.message-window label{display:block;font-size:16px;line-height:30px;height:30px;padding-bottom:10px;color:#666}
+.message-window select{background:#fefefe;border:1px solid #aaa;font-size:16px;line-height:16px;padding:5px 10px;text-align:center;width:100%;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
+.message-window .my_pos{display:block;position:absolute;top:0;right:0;background:#fff;padding:5px 15px;border:1px solid #aaa;font-size:14px;cursor:pointer}
+.message-window .my_pos:hover,.message-window .my_pos:active{background:#eee}
+.centered{bottom:40%;padding:30px 20px;}
+.centered .my_pos{display:none}
+.centered select{font-size:20px;line-height:20px}

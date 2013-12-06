@@ -19,6 +19,13 @@
 
 
 	<div class="wrapper">
+		<div id="message-window-mapa" class="message-window">
+			<div>
+				<button class="my_pos" onclick="Contenido.cargar_mi_posicion()">Mi posición</button>
+				<label id="message-txt"></label>
+				<select onchange="cambio_ciudad()" id="sel_city"></select>
+			</div>
+		</div>
 		<div id="map-canvas"></div>
 	</div>
 
@@ -58,6 +65,15 @@
 				<!--
 					recaudo y puntos de atención
 				-->
+				<div class="input_checkbox">
+					<label for="ptos_recaudo">Puntos de recaudo</label>
+					<input id="ptos_recaudo" type="checkbox">
+				</div>
+
+				<div class="input_checkbox">
+					<label for="ptos_atencion">Centros de atención</label>
+					<input id="ptos_atencion" type="checkbox">
+				</div>
 
 				<div class="input_checkbox">
 					<label for="con_h_extendido">Con horario extendido</label>
@@ -108,6 +124,7 @@
 						<input type="range" name="input-puntos" id="input-puntos" value="1" min="1" max="5" required>
 					-->
 					<select id="input-puntos">
+					  <option value="">-- Seleccione uno --</option>
 					  <option value="1">Malo</option>
 					  <option value="2">Regular</option>
 					  <option value="3">Bueno</option>

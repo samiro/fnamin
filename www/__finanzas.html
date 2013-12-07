@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -17,41 +17,63 @@
 		<a href="javascript: Funciones.compartir('show')" class="btn-right tap-compartir">Compartir</a>
 	</div>
 
-
+	<!-- 
+	Si ahorro es positivo: Haz ahorrado en el periodo 50000 Puedes acercarte a una oficina fna para invertir tu ahorro.  Solicitar asesoría.
+	si no: Haz gastado más de lo que haz ganado -5000 Planea mejor tus gastos según tu presupuesto.  
+	-->
 
 	<div class="wrapper_content" id="inicio_finanzas">
 
      	<div class="imagen-head">
 	        <img src="img/finanzas.png">
 	        <div class="balance">
-	          <label>Ahorro en el periodo</label>
+	          <label id="tit_ahorro">Ahorro en el periodo</label>
 	          <p id="sActual">0</p>
-	          <div>
+			  <label id="pie_ahorro"></label>
+	         <!--<div>
 	          	<button class="btn-white" type="button" onclick="Insertar.ver_historia('show')">Ver histórico</button>
-	          </div>
+	          </div>-->
 	        </div>
      	</div>
 
 
-	      <h2 class="subtitulo">Seleccione el periodo</h2>
+	<h2 class="subtitulo">Seleccione un periodo</h2>
+	<div class="entradas-fechas">
+		<table>
+	        <tbody>
+	            <tr class="center">
+	                <td><label for="mes">Mes:</label></td>
+	                <!--<td><label for="hasta">Hasta:</label></td>-->
+	            </tr>
+	            <tr class="center">
+	                <td>
+						<div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c">
+						<select id="mes" name="mes" onchange="RealizarLaConsulta()">
+							<option value="01">Enero</option>
+							<option value="02">Febrero</option>
+							<option value="03">Marzo</option>
+							<option value="04">Abril</option>
+							<option value="05">Mayo</option>
+							<option value="06">Junio</option>
+							<option value="07">Julio</option>
+							<option value="08">Agosto</option>
+							<option value="09">Septiembre</option>
+							<option value="10">Octubre</option>
+							<option value="11">Noviembre</option>
+							<option value="12">Diciembre</option>
+						</select>	
+						</div>
+					</td>
+					<!--<td><div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c"><input type="date" name="desde" id="f_desde" onchange="RealizarLaConsulta()" class="ui-input-text ui-body-c"></div></td>
+	                <td><div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c"><input type="date" name="hasta" id="f_hasta" onchange="RealizarLaConsulta()" class="ui-input-text ui-body-c"></div></td>-->
+	            </tr>
+	        </tbody>
+	    </table>
+		<div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c">
+	    </div>
 
-	      <div class="entradas-fechas">
-	        <table>
-	              <tbody>
-	                <tr>
-	                  <td><label for="desde">Desde:</label></td>
-	                  <td><label for="hasta">Hasta:</label></td>
-	                </tr>
-	                <tr class="center">
-	                  <td><div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c"><input type="date" name="desde" id="f_desde" onchange="RealizarLaConsulta()" class="ui-input-text ui-body-c"></div></td>
-	                  <td><div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c"><input type="date" name="hasta" id="f_hasta" onchange="RealizarLaConsulta()" class="ui-input-text ui-body-c"></div></td>
-	                </tr>
-	              </tbody>
-	        </table>
-	      </div>
 
-
-	      <div class="ui-grid-a">
+	    <div class="ui-grid-a">
 	        <div class="ui-block-a">
 	          <div class="titulo-bg btn-agregar-ingreso" onclick="Insertar.agr_ingreso('show')">
 	            <label>Ingresos</label>
@@ -65,7 +87,7 @@
 	            <button type="button">+</button>	
 	          </div>
 	        </div>
-	      </div>
+	    </div>
 
 		<div class="ui-grid-a">
 	        <div id="entradas-ingresos" class="ui-block-a">
@@ -73,7 +95,6 @@
 	        <div  id="entradas-egresos" class="ui-block-b"> 
 	        </div>
 	    </div>
-
     </div>
 	
 
@@ -155,7 +176,7 @@
 	
 	
 	
-	<div id="window_historia" class="window">
+<!--<div id="window_historia" class="window">
 		<div id="historia">
 			<div class="superior">
 				<h1 class="ui-header ui-title">Histórico</h1>
@@ -201,7 +222,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div>-->
 	
 
 

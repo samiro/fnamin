@@ -37,42 +37,24 @@
      	</div>
 
 
-	<h2 class="subtitulo">Seleccione un periodo</h2>
+	<h2 class="subtitulo">
+		<!--Periodo: -->
+		<select id="mes" class="meses" name="mes" onchange="RealizarLaConsulta()">
+			<option value="01">Enero</option>
+			<option value="02">Febrero</option>
+			<option value="03">Marzo</option>
+			<option value="04">Abril</option>
+			<option value="05">Mayo</option>
+			<option value="06">Junio</option>
+			<option value="07">Julio</option>
+			<option value="08">Agosto</option>
+			<option value="09">Septiembre</option>
+			<option value="10">Octubre</option>
+			<option value="11">Noviembre</option>
+			<option value="12">Diciembre</option>
+		</select>
+	</h2>
 	<div class="entradas-fechas">
-		<table>
-	        <tbody>
-	            <tr class="center">
-	                <td><label for="mes">Mes:</label></td>
-	                <!--<td><label for="hasta">Hasta:</label></td>-->
-	            </tr>
-	            <tr class="center">
-	                <td>
-						<div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c">
-						<select id="mes" name="mes" onchange="RealizarLaConsulta()">
-							<option value="01">Enero</option>
-							<option value="02">Febrero</option>
-							<option value="03">Marzo</option>
-							<option value="04">Abril</option>
-							<option value="05">Mayo</option>
-							<option value="06">Junio</option>
-							<option value="07">Julio</option>
-							<option value="08">Agosto</option>
-							<option value="09">Septiembre</option>
-							<option value="10">Octubre</option>
-							<option value="11">Noviembre</option>
-							<option value="12">Diciembre</option>
-						</select>	
-						</div>
-					</td>
-					<!--<td><div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c"><input type="date" name="desde" id="f_desde" onchange="RealizarLaConsulta()" class="ui-input-text ui-body-c"></div></td>
-	                <td><div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c"><input type="date" name="hasta" id="f_hasta" onchange="RealizarLaConsulta()" class="ui-input-text ui-body-c"></div></td>-->
-	            </tr>
-	        </tbody>
-	    </table>
-		<div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c">
-	    </div>
-
-
 	    <div class="ui-grid-a">
 	        <div class="ui-block-a">
 	          <div class="titulo-bg btn-agregar-ingreso" onclick="Insertar.agr_ingreso('show')">

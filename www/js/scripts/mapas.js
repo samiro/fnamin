@@ -106,7 +106,7 @@ var MapaAtributos = {
             pin_fnasincosto: 'img/pines/fna_sincosto.png',
             pin_recaudoconcosto: 'img/pines/recaudo_concosto.png',
             pin_recaudosincosto: 'img/pines/recaudo_sincosto.png',
-            txt_punto_atencion: "Punto de atención FNA - Punto Empresarial FNA"
+            txt_punto_atencion: "Punto de atención FNA - Punto Empresaria FNA"
     },
     //
     //Configuración del filtro
@@ -626,9 +626,9 @@ var MapaObjeto = {
 
                 if( data.d.length == 0){
                     //navigator.notification.alert("No hay puntos de atención o recaudo que estén en ésta ciudad.", "", "No hay puntos", "Aceptar");
-                    $("#message-txt").text("No hay resultados.")
+                    $("#message-txt").text("No hay resultados en " + MapaAtributos.ciudad)
                 }else{
-                    $("#message-txt").text(data.d.length + " resultados")
+                    $("#message-txt").text(data.d.length + " resultados " + MapaAtributos.ciudad)
                 }
 
                 var puntos_colocados = []

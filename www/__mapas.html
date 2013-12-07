@@ -19,13 +19,28 @@
 
 
 	<div class="wrapper">
-		<div id="message-window-mapa" class="message-window">
+		<button class="my_pos" onclick="Contenido.cargar_mi_posicion()">
+			<img src="img/icon_my_ubication.png" alt="Mi posición">
+		</button>
+		<div class="btn-city">
 			<div>
-				<button class="my_pos" onclick="Contenido.cargar_mi_posicion()">Mi posición</button>
-				<label id="message-txt"></label>
+				<button class="btn" onclick="Contenido.cambio_ciudad()">
+					<img src="img/icon_city.png" alt="Ciudad">
+				</button>
 				<select onchange="cambio_ciudad()" id="sel_city"></select>
 			</div>
 		</div>
+		
+
+		<label id="message-txt"></label>
+		
+<!--
+		<div id="message-window-mapa" class="message-window">
+			<div>
+			</div>
+		</div>
+-->
+
 		<div id="map-canvas"></div>
 	</div>
 
@@ -163,13 +178,13 @@
 
 
 	<script type="text/javascript" src="js/lib/jquery.js"></script>
-	
+	<!-- 
 	<script type="text/javascript" src="cordova.js"></script>
-
-	
-<!-- 
-	<script type="text/javascript" src="js/debug.js"></script>
  -->
+	
+
+	<script type="text/javascript" src="js/debug.js"></script>
+
 
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.9&sensor=true"></script>
 	<script type="text/javascript" src="js/scripts/general.js"></script>

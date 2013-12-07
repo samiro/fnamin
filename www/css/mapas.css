@@ -79,12 +79,20 @@ p{color:#444}
 .info-window div.btns{text-align:center;padding:5px 0;}
 .info-window div.btns .boton{margin:0 10px}
 #filtro .ui-content,#window_puntuacion .ui-content{padding:20px}
+#message-txt{display:block;font-size:16px;line-height:16px;color:#666;left:0;bottom:0;position:absolute;z-index:50;background:#fff;padding:10px}
 .message-window{position:absolute;bottom:5px;left:5px;right:5px;z-index:50;background:#fff;padding:10px 20px;text-align:left;border:1px solid #ccc;}
 .message-window >div{position:relative}
 .message-window label{display:block;font-size:16px;line-height:30px;height:30px;padding-bottom:10px;color:#666}
 .message-window select{background:#fefefe;border:1px solid #aaa;font-size:16px;line-height:16px;padding:5px 10px;text-align:center;width:100%;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
-.message-window .my_pos{display:block;position:absolute;top:0;right:0;background:#fff;padding:5px 15px;border:1px solid #aaa;font-size:14px;cursor:pointer}
-.message-window .my_pos:hover,.message-window .my_pos:active{background:#eee}
+.my_pos{position:absolute;display:block;top:10px;right:10px;background:#1a3c8f;padding:10px;border:1px solid #12317f;border-radius:2px;font-size:14px;cursor:pointer;text-align:center;z-index:40;}
+.my_pos img{height:20px}
+.my_pos:hover,.my_pos:active{background:#1a4990}
+.btn-city{position:absolute;display:block;top:65px;right:10px;z-index:40;}
+.btn-city >div{position:relative}
+.btn-city button{background:#1a3c8f;padding:10px;border:1px solid #12317f;border-radius:2px;font-size:14px;cursor:pointer;text-align:center;position:relative;z-index:10;}
+.btn-city button img{height:20px}
+.btn-city button:hover,.btn-city button:active{background:#1a4990}
+.btn-city select{position:absolute;opacity:0;z-index:12;top:0;left:0;width:42px;height:45px}
 .centered{bottom:40%;padding:30px 20px;}
 .centered .my_pos{display:none}
 .centered select{font-size:20px;line-height:20px}

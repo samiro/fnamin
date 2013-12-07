@@ -51,6 +51,17 @@
     .ui-content
         padding 20px
 
+#message-txt
+    display block
+    font-size 16px
+    line-height 16px
+    color #666
+    left 0
+    bottom 0
+    position absolute
+    z-index 50
+    background #fff
+    padding 10px
 
 .message-window
     position: absolute;
@@ -86,19 +97,64 @@
         -moz-box-sizing border-box
         box-sizing border-box
 
-    .my_pos
-        display block
-        position absolute
-        top 0px
-        right 0px
-        background: #fff;
-        padding: 5px 15px;
-        border 1px solid #aaa
+.my_pos
+    position absolute
+    display block
+    top 10px
+    right 10px
+    background: #1a3c8f;
+    padding: 10px;
+    border 1px solid #12317f
+    border-radius 2px
+    font-size 14px
+    cursor pointer
+    text-align center
+    z-index 40
+
+    img
+        height 20px
+
+.my_pos:hover, .my_pos:active
+    background #1a4990
+
+.btn-city
+    position absolute
+    display block
+    top 65px
+    right 10px
+    z-index 40
+
+    >div
+        position relative
+    
+    button
+        background: #1a3c8f;
+        padding: 10px;
+        border 1px solid #12317f
+        border-radius 2px
         font-size 14px
         cursor pointer
+        text-align center
+        position relative
+        z-index 10
 
-    .my_pos:hover, .my_pos:active
-        background #eee
+        img
+            height 20px
+
+    button:hover, button:active
+        background #1a4990
+
+    select
+        position absolute
+        opacity 0
+        z-index 12
+        top 0
+        left 0
+        width 42px
+        height 45px
+
+
+
 
 .centered
     bottom 40%

@@ -128,15 +128,19 @@ var Insertar = {
 
     function ResultadosIngresos(tx, results) {
 		var len = results.rows.length;
-        $("#entradas-ingresos").html("")
-        for (var i=0; i<len; i++){
-			var nota = " Sin comentario ";
-			if(results.rows.item(i).nota_ing != ""){
-				nota = results.rows.item(i).nota_ing;
-			}			
-			
-            $("#entradas-ingresos").append('<div class="entrada-finanzas"><label class="fecha">'+results.rows.item(i).fecha_ing+"  "+results.rows.item(i).tipo_ing+'</label><label class="valor">$'+results.rows.item(i).valor_ing+'</label><label class="fecha">'+nota+'</label></div>')
-        }
+        $("#entradas-ingresos").html("");
+		
+;		if(len > 0){
+			for (var i=0; i<len; i++){
+				var nota = " Sin comentario ";
+				if(results.rows.item(i).nota_ing != ""){
+					nota = results.rows.item(i).nota_ing;
+				}				
+				$("#entradas-ingresos").append('<div class="entrada-finanzas"><label class="fecha">'+results.rows.item(i).fecha_ing+"  "+results.rows.item(i).tipo_ing+'</label><label class="valor">$'+results.rows.item(i).valor_ing+'</label><label class="fecha">'+nota+'</label></div>')
+			}		
+		}else{
+			$("#entradas-ingresos").append('<div class="entrada-finanzas"><label class="fecha">No hay registro de ingresos en este mes</label><label class="valor">$0</label><label class="fecha">  </label></div>')
+		}
        RealizarSumaIngresos();
     }
 	
@@ -242,13 +246,17 @@ var Insertar = {
     function ResultadosEgresos(tx, results) {
         var len = results.rows.length;
         $("#entradas-egresos").html("");
-        for (var i=0; i<len; i++){
-			var nota = " Sin comentario ";
-			if(results.rows.item(i).nota_eg != ""){
-				nota = results.rows.item(i).nota_eg;
-			}	
-            $("#entradas-egresos").append('<div class="entrada-finanzas"><label class="fecha">'+results.rows.item(i).fecha_eg+" - "+results.rows.item(i).tipo_eg+'</label><label class="valor">$'+results.rows.item(i).valor_eg+'</label><label class="fecha">'+nota+'</label></div>')
-        }
+		if(len > 0){
+			for (var i=0; i<len; i++){
+				var nota = " Sin comentario ";
+				if(results.rows.item(i).nota_eg != ""){
+					nota = results.rows.item(i).nota_eg;
+				}	
+				$("#entradas-egresos").append('<div class="entrada-finanzas"><label class="fecha">'+results.rows.item(i).fecha_eg+" - "+results.rows.item(i).tipo_eg+'</label><label class="valor">$'+results.rows.item(i).valor_eg+'</label><label class="fecha">'+nota+'</label></div>')
+			}
+		}else{
+			$("#entradas-egresos").append('<div class="entrada-finanzas"><label class="fecha">No hay registro de gastos en este mes</label><label class="valor">$0</label><label class="fecha">  </label></div>')
+		}
         RealizarSumaIngresos();
     }
 	

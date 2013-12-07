@@ -1,4 +1,4 @@
-
+ï»¿
 var Insertar = {
 	agr_ingreso: function(accion){
 		if(accion == 'show'){
@@ -33,16 +33,10 @@ var Insertar = {
 		var d=new Date();
         var dat=d.getDate();
         var mon=d.getMonth();
-        var year=d.getFullYear();
-        
-        var todayDateD = year+"-"+setDateZero(mon)+"-"+setDateZero(dat);
-        $('#f_desde').val(todayDateD);
-
-        var monH=d.getMonth()+1;
-        var todayDateH = year +"-"+ setDateZero(monH) +"-"+ setDateZero(dat);
-        $('#f_hasta').val(todayDateH);
-        
-        //$( "#ingresos-tabla" ).table( "refresh" );
+        var year=d.getFullYear();        
+       // var hoy = year+"-"+setDateZero(mon)+"-"+setDateZero(dat);
+              
+        $( "#mes" ).val(mon+1);
         configurar_db()
         RealizarLaConsulta();
 	});
@@ -61,7 +55,7 @@ var Insertar = {
         }
 
         function exito(){
-            console.log("Configuración exitosa")
+            console.log("ConfiguraciÃ³n exitosa")
         }
 
         var db = window.openDatabase("bd_finanzas", "1.0", "Mis finanzas", 200000);
@@ -82,9 +76,9 @@ var Insertar = {
         var db = window.openDatabase("bd_finanzas", "1.0", "Mis finanzas", 200000);
         db.transaction(AgregarIngreso, errorOperacion, function(){
 			if(ing_vacios=="S"){
-                navigator.notification.alert("Debe diligenciar todos los datos. El valor debe ser numérico y sin puntos.", "", "Error", "Aceptar");
+                navigator.notification.alert("Debe diligenciar todos los datos. El valor debe ser numÃ©rico y sin puntos.", "", "Error", "Aceptar");
 			}else{
-                navigator.notification.alert("Información almacenada.", "", "Transacción exitosa", "Aceptar");
+                navigator.notification.alert("InformaciÃ³n almacenada.", "", "TransacciÃ³n exitosa", "Aceptar");
 				RealizarConsultaIngre();
 				window.location.href = "__finanzas.html";
 			}
@@ -112,7 +106,7 @@ var Insertar = {
     }
 	
 	function errorOperacion(err) {
-        navigator.notification.alert("Ocurrió un fallo, por favor vuelve a intentarlo.", "", "Error", "Aceptar");
+        navigator.notification.alert("OcurriÃ³ un fallo, por favor vuelve a intentarlo.", "", "Error", "Aceptar");
     }
 	
 	function RealizarConsultaIngre() {
@@ -121,19 +115,32 @@ var Insertar = {
     }
 
     function consultaIngresos(tx) {
-        var fd = $("#f_desde").val();
-        var fh = $("#f_hasta").val();
-        tx.executeSql("SELECT * FROM ingresos WHERE fecha_ing >='" +fd+ "'AND fecha_ing <='" +fh+"'", [], ResultadosIngresos, function(error){
+       		
+		 var mesSeleccionado = $("#mes").val();
+		 var fechas = fechaConsultas(mesSeleccionado);
+		 var fechasVec= new Array(); 
+		 var fechasVec = fechas.split('/');
+		 
+        tx.executeSql("SELECT * FROM ingresos WHERE fecha_ing >='" +fechasVec[0]+ "'AND fecha_ing <='" +fechasVec[1]+"'", [], ResultadosIngresos, function(error){
             console.log("consultaIngresos error: " + error)
         });
     }
 
     function ResultadosIngresos(tx, results) {
 		var len = results.rows.length;
-        $("#entradas-ingresos").html("")
-        for (var i=0; i<len; i++){
-            $("#entradas-ingresos").append('<div class="entrada-finanzas"><label class="fecha">'+results.rows.item(i).fecha_ing+'</label><label class="valor">$'+results.rows.item(i).valor_ing+'</label></div>')
-        }
+        $("#entradas-ingresos").html("");
+		
+;		if(len > 0){
+			for (var i=0; i<len; i++){
+				var nota = " Sin comentario ";
+				if(results.rows.item(i).nota_ing != ""){
+					nota = results.rows.item(i).nota_ing;
+				}				
+				$("#entradas-ingresos").append('<div class="entrada-finanzas"><label class="fecha">'+results.rows.item(i).fecha_ing+"  "+results.rows.item(i).tipo_ing+'</label><label class="valor">$'+results.rows.item(i).valor_ing+'</label><label class="fecha">'+nota+'</label></div>')
+			}		
+		}else{
+			$("#entradas-ingresos").append('<div class="entrada-finanzas"><label class="fecha">No hay registro de ingresos en este mes</label><label class="valor">$0</label><label class="fecha">  </label></div>')
+		}
        RealizarSumaIngresos();
     }
 	
@@ -143,9 +150,12 @@ var Insertar = {
     }
 
     function SumarIngresos(tx) {
-        var fd = $("#f_desde").val();
-        var fh = $("#f_hasta").val();
-        tx.executeSql("SELECT SUM(valor_ing) as totalIng FROM ingresos WHERE fecha_ing >='" +fd+ "'AND fecha_ing <='" +fh+"'",[], ResSumaIngresos, errorOperacion);
+         var mesSeleccionado = $("#mes").val();
+		 var fechas = fechaConsultas(mesSeleccionado);
+		 var fechasVec= new Array(); 
+		 var fechasVec = fechas.split('/');
+		 
+        tx.executeSql("SELECT SUM(valor_ing) as totalIng FROM ingresos WHERE fecha_ing >='" +fechasVec[0]+ "'AND fecha_ing <='" +fechasVec[1]+"'",[], ResSumaIngresos, errorOperacion);
     }
 
     function ResSumaIngresos(tx, results) {
@@ -154,15 +164,32 @@ var Insertar = {
     }
 	
 	function SumarEgresos(tx) {
-       var fd = $("#f_desde").val();
-       var fh = $("#f_hasta").val();
-       tx.executeSql("SELECT SUM(valor_eg) as totalEg FROM egresos WHERE fecha_eg >='" +fd+ "'AND fecha_eg <='" +fh+"'",[], SaldoTotal, errorOperacion);
+		var mesSeleccionado = $("#mes").val();
+		var fechas = fechaConsultas(mesSeleccionado);
+		var fechasVec= new Array(); 
+		var fechasVec = fechas.split('/');
+		tx.executeSql("SELECT SUM(valor_eg) as totalEg FROM egresos WHERE fecha_eg >='" +fechasVec[0]+ "'AND fecha_eg <='" +fechasVec[1]+"'",[], SaldoTotal, errorOperacion);
     }
 
     function SaldoTotal(tx, results) {
 		var egresos = results.rows.item(0).totalEg;
         var diferencia = window.ingresos - egresos;
-		$("#sActual").html(diferencia);
+		if(diferencia < 0){
+			$("#tit_ahorro").text("Haz gastado mÃ¡s de lo que haz ganado");
+			$("#sActual").html(diferencia);
+			$("#sActual").css("color","#B40404");
+			$("#pie_ahorro").text("Planea mejor tus gastos segÃºn tu presupuesto.");
+		}else if(diferencia == 0){
+			$("#tit_ahorro").text("No haz logrado ahorrar en este periodo");
+			$("#sActual").html(diferencia);
+			$("#sActual").css("color","#1A3C8F");
+			$("#pie_ahorro").text("Mejora tu plan de gastos segÃºn tu presupuesto.");
+		}else{
+			$("#tit_ahorro").text("Haz ahorrado en este periodo");
+			$("#sActual").html(diferencia);
+			$("#sActual").css("color","#C1D82F");
+			$("#pie_ahorro").text("Puedes acercarte a una oficina fna para invertir tu ahorro.");
+		}
     }
 	
 	function exito() {
@@ -174,9 +201,9 @@ var Insertar = {
         db.transaction(AgregarEgreso, errorOperacion, function(){
 		
 			if(egr_vacios=="S"){
-                navigator.notification.alert("Debe diligenciar todos los datos. El valor de ser númerico y sin puntos.", "", "Error", "Aceptar");
+                navigator.notification.alert("Debe diligenciar todos los datos. El valor de ser numÃ©rico y sin puntos.", "", "Error", "Aceptar");
 			}else{
-                navigator.notification.alert("Información almacenada.", "", "Transacción exitosa", "Aceptar");
+                navigator.notification.alert("InformaciÃ³n almacenada.", "", "TransacciÃ³n exitosa", "Aceptar");
 				RealizarConsultaEgre();
 				window.location.href = "__finanzas.html";
 			}
@@ -207,9 +234,11 @@ var Insertar = {
     }
 
     function consultaEgresos(tx) {
-        var fd = $("#f_desde").val();
-        var fh = $("#f_hasta").val();
-        tx.executeSql("SELECT * FROM egresos WHERE fecha_eg >='" +fd+ "'AND fecha_eg <='" +fh+"'", [], ResultadosEgresos, function(error){
+        var mesSeleccionado = $("#mes").val();
+		var fechas = fechaConsultas(mesSeleccionado);
+		var fechasVec= new Array(); 
+		var fechasVec = fechas.split('/');
+        tx.executeSql("SELECT * FROM egresos WHERE fecha_eg >='" +fechasVec[0]+ "'AND fecha_eg <='" +fechasVec[1]+"'", [], ResultadosEgresos, function(error){
             console.log("consultaEgresos error: " + error)
         });
 	}
@@ -217,53 +246,47 @@ var Insertar = {
     function ResultadosEgresos(tx, results) {
         var len = results.rows.length;
         $("#entradas-egresos").html("");
-        for (var i=0; i<len; i++){
-            $("#entradas-egresos").append('<div class="entrada-finanzas"><label class="fecha">'+results.rows.item(i).fecha_eg+'</label><label class="valor">$'+results.rows.item(i).valor_eg+'</label></div>')
-        }
+		if(len > 0){
+			for (var i=0; i<len; i++){
+				var nota = " Sin comentario ";
+				if(results.rows.item(i).nota_eg != ""){
+					nota = results.rows.item(i).nota_eg;
+				}	
+				$("#entradas-egresos").append('<div class="entrada-finanzas"><label class="fecha">'+results.rows.item(i).fecha_eg+" - "+results.rows.item(i).tipo_eg+'</label><label class="valor">$'+results.rows.item(i).valor_eg+'</label><label class="fecha">'+nota+'</label></div>')
+			}
+		}else{
+			$("#entradas-egresos").append('<div class="entrada-finanzas"><label class="fecha">No hay registro de gastos en este mes</label><label class="valor">$0</label><label class="fecha">  </label></div>')
+		}
         RealizarSumaIngresos();
     }
 	
-	function ConsultarHistoriaIngre() {
-		var db = window.openDatabase("bd_finanzas", "1.0", "Mis finanzas", 200000);
-        db.transaction(historiaIngresos, errorOperacion, cargoHistoria);
+	function fechaConsultas(mesSeleccionado) {
+       
+		var d=new Date();
+        var dat=d.getDate();
+        var mon=d.getMonth();
+		var monH=d.getMonth()+1;
+        var year=d.getFullYear();
+		var fd ="";
+		var fh ="";
+		//var Hoy = year +"-"+ setDateZero(monH) +"-"+ setDateZero(dat);
+		
+		if(mesSeleccionado == "1" || mesSeleccionado == "3" || mesSeleccionado == "5" || mesSeleccionado == "7" || mesSeleccionado == "8" || mesSeleccionado == "10" || mesSeleccionado == "12"){
+			var diaFin = "31";
+		}else if(mesSeleccionado == "2"){
+			var diaFin = "28";
+		}else{
+			var diaFin = "30";
+		}
+		
+		if(mesSeleccionado <= monH){
+			fd = year +"-"+ mesSeleccionado +"-"+ "01";
+			fh = year +"-"+ mesSeleccionado +"-"+ diaFin;
+		}else if(mesSeleccionado > monH){
+			fd = (year -1) +"-"+ mesSeleccionado +"-"+ "01";
+			fh = (year -1) +"-"+ mesSeleccionado +"-"+ diaFin;
+		}
+		return fd + "/" + fh;
     }
 
-    function historiaIngresos(tx) {
-	    tx.executeSql("SELECT * FROM ingresos", [], ResultadoHistoriaIng, function(error){
-            console.log("Error historia ingresos");
-        });
-    }
-
-    function ResultadoHistoriaIng(tx, results) {
-       var len = results.rows.length;
-       $("#ingresos_historico tbody").html("");
-        
-        for (var i=0; i<len; i++){
-          $("#ingresos_historico tbody").append("<tr><td>$"+results.rows.item(i).valor_ing+"</td><td>"+results.rows.item(i).fecha_ing+"</td><td>"+results.rows.item(i).tipo_ing+"</td><td>"+results.rows.item(i).nota_ing+"</td></tr>");
-        }
-    }
-	
-	function cargoHistoria() {
-       console.log("Cargó Historia!");
-    }
-	
-	
-    function ConsultarHistoriaEgr() {
-        var db = window.openDatabase("bd_finanzas", "1.0", "Mis finanzas", 200000);
-        db.transaction(historiaEgresos, errorOperacion, cargoHistoria);
-    }
-
-    function historiaEgresos(tx) {
-        tx.executeSql("SELECT * FROM egresos", [], ResultadoHistoriaEgr, function(error){
-            console.log("Error historia egresos");
-        });
-    }
-
-    function ResultadoHistoriaEgr(tx, results) {
-		var len = results.rows.length;
-        $("#egresos_historico tbody").html("");
-        for (var i=0; i<len; i++){
-			$("#egresos_historico tbody").append("<tr><td>$"+results.rows.item(i).valor_eg+"</td><td>"+results.rows.item(i).fecha_eg+"</td><td>"+results.rows.item(i).tipo_eg+"</td><td>"+results.rows.item(i).nota_eg+"</td></tr>");
-        }
-    }
 

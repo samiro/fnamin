@@ -20,6 +20,7 @@ var geocoder;
 var directionsService = new google.maps.DirectionsService();
 var info_window = new google.maps.InfoWindow({content: ''});
 var markersArray = [];
+var markerPersona = null;
 /*
     Éste objeto tiene todos los atributos usados para la sección mapas del FNA
 */
@@ -511,6 +512,12 @@ var MapaObjeto = {
                     icon: MapaAtributos.general.pin_persona
                 });
 
+                if(markerPersona != null){
+                    markerPersona.setMap(null)
+                }
+
+                markerPersona = marker
+
                 marker.setMap(MapaAtributos.mapa)
                 MapaAtributos.mapa.setCenter(point)
 
@@ -644,7 +651,7 @@ var MapaObjeto = {
                             var hor_extendido = data.d[i].horarioextendido.toUpperCase() == "NO HAY SERVICIO"? true : false
                             var horario = data.d[i].horariodeatencion
                             var bool_atencion = tipo_entidad == es_atencion.toUpperCase()? true : false
-                            var image = MapaAtributos.general.pin_persona
+                            var image = ""
 
                             bounds.extend(point);
 
@@ -930,6 +937,7 @@ var Contenido = {
                 $.loading( "hide" );
             })
         })
+
     },
     //
     // verifica si tiene o nó conexión a internet el celular.

@@ -69,7 +69,7 @@ p{color:#444}
 .footer #flink-asesoria span{background-position:-47px -3px;width:28px;height:25px}
 .footer #flink-finanzas span{background-position:-77px -3px;width:22px;height:26px}
 .footer a:hover,.footer a:active{background:#1a4990}
-#map-canvas{height:100%}
+#map-canvas{height:100%;z-index:10}
 .info-window{padding:20px;max-width:250px;}
 .info-window h2{font-weight:normal;margin:0;font-size:15px;color:#00a5e5}
 .info-window h1{font-weight:bold;margin:0;font-size:20px;color:#00a5e5;margin-bottom:10px}

@@ -84,7 +84,7 @@ p{color:#444}
 .message-window >div{position:relative}
 .message-window label{display:block;font-size:16px;line-height:30px;height:30px;padding-bottom:10px;color:#666}
 .message-window select{background:#fefefe;border:1px solid #aaa;font-size:16px;line-height:16px;padding:5px 10px;text-align:center;width:100%;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
-.my_pos{position:absolute;display:block;top:10px;right:10px;background:#1a3c8f;padding:10px;border:1px solid #12317f;border-radius:2px;font-size:14px;cursor:pointer;text-align:center;z-index:40;}
+.my_pos{position:absolute;display:block;top:50px;right:5px;background:#1a3c8f;padding:10px;border:1px solid #12317f;border-radius:2px;font-size:14px;cursor:pointer;text-align:center;z-index:40;}
 .my_pos img{height:20px}
 .my_pos:hover,.my_pos:active{background:#1a4990}
 .btn-city{position:absolute;display:block;top:65px;right:10px;z-index:40;}
@@ -92,7 +92,7 @@ p{color:#444}
 .btn-city button{background:#1a3c8f;padding:10px;border:1px solid #12317f;border-radius:2px;font-size:14px;cursor:pointer;text-align:center;position:relative;z-index:10;}
 .btn-city button img{height:20px}
 .btn-city button:hover,.btn-city button:active{background:#1a4990}
-.btn-city select{position:absolute;opacity:1;z-index:12;top:0;left:0;width:42px;height:45px}
+select{position:absolute;opacity:1;z-index:12;top:5px;right:5px;padding:10px 15px;}
 .centered{bottom:40%;padding:30px 20px;}
 .centered .my_pos{display:none}
 .centered select{font-size:20px;line-height:20px}

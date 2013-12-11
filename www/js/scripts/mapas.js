@@ -439,7 +439,7 @@ var MapaObjeto = {
                     try{
                         /*var ciudad = results[1].address_components[0].long_name
                         var departamento = results[1].address_components[1].long_name*/
-                        
+
                         var ciudad       = results[results.length - 3].address_components[0].long_name
                         var departamento = results[results.length - 3].address_components[1].long_name
                         
@@ -956,12 +956,7 @@ var Contenido = {
 
 
 
-google.maps.event.addDomListener(window, 'load', function(){
-    //document.addEventListener("deviceready", function(){
-    //MapaObjeto.obtener_mi_posicion(function(){})
-    Contenido.cargar()
-    //}, false);
-});
+
 
 
 
@@ -1031,6 +1026,14 @@ $(document).on("ready", function(){
     })
 
     cargar_ciudades_select()
+
+
+    google.maps.event.addDomListener(window, 'load', function(){
+        //document.addEventListener("deviceready", function(){
+        //MapaObjeto.obtener_mi_posicion(function(){})
+        Contenido.cargar()
+        //}, false);
+    });
 })
 
 

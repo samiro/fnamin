@@ -437,10 +437,12 @@ var MapaObjeto = {
             geocoder.geocode({'latLng': point}, function(results, status) {
                 if (status == google.maps.GeocoderStatus.OK) {
                     try{
-                        var ciudad = results[1].address_components[0].long_name
-                        var departamento = results[1].address_components[1].long_name
-                        console.log("obtener_mi_posicion")
-                        console.log(results)
+                        /*var ciudad = results[1].address_components[0].long_name
+                        var departamento = results[1].address_components[1].long_name*/
+                        
+                        var ciudad       = results[results.length - 3].address_components[0].long_name
+                        var departamento = results[results.length - 3].address_components[1].long_name
+                        
                         MapaAtributos.ciudad = ciudad.toUpperCase()
                         MapaAtributos.mi_ciudad = ciudad.toUpperCase()
                         MapaAtributos.departamento = departamento.toUpperCase()

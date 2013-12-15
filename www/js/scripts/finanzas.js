@@ -76,9 +76,9 @@ var Insertar = {
         var db = window.openDatabase("bd_finanzas", "1.0", "Mis finanzas", 200000);
         db.transaction(AgregarIngreso, errorOperacion, function(){
 			if(ing_vacios=="S"){
-                navigator.notification.alert("Debe diligenciar todos los datos. El valor debe ser numérico y sin puntos.", "", "Error", "Aceptar");
+                navigator.notification.alert("Debe diligenciar todos los datos. El valor debe ser numérico y sin puntos.", function(){}, "Error", "Aceptar");
 			}else{
-                navigator.notification.alert("Información almacenada.", "", "Transacción exitosa", "Aceptar");
+                navigator.notification.alert("Información almacenada.", function(){}, "Transacción exitosa", "Aceptar");
 				RealizarConsultaIngre();
 				window.location.href = "__finanzas.html";
 			}
@@ -106,7 +106,7 @@ var Insertar = {
     }
 	
 	function errorOperacion(err) {
-        navigator.notification.alert("Ocurrió un fallo, por favor vuelve a intentarlo.", "", "Error", "Aceptar");
+        navigator.notification.alert("Ocurrió un fallo, por favor vuelve a intentarlo.", function(){}, "Error", "Aceptar");
     }
 	
 	function RealizarConsultaIngre() {
@@ -201,9 +201,9 @@ var Insertar = {
         db.transaction(AgregarEgreso, errorOperacion, function(){
 		
 			if(egr_vacios=="S"){
-                navigator.notification.alert("Debe diligenciar todos los datos. El valor de ser numérico y sin puntos.", "", "Error", "Aceptar");
+                navigator.notification.alert("Debe diligenciar todos los datos. El valor de ser numérico y sin puntos.", function(){}, "Error", "Aceptar");
 			}else{
-                navigator.notification.alert("Información almacenada.", "", "Transacción exitosa", "Aceptar");
+                navigator.notification.alert("Información almacenada.", function(){}, "Transacción exitosa", "Aceptar");
 				RealizarConsultaEgre();
 				window.location.href = "__finanzas.html";
 			}

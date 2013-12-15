@@ -1,6 +1,12 @@
 /*
 
+Estos son los que he probado y funcionan en el set de datos
 
+$orderBy=tipodeentidad
+
+$filter
+
+$
 
 */
 
@@ -449,7 +455,7 @@ var MapaObjeto = {
                         $("#sel_city").val(MapaAtributos.ciudad+ "@" + MapaAtributos.departamento)
 
                     }catch(e){
-                        navigator.notification.alert("No pudimos localizar tu ciudad.", "", "Error", "Aceptar");
+                        navigator.notification.alert("No pudimos localizar tu ciudad.", function(){}, "Error", "Aceptar");
                     }
 
                     if(callback!=undefined)
@@ -458,7 +464,7 @@ var MapaObjeto = {
                 } else {
                     if(callback!=undefined)
                         callback()
-                    navigator.notification.alert("No pudimos localizar tu ciudad.", "", "Error", "Aceptar");
+                    navigator.notification.alert("No pudimos localizar tu ciudad.", function(){}, "Error", "Aceptar");
                 }
             });
         }, 
@@ -531,7 +537,7 @@ var MapaObjeto = {
                 })
             }
         }else{
-            navigator.notification.alert("El mapa no se cargó no se puede ubicar mi posición", "", "Error", "Aceptar");
+            navigator.notification.alert("El mapa no se cargó no se puede ubicar mi posición", function(){}, "Error", "Aceptar");
         }
     },
     //
@@ -587,7 +593,7 @@ var MapaObjeto = {
                 if (status == google.maps.GeocoderStatus.OK) {
                     MapaAtributos.mapa.setCenter(results[0].geometry.location, 10);
                 }else{
-                    navigator.notification.alert("No se ha podido geolocalizar a " + MapaAtributos.ciudad , "", "Falló geolocalización", "Aceptar");
+                    navigator.notification.alert("No se ha podido geolocalizar a " + MapaAtributos.ciudad , function(){}, "Falló geolocalización", "Aceptar");
                 }
             });
         }
@@ -730,7 +736,7 @@ var MapaObjeto = {
                 
             },
             error: function (x, y, z) {
-                navigator.notification.alert("Ocurrió un error al cargar el mapa y sus puntos de atención.", "", "Error", "Aceptar");
+                navigator.notification.alert("Ocurrió un error al cargar el mapa y sus puntos de atención.", function(){}, "Error", "Aceptar");
             }
         });
     },
@@ -754,17 +760,17 @@ var MapaObjeto = {
                 directionsDisplay.setDirections(response);
               }else if(status == google.maps.DirectionsStatus.NOT_FOUND || status == google.maps.DirectionsStatus.ZERO_RESULTS ){
                 info_window.close()
-                navigator.notification.alert("No es posible calcular ruta hasta ése destino.", "", "Lo sentimos", "Aceptar");
+                navigator.notification.alert("No es posible calcular ruta hasta ése destino.", function(){}, "Lo sentimos", "Aceptar");
               }else if(status == google.maps.DirectionsStatus.OVER_QUERY_LIMIT || status == google.maps.DirectionsStatus.REQUEST_DENIED ){
                 info_window.close()
-                navigator.notification.alert("Ésta funcionalidad no es posible usarla por el momento. Intenta más tarde.", "", "Lo sentimos", "Aceptar");
+                navigator.notification.alert("Ésta funcionalidad no es posible usarla por el momento. Intenta más tarde.", function(){}, "Lo sentimos", "Aceptar");
               }else{
                 info_window.close()
-                navigator.notification.alert("No es posible calcular ruta hasta ése destino.", "", "Lo sentimos", "Aceptar");
+                navigator.notification.alert("No es posible calcular ruta hasta ése destino.", function(){}, "Lo sentimos", "Aceptar");
               }
             });
         }else{
-            navigator.notification.alert("No hemos podido determinar tu ubicación.", "", "Error", "Aceptar");
+            navigator.notification.alert("No hemos podido determinar tu ubicación.", function(){}, "Error", "Aceptar");
         }
     },
     //
@@ -795,12 +801,12 @@ var MapaObjeto = {
         var opinion = $("#input-opinion").val()
 
         if(puntos == "" ){
-            navigator.notification.alert("Debes dar una calificación.", "", "Error", "Aceptar");
+            navigator.notification.alert("Debes dar una calificación.", function(){}, "Error", "Aceptar");
             return false;
         }
 
         if(tipo == "" ){
-            navigator.notification.alert("Debes seleccionar lo que calificas.", "", "Error", "Aceptar");
+            navigator.notification.alert("Debes seleccionar lo que calificas.", function(){}, "Error", "Aceptar");
             return false;
         }
 
@@ -834,9 +840,9 @@ var MapaObjeto = {
                     var error = xmlDoc.getElementsByTagName("CodigoError")[0].childNodes[0].nodeValue
                     var error_msj = xmlDoc.getElementsByTagName("MensajeError")[0].childNodes[0].nodeValue
                     if(error != "0"){
-                        navigator.notification.alert(error_msj, "", "Ha ocurrido un error", "Aceptar");
+                        navigator.notification.alert(error_msj, function(){}, "Ha ocurrido un error", "Aceptar");
                     }else{
-                        navigator.notification.alert(error_msj, "", "Transacción exitosa", "Aceptar");
+                        navigator.notification.alert(error_msj, function(){}, "Transacción exitosa", "Aceptar");
                         //alert("ir a mapas")
                         //$.mobile.changePage("#map-page")
                         MapaObjeto.ocultar_puntuacion()
@@ -847,7 +853,7 @@ var MapaObjeto = {
                         $("#input-opinion").val("")
                     }
                 }catch (e) {
-                    navigator.notification.alert("Lo sentimos. Intentalo de nuevo.", "", "Ha ocurrido un error", "Aceptar");
+                    navigator.notification.alert("Lo sentimos. Intentalo de nuevo.", function(){}, "Ha ocurrido un error", "Aceptar");
                 }
             }
         }
@@ -877,10 +883,10 @@ var MapaObjeto = {
 
                 console.log(ciudades)+
                 console.log("Hasta aqui.")
-                navigator.notification.alert("Lísto el pollo.", "", "Error", "Aceptar");
+                navigator.notification.alert("Lísto el pollo.", function(){}, "Error", "Aceptar");
             },
             error: function (x, y, z) {
-                navigator.notification.alert("Ocurrió un error al buscar las ciudades donde está presente el FNA.", "", "Error", "Aceptar");
+                navigator.notification.alert("Ocurrió un error al buscar las ciudades donde está presente el FNA.", function(){}, "Error", "Aceptar");
             }
         });
     },

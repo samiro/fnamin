@@ -395,11 +395,13 @@ var MapaObjeto = {
     //
     // dispara el evento de redimensionar la pantalla
     resize_trigger: function(){
+
         google.maps.event.trigger( MapaAtributos.mapa, 'resize');
     },
     //
     //Mostrar la ventana de la puntuación
     mostrar_puntuacion: function(){
+        
         $.mobile.changePage("#puntuar", {transition: 'pop', role: 'dialog'})
     },
     //

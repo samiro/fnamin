@@ -76,8 +76,12 @@ var Insertar = {
         var db = window.openDatabase("bd_finanzas", "1.0", "Mis finanzas", 200000);
         db.transaction(AgregarIngreso, errorOperacion, function(){
 			if(ing_vacios=="S"){
-                navigator.notification.alert("Debe diligenciar todos los datos. El valor debe ser numérico y sin puntos.", function(){}, "Error", "Aceptar");
-			}else{
+                navigator.notification.alert("Debe diligenciar el campo valor, éste debe ser numérico y sin puntos.", function(){}, "Error", "Aceptar");
+			}
+			else if(ing_vacios=="NN"){
+                navigator.notification.alert("El valor debe ser numérico, positivo y sin puntos.", function(){}, "Error", "Aceptar");
+			}
+			else{
                 navigator.notification.alert("Información almacenada.", function(){}, "Transacción exitosa", "Aceptar");
 				RealizarConsultaIngre();
 				window.location.href = "__finanzas.html";
@@ -99,7 +103,11 @@ var Insertar = {
 		ing_vacios = "";
 		
 		if(valor != ""){
-			tx.executeSql('INSERT INTO ingresos (fecha_ing, valor_ing, tipo_ing, nota_ing) VALUES ("'+hoy+'", "'+valor+'", "'+tipo+'","'+nota+'")');
+			if(!isNaN(valor) && valor > 0 && valor.indexOf(".")== -1 && valor.indexOf(",")== -1){
+				tx.executeSql('INSERT INTO ingresos (fecha_ing, valor_ing, tipo_ing, nota_ing) VALUES ("'+hoy+'", "'+valor+'", "'+tipo+'","'+nota+'")');
+			}else{
+				ing_vacios= "NN";
+			}
 		}else{
 			ing_vacios = "S";
 		}
@@ -135,8 +143,9 @@ var Insertar = {
 				var nota = " Sin comentario ";
 				if(results.rows.item(i).nota_ing != ""){
 					nota = results.rows.item(i).nota_ing;
-				}				
-				$("#entradas-ingresos").append('<div class="entrada-finanzas"><label class="fecha">'+results.rows.item(i).fecha_ing+"  "+results.rows.item(i).tipo_ing+'</label><label class="valor">$'+results.rows.item(i).valor_ing+'</label><label class="fecha">'+nota+'</label></div>')
+				}	
+				var formatValor = dar_formato(results.rows.item(i).valor_ing);				
+				$("#entradas-ingresos").append('<div class="entrada-finanzas"><label class="fecha">'+results.rows.item(i).fecha_ing+"  "+results.rows.item(i).tipo_ing+'</label><label class="valor">$'+formatValor+'</label><label class="fecha">'+nota+'</label></div>')
 			}		
 		}else{
 			$("#entradas-ingresos").append('<div class="entrada-finanzas"><label class="fecha">No hay registro de ingresos en este mes</label><label class="valor">$0</label><label class="fecha">  </label></div>')
@@ -173,7 +182,9 @@ var Insertar = {
 
     function SaldoTotal(tx, results) {
 		var egresos = results.rows.item(0).totalEg;
-        var diferencia = window.ingresos - egresos;
+		var	rtado = dar_formato (window.ingresos - egresos);
+        var diferencia = "$" +rtado;
+		
 		if(diferencia < 0){
 			$("#tit_ahorro").text("Haz gastado más de lo que haz ganado");
 			$("#sActual").html(diferencia);
@@ -198,11 +209,14 @@ var Insertar = {
 	
 	function listoAgregarEgreso() {
         var db = window.openDatabase("bd_finanzas", "1.0", "Mis finanzas", 200000);
-        db.transaction(AgregarEgreso, errorOperacion, function(){
-		
+        db.transaction(AgregarEgreso, errorOperacion, function(){		
 			if(egr_vacios=="S"){
-                navigator.notification.alert("Debe diligenciar todos los datos. El valor de ser numérico y sin puntos.", function(){}, "Error", "Aceptar");
-			}else{
+                navigator.notification.alert("Debe diligenciar el campo valor, éste debe ser numérico y sin puntos.", function(){}, "Error", "Aceptar");
+			}
+			else if(egr_vacios=="NN"){
+                navigator.notification.alert("El valor debe ser numérico, positivo y sin puntos.", function(){}, "Error", "Aceptar");
+			}
+			else{
                 navigator.notification.alert("Información almacenada.", function(){}, "Transacción exitosa", "Aceptar");
 				RealizarConsultaEgre();
 				window.location.href = "__finanzas.html";
@@ -222,7 +236,11 @@ var Insertar = {
         var nota = $("#egreso input[name='notaEgr']").val();
 		egr_vacios = "";
 		if(valor != ""){
-			tx.executeSql('INSERT INTO egresos (fecha_eg, valor_eg, tipo_eg, nota_eg) VALUES ("'+hoy+'", "'+valor+'", "'+tipo+'","'+nota+'")');
+			if(!isNaN(valor) && valor > 0 && valor.indexOf(".")== -1 && valor.indexOf(",")== -1){
+				tx.executeSql('INSERT INTO egresos (fecha_eg, valor_eg, tipo_eg, nota_eg) VALUES ("'+hoy+'", "'+valor+'", "'+tipo+'","'+nota+'")');
+			}else{
+				egr_vacios= "NN";
+			}
 		}else{
 			egr_vacios= "S";
 		}
@@ -252,7 +270,8 @@ var Insertar = {
 				if(results.rows.item(i).nota_eg != ""){
 					nota = results.rows.item(i).nota_eg;
 				}	
-				$("#entradas-egresos").append('<div class="entrada-finanzas"><label class="fecha">'+results.rows.item(i).fecha_eg+" - "+results.rows.item(i).tipo_eg+'</label><label class="valor">$'+results.rows.item(i).valor_eg+'</label><label class="fecha">'+nota+'</label></div>')
+				var formatValor = dar_formato(results.rows.item(i).valor_eg);
+				$("#entradas-egresos").append('<div class="entrada-finanzas"><label class="fecha">'+results.rows.item(i).fecha_eg+" - "+results.rows.item(i).tipo_eg+'</label><label class="valor">$'+formatValor+'</label><label class="fecha">'+nota+'</label></div>')
 			}
 		}else{
 			$("#entradas-egresos").append('<div class="entrada-finanzas"><label class="fecha">No hay registro de gastos en este mes</label><label class="valor">$0</label><label class="fecha">  </label></div>')
@@ -289,4 +308,38 @@ var Insertar = {
 		return fd + "/" + fh;
     }
 
+	
+	////////////////////////////
+function dar_formato(num){  
+  
+	var cadena = "";
+	var aux; 
+	var cont = 1,m,k;  
+	  
+	if(num<0){
+		aux=1;
+	}else {
+		aux=0;
+	}	  
+	num=num.toString();  
+	  	  
+	for(m=num.length-1; m>=0; m--){ 	  
+		cadena = num.charAt(m) + cadena; 	  
+		
+		if(cont%3 == 0 && m >aux)
+		{
+			cadena = "." + cadena; 
+		}else{
+			cadena = cadena;  
+		}  
+		
+		if(cont== 3){
+			cont = 1; 
+		}else{
+			cont++;
+		}		
+	}  
+	cadena = cadena.replace(/.,/,",");  
+	return cadena;  
+}  
 

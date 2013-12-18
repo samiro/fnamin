@@ -92,7 +92,7 @@ p{color:#444}
 .btn-city button{background:#1a3c8f;padding:10px;border:1px solid #12317f;border-radius:2px;font-size:14px;cursor:pointer;text-align:center;position:relative;z-index:10;}
 .btn-city button img{height:20px}
 .btn-city button:hover,.btn-city button:active{background:#1a4990}
-select{position:absolute;opacity:1;z-index:12;top:5px;right:5px;padding:10px 15px;}
+#sel_city{position:absolute;opacity:1;z-index:12;top:5px;right:5px;padding:10px 15px;}
 .centered{bottom:40%;padding:30px 20px;}
 .centered .my_pos{display:none}
 .centered select{font-size:20px;line-height:20px}

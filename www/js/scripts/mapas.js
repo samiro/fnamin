@@ -1378,7 +1378,6 @@ var MapaAtributos = {
 "SAN ANDRÉS@SANTANDER",
 "SAN ANDRÉS DE CUERQUÍA@ANTIOQUIA",
 "SAN ANDRÉS DE SOTAVENTO@CORDOBA",
-"@CAQUETÁ",
 "CUCUNUBA@CUNDINAMARCA",
 "CASTILLA@META",
 "BAHÍA SOLANO@CHOCO",
@@ -2240,12 +2239,34 @@ function cargar_ciudades_select(){
     var ciudades = MapaAtributos.ciudades.sort()
     var select = $("#sel_city").html("")
         select.append('<option value="">Selecciona tu ciudad</option>')
+    var ciudades_select = {}
+
     for( var i = 0; i < ciudades.length; i++ ){
         var datos = ciudades[i].split('@')
         var ciudad = datos[0]
         var depto = datos[1]
-        select.append('<option value="' + ciudades[i] + '">' + ciudad + '</option>')
+
+        if(ciudades_select[ciudad] == undefined){
+          ciudades_select[ciudad] = []
+        }
+        ciudades_select[ciudad].push(depto)
     }
+
+
+    for(var ciudad in ciudades_select){
+      if (ciudades_select.hasOwnProperty(ciudad)) {
+        if(ciudades_select[ciudad].length == 1){
+          var completo = ciudad + "@" + ciudades_select[ciudad][0]
+          select.append('<option value="' + completo + '">' + ciudad + '</option>')
+        }else if(ciudades_select[ciudad].length > 1){
+          for (var i = 0; i < ciudades_select[ciudad].length; i++) {
+            var completo = ciudad + "@" + ciudades_select[ciudad][i]
+            select.append('<option value="' + completo + '">' + ciudad + ' (' + ciudades_select[ciudad][i] + ')</option>')
+          }
+        }
+      }
+    }
+
 }
 
 

@@ -81,6 +81,9 @@ var Insertar = {
 			else if(ing_vacios=="NN"){
                 navigator.notification.alert("El valor debe ser numérico, positivo y sin puntos.", function(){}, "Error", "Aceptar");
 			}
+			else if(ing_vacios=="NG"){
+                navigator.notification.alert("El valor debe tener máximo 9 digitos.", function(){}, "Error", "Aceptar");
+			}
 			else{
                 navigator.notification.alert("Información almacenada.", function(){}, "Transacción exitosa", "Aceptar");
 				RealizarConsultaIngre();
@@ -103,10 +106,14 @@ var Insertar = {
 		ing_vacios = "";
 		
 		if(valor != ""){
-			if(!isNaN(valor) && valor > 0 && valor.indexOf(".")== -1 && valor.indexOf(",")== -1){
-				tx.executeSql('INSERT INTO ingresos (fecha_ing, valor_ing, tipo_ing, nota_ing) VALUES ("'+hoy+'", "'+valor+'", "'+tipo+'","'+nota+'")');
+			if(valor.length <= 9){
+				if(!isNaN(valor) && valor > 0 && valor.indexOf(".")== -1 && valor.indexOf(",")== -1){
+					tx.executeSql('INSERT INTO ingresos (fecha_ing, valor_ing, tipo_ing, nota_ing) VALUES ("'+hoy+'", "'+valor+'", "'+tipo+'","'+nota+'")');
+				}else{
+					ing_vacios= "NN";
+				}
 			}else{
-				ing_vacios= "NN";
+				ing_vacios= "NG";
 			}
 		}else{
 			ing_vacios = "S";
@@ -216,6 +223,9 @@ var Insertar = {
 			else if(egr_vacios=="NN"){
                 navigator.notification.alert("El valor debe ser numérico, positivo y sin puntos.", function(){}, "Error", "Aceptar");
 			}
+			else if(egr_vacios=="NG"){
+                navigator.notification.alert("El valor debe tener máximo 9 digitos.", function(){}, "Error", "Aceptar");
+			}
 			else{
                 navigator.notification.alert("Información almacenada.", function(){}, "Transacción exitosa", "Aceptar");
 				RealizarConsultaEgre();
@@ -236,10 +246,14 @@ var Insertar = {
         var nota = $("#egreso input[name='notaEgr']").val();
 		egr_vacios = "";
 		if(valor != ""){
-			if(!isNaN(valor) && valor > 0 && valor.indexOf(".")== -1 && valor.indexOf(",")== -1){
-				tx.executeSql('INSERT INTO egresos (fecha_eg, valor_eg, tipo_eg, nota_eg) VALUES ("'+hoy+'", "'+valor+'", "'+tipo+'","'+nota+'")');
+			if(valor.length <= 9){
+				if(!isNaN(valor) && valor > 0 && valor.indexOf(".")== -1 && valor.indexOf(",")== -1){
+					tx.executeSql('INSERT INTO egresos (fecha_eg, valor_eg, tipo_eg, nota_eg) VALUES ("'+hoy+'", "'+valor+'", "'+tipo+'","'+nota+'")');
+				}else{
+					egr_vacios= "NN";
+				}
 			}else{
-				egr_vacios= "NN";
+				egr_vacios= "NG";
 			}
 		}else{
 			egr_vacios= "S";
@@ -314,32 +328,26 @@ function dar_formato(num){
   
 	var cadena = "";
 	var aux; 
-	var cont = 1,m,k;  
-	  
-	if(num<0){
-		aux=1;
-	}else {
-		aux=0;
-	}	  
+	var cont = 0,m,k;  
+	 
 	num=num.toString();  
 	  	  
 	for(m=num.length-1; m>=0; m--){ 	  
 		cadena = num.charAt(m) + cadena; 	  
-		
-		if(cont%3 == 0 && m >aux)
+		cont++;
+		if(cont == 3 && num.length > 3)
 		{
-			cadena = "." + cadena; 
-		}else{
-			cadena = cadena;  
-		}  
-		
-		if(cont== 3){
-			cont = 1; 
-		}else{
-			cont++;
-		}		
+			cadena = "," + cadena; 
+		}
+		else if(cont == 6 && num.length > 6)
+		{
+			cadena = "'" + cadena; 
+		}
+		else if(cont == 9 && num.length > 9)
+		{
+			cadena = "," + cadena; 
+		}
 	}  
-	cadena = cadena.replace(/.,/,",");  
 	return cadena;  
 }  
 

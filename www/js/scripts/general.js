@@ -8,6 +8,17 @@ $.loading = function(accion, texto){
 	}
 }
 
+/*document.addEventListener("offline", function(){
+	navigator.notification.alert(
+        "Debes tener conexión a internet para acceder a ésta sección",
+        function(){
+        	window.location.href="index.html"
+        },
+        "Sin conexión",
+        "Aceptar")
+}, false);*/
+
+
 /*$( "#window_compartir, #window_acerca" ).tap(function(event){
 	$(this).css("display", "none")
 })*/
@@ -32,3 +43,7 @@ var Funciones = {
 	}
 }
 
+
+document.addEventListener("deviceready", function(){
+	console.log("deviceready: Dispositivo listo")
+})

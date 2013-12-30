@@ -1,603 +1,121 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>FNA En Tu Bolsillo</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+	<title>Inicio</title>
+	<link rel="stylesheet" type="text/css" href="css/inicio.css">
 	
-	<link rel="stylesheet" href="js/lib/jquery.mobile-1.3.2.min.css" />
-	<link rel="stylesheet" href="js/lib/jquery.mobile.structure-1.3.2.min.css" />
-	<link rel="stylesheet" href="js/lib/jquery.mobile.theme-1.3.2.min.css" />
-	<link rel="stylesheet" href="css/styles.css">
-	<link rel="stylesheet" href="css/font.css">
-
-	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
-
-	<!-- En pruebas en movil habilitar -->
-	<!--<script type="text/javascript" src="cordova.js"></script>-->
-	<!-- En pruebas en movil no habilitar -->
-	<script type="text/javascript" src="js/debug.js"></script>
-
 	<script type="text/javascript" src="js/lib/jquery.js"></script>
-	<script type="text/javascript" src="js/lib/jquery.mobile-1.3.2.min.js"></script>
-	<script type="text/javascript" src="js/lib/jquery.soap.js"></script>
-	<script type="text/javascript" src="js/lib/SQLitePlugin.js"></script>
 
-	<script type="text/javascript" src="js/fnamascerca.js"></script>
-	<script type="text/javascript" src="js/asesoria.js"></script>
-	<script type="text/javascript" src="js/main.js"></script>
-	
+
+	<script type="text/javascript" src="cordova.js"></script>
+
+<!-- 
+	<script type="text/javascript" src="js/debug.js"></script>
+ -->
+
+	<script type="text/javascript" src="js/scripts/general.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
 </head>
 <body>
+	<div class="header">
+		<a href="javascript: Funciones.acerca_de('show')" class="btn-left tap-acerca">Acerca de</a>
+		<h1 role="heading" aria-level="1">Inicio</h1>
+		<a href="javascript: Funciones.compartir('show')" class="btn-right tap-compartir">Compartir</a>
+	</div>
 
-	<div data-role="page" id="inicio" data-transition="slide">
-		<div data-role="header" data-position="fixed">
-			<a href="#acerca" class="ui-btn-left-2" data-transition="slidedown" data-rel="dialog" data-theme="b">Acerca de</a>
-			<h1>Inicio</h1>
-			<a href="#compartir" class="ui-btn-right" data-transition="slidedown" data-rel="dialog" data-theme="b">Compartir</a>
+
+
+	<div class="wrapper" id="inicio">
+
+		<div class="contenedor-inicio">
+			<img class="imagen_inicio" src="img/inicio.png" alt="Inicio">
+			<div class="navegacion">
+				<a href="__mapas.html" id="link-puntos" class="ui-link link-internet">
+					<img src="../img/icon_internet.png" alt="No Internet" class="icon-internet">
+					<span></span>
+					<label>FNA más cerca</label>
+				</a>
+				<a href="__portafolio.html" id="link-portafolio" class="ui-link link-internet">
+					<img src="../img/icon_internet.png" alt="No Internet" class="icon-internet">
+					<span></span>
+					<label>Portafolio de servicios</label>
+				</a>
+				<a href="__asesoria.html" id="link-asesoria" class="ui-link link-internet">
+					<img src="../img/icon_internet.png" alt="No Internet" class="icon-internet">
+					<span></span>
+					<label>Asesoría personalizada</label>
+				</a>
+				<a href="__finanzas.html" class="external ui-link" id="link-finanzas">
+					<span></span>
+					<label>Mis<br> finanzas</label>
+				</a>
+			</div>
 		</div>
+		
+	</div>
 
-		<div data-role="content">
-			<div class="contenedor-inicio">
-				<img class="imagen_inicio" src="img/inicio.png" alt="Inicio">
-				<div class="navegacion">
-					<a href="#map-page" id="link-puntos" data-transition="slide">
-						<span></span>
-						<label>FNA más cerca</label>
-					</a>
-					<a href="#portafolio" id="link-portafolio" data-transition="slide">
-						<span></span>
-						<label>Portafolio de servicios</label>
-					</a>
-					<a href="#asesoria" id="link-asesoria" data-transition="slide">
-						<span></span>
-						<label>Asesoría personalizada</label>
-					</a>
-					<a href="finanzas.html#inicio_finanzas" class="external" id="link-finanzas" data-transition="slide">
-						<span></span>
-						<label>Mis<br> finanzas</label>
-					</a>
+
+
+	<div id="window_acerca" class="window" onclick="Funciones.acerca_de('hide')">
+		<div id="acerca">
+			<div class="superior">
+				<h1 class="ui-header ui-title">FNA En Tu Bolsillo <small>v1.0</small></h1>
+				<a href="javascript: Funciones.acerca_de('hide')" class="btn-right">Cerrar</a>
+			</div>
+			<div class="ui-content ui-body-b">
+				<p class="subtitulo">FNA En Tu Bolsillo</p>
+				<p class="subtitulov">Versión 1.0</p>
+				<img width="50%" src="img/logos_acerca/mintic.png" alt="MinTic">
+				<img width="25%" src="img/logos_acerca/fna-logo.png" alt="MinTic">
+				<p class="desarrollado">Desarrollado por</p>
+				<img onclick="window.open('http://www.engenial.co', '_system');" class="engenial" width="50%" src="img/logos_acerca/logo-engenial.png" alt="Engenial">
+				<p>Créditos</p>
+				<p>Cristian Samir Jiménez Beltrán</p>
+				<p>Alexandra Espinosa Mejía</p>
+				<p>Víctor Raúl Jiménez Yepes</p>
+				<p>Luis Miguel Álvarez Valencia</p>
+				<br/><br/>
+				<p>Todos los derechos reservados - 2013</p>
+				<p class="claro">Aplicación bajo licencia GNU GPL</p>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div id="window_compartir" class="window">
+		<div id="compartir">
+			<div class="superior">
+				<h1 class="ui-header ui-title">FNA Social</h1>
+				<a href="javascript: Funciones.compartir('hide')" class="btn-right">Cerrar</a>
+			</div>
+			<div class="ui-content ui-body-b">
+				<div class="window-content">
+					<button class="btn-blue btn-block" onclick="window.open('https://plus.google.com/share?url=http://fna.gov.co', '_system');">Google+</button>
+	
+					<button class="btn-blue btn-block" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=http://fna.gov.co', '_system');">Facebook</button>
+
+					<button class="btn-blue btn-block" onclick="window.open('https://twitter.com/intent/tweet?text=Visita fna.gov.co', '_system');">Twitter</button>
+
+					<button class="btn-blue btn-block" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=http://fna.gov.co', '_system');">Linkedin</button>
 				</div>
 			</div>
-		</div>	
-	</div>
-
-
-
-
-
-
-
-	<div data-role="page" id="map-page">
-		<div data-role="header" >
-			<a href="#inicio" class="ui-btn-left" data-theme="b" data-transition="slide">Inicio</a>
-			<h1>FNA más cercano</h1>
-			<a href="#filter-maps" class="ui-btn-right btn-filter" data-transition="slidedown" data-rel="dialog" data-theme="b"><i class="icon-filter"></i><i class="label">Filtro</i></a>
-		</div>
-		<div data-role="content">
-			<div id="map-canvas"></div>
-		</div>
-		<div data-role="footer">
-			<div>
-				<a href="#map-page" id="flink-puntos" data-transition="slide">
-					<span></span>
-				</a>
-				<a href="#portafolio" id="flink-portafolio" data-transition="slide">
-					<span></span>
-				</a>
-				<a href="#asesoria" id="flink-asesoria" data-transition="slide">
-					<span></span>
-				</a>
-				<a href="finanzas.html#inicio_finanzas" class="external" id="flink-finanzas" data-transition="slide">
-					<span></span>
-				</a>
-			</div>
 		</div>
 	</div>
 
 
 
-
-
-
-
-	<div data-role="page" id="compartir" data-theme="b" data-close-btn="none">
-		<div data-role="header" >
-			<h1>FNA en las redes</h1>
-		</div>
-		<div data-role="content">
-			<button data-theme="b" data-role="button" onclick="window.open('https://plus.google.com/share?url=http://fna.gov.co', '_system');">Google+</button>
-			<button data-theme="b" data-role="button" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=http://fna.gov.co', '_system');">Facebook</button>
-			<button data-theme="b" data-role="button" onclick="window.open('https://twitter.com/intent/tweet?text=Visita fna.gov.co', '_system');">Twitter</button>
-			<button data-theme="b" data-role="button" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=http://fna.gov.co', '_system');">Linkedin</button>
-			
-			<a href="#" data-rel="back" data-role="button" data-theme="a">Cerrar</a>
-		</div>
+	<div id="loading" class="ui-loader ui-corner-all ui-body-a ui-loader-verbose">
+		<span class="ui-icon ui-icon-loading"></span>
+		<h1> -- </h1>
 	</div>
 
 
-
-
-	<div data-role="page" id="acerca" data-theme="b" data-close-btn="none">
-		<div data-role="header" >
-			<h1>FNA En Tu Bolsillo <small>v1.0</small></h1>
-		</div>
-		<div data-role="content">
-			<p class="subtitulo">FNA En Tu Bolsillo</p>
-			<p>Versión 1.0</p>
-			<img width="50%" src="img/logos_acerca/mintic.png" alt="MinTic">
-			<img width="25%" src="img/logos_acerca/fna-logo.png" alt="MinTic">
-			<p class="desarrollado">Desarrollado por</p>
-			<img onclick="window.open('http://www.engenial.co', '_system');" class="engenial" width="50%" src="img/logos_acerca/logo-engenial.png" alt="Engenial">
-			<p>Todos los derechos reservados - 2013</p>
-			<p class="claro">Aplicación bajo licencia GNU GPL</p>
-			<a href="#" data-rel="back" data-role="button" data-theme="a">Cerrar</a>
-		</div>
-	</div>
-
-
-
-
-
-	<div data-role="page" id="puntuar"  data-close-btn="none">
-		<div data-role="header"  >
-			<p class="tit">Califica nuestros puntos de atención</p>
-			<p class="desc">Con tu opinión, podremos prestarte un mejor servicio.</p>
-		</div>
-		<div data-role="content">
-			<form id="form_puntuar">
-				<label for="input-puntos">Calificación (de 1 a 5):</label>
-				<input type="range" id="input-puntos" value="1" min="1" max="5" data-highlight="true"/>
-				<br>
-				<label for="input-tipo">Lo que calificas:</label>
-				<select id="input-tipo">
-				  <option value="">-- Seleccione uno --</option>
-				  <option value="servi">Servicio</option>
-				  <option value="insta">Instalaciones</option>
-				  <option value="otro">Otro</option>
-				</select>
-				<br>
-				<textarea id="input-opinion" rows="3" maxlength="140" placeholder="Escribe tu opinión"></textarea>
-				<br>
-			</form>
-			<a href="#map-page" data-inline="true" data-role="button">Cancelar</a>
-			<button class="btn-enviar-puntuacion" data-mini="true" data-theme="b" data-inline="true">Puntuar</button>
-		</div>
-	</div>
-
-
-
-
-
-
-	<div data-role="page" id="filter-maps" data-theme="b" data-close-btn="none">
-		<div data-role="content">
-			<h1>¿Que tipos de punto de atención deseas ver?</h1>
-			<p>Filtra los puntos de atención y recaudo que el Fondo Nacional del Ahorro, ha dispuesto a lo largo y ancho de toda Colombia para tí.</p>
-
-			<div class="filter">
-				<label>Con horario extendido</label>
-				<select id="horario-extendido" data-role="slider">
-				  <option value="false">No</option>
-				  <option selected value="true">Si</option>
-				</select>
-			</div>
-
-			<div class="filter">
-				<label>Puntos de atención FNA</label>
-				<select id="puntos-atencion" data-role="slider">
-				  <option value="false">No</option>
-				  <option selected value="true">Si</option>
-				</select>
-			</div>
-			<div class="filter">
-				<label>Puntos de recaudo</label>
-				<select id="puntos-recaudo" data-role="slider">
-				  <option value="false">No</option>
-				  <option selected value="true">Si</option>
-				</select>
-			</div>
-			<div class="filter">
-				<label>Sin costo de transacción</label>
-				<select id="sin-costo" data-role="slider">
-				  <option value="false">No</option>
-				  <option selected value="true">Si</option>
-				</select>
-			</div>
-
-			<div class="filter">
-				<label>Con costo</label>
-				<select id="con-costo" data-role="slider">
-				  <option value="false">No</option>
-				  <option selected value="true">Si</option>
-				</select>
-			</div>
-
-			<a href="#map-page" data-role="button" data-theme="b">Listo</a>
-		</div>
-	</div>
-
-
-
-	
-
-
-
-	<div data-role="page" id="portafolio" class="imagen-header" >
-		<div data-role="header" data-position="fixed">
-			<a href="#inicio" class="ui-btn-left" data-theme="b" data-transition="slide">Inicio</a>
-			<h1>Servicios</h1>
-			<a href="#compartir" class="ui-btn-right" data-transition="slidedown" data-rel="dialog" data-theme="b">Compartir</a>
-		</div>
-		<div data-role="content">
-			<div class="imagen-head">
-				<img src="img/portafolio.png" >
-				<p class="titulo">Conoce todos nuestros <br> servicios</p>
-			</div>
-	        <ul class="lista-portafolio" data-corners="false" data-role="listview" data-inset="true">
-	            <li>
-	            	<a href="#educacion">
-	                <h2>Educación</h2>
-	                <p>Oportunidades en el exterior y local</p>
-	            </a></li>
-	            <li><a href="#vivienda">
-	                <h2>Vivienda</h2>
-	                <p>Como adquirir vivienda propia</p>
-	            </a></li>
-	            <li><a href="#ahorro">
-	               <h2>Ahorro</h2>
-	                <p>Facilidades de ahorro</p>
-	            </a></li>
-	            <li><a href="#cesantias">
-	                 <h2>Cesantías</h2>
-	                <p>Como vincularse y aprovecharlas</p>
-	             </a></li>
-	       </ul>
-	    </div>
-
-	    <div data-role="footer">
-			<div>
-				<a href="#map-page" id="flink-puntos" data-transition="slide">
-					<span></span>
-				</a>
-				<a href="#portafolio" id="flink-portafolio" data-transition="slide">
-					<span></span>
-				</a>
-				<a href="#asesoria" id="flink-asesoria" data-transition="slide">
-					<span></span>
-				</a>
-				<a href="finanzas.html#inicio_finanzas" class="external" id="flink-finanzas" data-transition="slide">
-					<span></span>
-				</a>
-			</div>
-		</div>
-	</div>
-
-
-
-    <div data-role="page" id="educacion">
-	   <div data-role="header" data-position="fixed">
-			<a href="#portafolio" data-icon="back" data-rel="back" class="ui-btn-left" data-theme="b" data-transition="slide">Atrás</a>
-			<h1>Educación</h1>
-			<a href="#compartir" class="ui-btn-right" data-transition="slidedown" data-rel="dialog" data-theme="b">Compartir</a>
-		</div>
-    	<div data-role="content">
-            
-    		<div class="ui-grid-solo">
-              <div class="ui-block-a logo"><img id="imagen_edu" src="img/servicios/fna_educacion.png"></div>
-    		  <div class="ui-block-a servicios-tit"><strong><label id="titulo_edu">Financiación para educación</label></strong>
-              </div>
-    		</div>
-    		<div class="ui-grid-solo">
-    		  <div class="ui-block-a p"><p class="servicios-desc" id="contenido_edu">Es un servicio de financiación que cubre hasta el 100% del valor de la matrícula para cada periodo académico que vaya a cursar, en programas de educación superior: técnico, tecnológico, pregrado, postgrado (especialización, maestría, doctorado y postdoctorado), esta última se puede cursar en Colombia y en el exterior, además carreras de oficial o suboficial de las Fuerzas Militares de la República de Colombia y de la Policía Nacional y educación continuada o cursos de actualización y bilingüismo. <br><br> Los usuarios del crédito para educación son: el afiliado, el cónyuge o compañero (a) permanente, los hijos, los nietos, hermanos y sobrinos del afiliado.</p></div>
-    		</div>
-    	</div>
-
-	   <div data-role="footer">
-			<div>
-				<a href="#map-page" id="flink-puntos" data-transition="slide">
-					<span></span>
-				</a>
-				<a href="#portafolio" id="flink-portafolio" data-transition="slide">
-					<span></span>
-				</a>
-				<a href="#asesoria" id="flink-asesoria" data-transition="slide">
-					<span></span>
-				</a>
-				<a href="finanzas.html#inicio_finanzas" class="external" id="flink-finanzas" data-transition="slide">
-					<span></span>
-				</a>
-			</div>
-		</div>
-    </div>
-
-
-
-
-
-
-
-    <div data-role="page" id="vivienda">
-        <div data-role="header" data-position="fixed">
-			<a href="#portafolio" data-icon="back" data-rel="back" class="ui-btn-left" data-theme="b" data-transition="slide">Atrás</a>
-			<h1>Vivienda</h1>
-			<a href="#compartir" class="ui-btn-right" data-transition="slidedown" data-rel="dialog" data-theme="b">Compartir</a>
-		</div>
-        <div data-role="content">
-            <div class="ui-grid-solo">
-              <div class="ui-block-a logo"><img id="imagen_viv" src="img/servicios/fna_vivienda.png"></div>
-              <div class="ui-block-a servicios-tit"><strong><label id="titulo_viv">Financiación para vivienda</label></strong></div>
-            </div>
-            <div class="ui-grid-solo">
-              <div class="ui-block-a">
-              	<p class="servicios-desc" id="contenido_viv">Por el solo hecho de AHORRAR o tener tus cesantías en el Fondo Nacional del AHORRO, puedes tener acceso a estudio de financiamiento de vivienda. <br><br>
-					<strong style='text-align: left;'>Beneficios de financiación para viviendas</strong>
-					<ul>
-						<li>No te impondrán sanciones por prepago total o parcial.</li>
-						<li>No requieres de codeudores para solicitar y/o aprobar el financiamiento de Vivienda.</li>
-						<li>Puedes solicitar un préstamo para:
-							<ul>
-								<li>Compra de vivienda. (Nueva o Usada).</li>
-								<li>Liberación de gravamen hipotecario.</li>
-								<li>Construcción de vivienda.</li>
-								<li>Mejora de vivienda.</li>
-							</ul>
-						</li>
-					</ul>
-				</p>
-              </div>
-            </div>
-        </div>
-        <div data-role="footer">
-			<div>
-				<a href="#map-page" id="flink-puntos" data-transition="slide">
-					<span></span>
-				</a>
-				<a href="#portafolio" id="flink-portafolio" data-transition="slide">
-					<span></span>
-				</a>
-				<a href="#asesoria" id="flink-asesoria" data-transition="slide">
-					<span></span>
-				</a>
-				<a href="finanzas.html#inicio_finanzas" class="external" id="flink-finanzas" data-transition="slide">
-					<span></span>
-				</a>
-			</div>
-		</div>
-    </div>
-
-
-
-
-
-
-
-    <div data-role="page" id="ahorro">
-        <div data-role="header" data-position="fixed">
-    		<a href="#portafolio" data-icon="back" data-rel="back" class="ui-btn-left" data-theme="b" data-transition="slide">Atrás</a>
-    		<h1>Ahorro</h1>
-    		<a href="#compartir" class="ui-btn-right" data-transition="slidedown" data-rel="dialog" data-theme="b">Compartir</a>
-    	</div>
-        <div data-role="content">
-            <div class="ui-grid-solo">
-                 <div class="ui-block-a logo"><img id="imagen_aho" src="img/servicios/fna_ahorro.png"></div>
-              <div class="ui-block-a servicios-tit"><strong><label id="titulo_aho">Ahorro voluntario contractual</label></strong></div>
-            </div>
-            <div class="ui-grid-solo">
-              <div class="ui-block-a">
-			  <p class="servicios-desc" id="contenido_aho">Es una cuenta individual, en la que, por medio de un contrato, cada afiliado se compromete a consignar una suma fija en la fecha escogida. Con el fin de que al año de AHORRO, pueda tener acceso al estudio de financiamiento de Vivienda y/o Educación. <br><br>
-				<strong style='text-align: left;'>Beneficios:</strong>
-				<ul>
-					<li>Financiamiento de Vivienda y Educación.</li>
-					<li>No te cobran cuota de administración.</li>
-				</ul>
-			  </p>
-			</div>
-            </div>
-        </div>
-        <div data-role="footer">
-			<div>
-				<a href="#map-page" id="flink-puntos" data-transition="slide">
-					<span></span>
-				</a>
-				<a href="#portafolio" id="flink-portafolio" data-transition="slide">
-					<span></span>
-				</a>
-				<a href="#asesoria" id="flink-asesoria" data-transition="slide">
-					<span></span>
-				</a>
-				<a href="finanzas.html#inicio_finanzas" class="external" id="flink-finanzas" data-transition="slide">
-					<span></span>
-				</a>
-			</div>
-		</div>
-    </div>
-
-	
-
-    <div data-role="page" id="cesantias">
-        <div data-role="header" data-position="fixed">
-			<a href="#portafolio" data-icon="back" data-rel="back" class="ui-btn-left" data-theme="b" data-transition="slide">Atrás</a>
-			<h1>Cesantías</h1>
-			<a href="#compartir" class="ui-btn-right" data-transition="slidedown" data-rel="dialog" data-theme="b">Compartir</a>
-		</div>
-        <div data-role="content">
-            <div class="ui-grid-solo">
-              <div class="ui-block-a logo"><img id="imagen_ces"src="img/servicios/fna_cesantias.png"></div>
-              <div class="ui-block-a servicios-tit"><strong><label id="titulo_ces">Administración de cesantías</label></strong></div>
-            </div>
-            <div class="ui-grid-solo">
-              <div class="ui-block-a">
-			  <p class="servicios-desc" id="contenido_ces">Es una prestación social de carácter especial que constituye un AHORRO forzoso de los trabajadores para auxiliarlos en caso de quedar cesantes, la cual deberá pagarse por regla general al terminar el contrato de trabajo y de manera excepcional como simple anticipo para pagar, adquirir, construir, mejorar o liberar gravámenes de bienes raíces destinados a la vivienda del trabajador o para financiar o pagar matriculas y demás conceptos de educación del trabajador, su cónyuge, compañero permanente e hijos. <br><br>
-				<strong style='text-align: left;'>Beneficios:</strong>
-				<ul>
-					<li>Financiamiento de Vivienda y Educación.</li>
-					<li>No te cobra cuota de administración. </li>
-					<li> No te cobra comisión por retiros parciales o definitivos. </li>
-					<li>Los servidores públicos con régimen de retroactividad, no pierden este derecho al trasladarse al Fondo Nacional del AHORRO.</li>
-				</ul>
-			</p>
-			</div>
-            </div>
-        </div>
-        <div data-role="footer">
-			<div>
-				<a href="#map-page" id="flink-puntos" data-transition="slide">
-					<span></span>
-				</a>
-				<a href="#portafolio" id="flink-portafolio" data-transition="slide">
-					<span></span>
-				</a>
-				<a href="#asesoria" id="flink-asesoria" data-transition="slide">
-					<span></span>
-				</a>
-				<a href="finanzas.html#inicio_finanzas" class="external" id="flink-finanzas" data-transition="slide">
-					<span></span>
-				</a>
-			</div>
-		</div>
-    </div>
-
-
-
-
-
-    <div data-role="page" id="asesoria">
-        <div data-role="header" data-position="fixed">
-			<a href="#inicio" class="ui-btn-left" data-theme="b" data-transition="slide">Inicio</a>
-			<h1>Asesoría</h1>
-		</div>
-        <div data-role="content">
-            <form id="form_info_personal">
-                <div data-role="fieldcontain">
-                    <label for="name">Nombres y apellidos:</label><br>
-                    <input type="text" name="nombre" id="nombre" />
-                </div>
-               <!-- <div data-role="fieldcontain">
-                    <label for="cedula">Cédula:</label><br>
-                    <input type="number" name="cedula" id="cedula" />
-                </div>-->
-                <div data-role="fieldcontain">
-                    <label for="celular">Número de celular:</label><br>
-                    <input type="tel" name="celular" id="celular" />
-                </div>
-                <div data-role="fieldcontain">
-                    <label for="direccion">Dirección:</label><br>
-                    <input type="text" name="direccion" id="direccion" />
-                </div>
-                <div data-role="fieldcontain">
-                    <label for="email">Correo electrónico:</label><br>
-                    <input type="email" name="email" id="email" />
-                </div>
-            </form>
-            <button type="button" data-role="button" data-theme="b" class="btn-solicitar">Solicitar asesoria</button>
-			<button type="button" data-role="button" data-theme="b" class="btn-limpiar">Limpiar campos</button>
-        </div>
-        <div data-role="footer">
-			<div>
-				<a href="#map-page" id="flink-puntos" data-transition="slide">
-					<span></span>
-				</a>
-				<a href="#portafolio" id="flink-portafolio" data-transition="slide">
-					<span></span>
-				</a>
-				<a href="#asesoria" id="flink-asesoria" data-transition="slide">
-					<span></span>
-				</a>
-				<a href="finanzas.html#inicio_finanzas" class="external" id="flink-finanzas" data-transition="slide">
-					<span></span>
-				</a>
-			</div>
-		</div>
-    </div>
-
-
-
-
-
-
-    <div data-role="page" id="asesoria-exitosa">
-        <div data-role="header" data-position="fixed">
-			<a href="#inicio" class="ui-btn-left" data-theme="b" data-transition="slide">Inicio</a>
-			<h1>Asesoría</h1>
-		</div>
-
-
-        <div data-role="content">
-            <div class="ui-grid-solo">
-              <div class="ui-block-a logo">
-              	<img src="img/call-center2.png">
-              	<h2>¡Solicitud <br> enviada!</h2>
-              </div>
-            </div>
-            <div class="ui-grid-solo">
-              <div class="respuesta">
-              	<h1>En breve un asesor de FNA se comunicará con usted.</h1>
-              	<a href="#inicio" data-theme="b" data-role="button" >Volver al inicio</a>
-              </div>
-            </div>
-        </div>
-        <div data-role="footer">
-			<div>
-				<a href="#map-page" id="flink-puntos" data-transition="slide">
-					<span></span>
-				</a>
-				<a href="#portafolio" id="flink-portafolio" data-transition="slide">
-					<span></span>
-				</a>
-				<a href="#asesoria" id="flink-asesoria" data-transition="slide">
-					<span></span>
-				</a>
-				<a href="finanzas.html#inicio_finanzas" class="external" id="flink-finanzas" data-transition="slide">
-					<span></span>
-				</a>
-			</div>
-		</div>
-    </div>
-
-
-
-
-
-    <div data-role="page" id="asesoria-error">
-        <div data-role="header" data-position="fixed">
-			<a href="#inicio" class="ui-btn-left" data-theme="b" data-transition="slide">Inicio</a>
-			<h1>Asesoría</h1>
-		</div>
-
-
-        <div data-role="content">
-            <div class="ui-grid-solo">
-              <div class="ui-block-a logo">
-              	<img src="img/call-center2.png">
-              	<h2>¡Ha <br> ocurrido <br>un error!</h2>
-              </div>
-            </div>
-            <div class="ui-grid-solo">
-              <div class="respuesta">
-              	<h1>Ha surgido un error en la comunicación, por favor inténtelo más tarde.</h1>
-              	<button type="button" data-role="button" class="btn-solicitar">Volver a intentarlo</button>
-              	<a href="#inicio" data-theme="b" data-role="button" >Volver al inicio</a>
-              </div>
-            </div>
-        </div>
-        <div data-role="footer">
-			<div>
-				<a href="#map-page" id="flink-puntos" data-transition="slide">
-					<span></span>
-				</a>
-				<a href="#portafolio" id="flink-portafolio" data-transition="slide">
-					<span></span>
-				</a>
-				<a href="#asesoria" id="flink-asesoria" data-transition="slide">
-					<span></span>
-				</a>
-				<a href="finanzas.html#inicio_finanzas" class="external" id="flink-finanzas" data-transition="slide">
-					<span></span>
-				</a>
-			</div>
-		</div>
-    </div>
-
+	<script type="text/javascript" >
+		app.initialize()
+	</script>
 </body>
 </html>

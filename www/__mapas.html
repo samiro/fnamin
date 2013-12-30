@@ -8,22 +8,17 @@
 	<link rel="stylesheet" type="text/css" href="css/mapas.css">
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.9&sensor=true"></script>
 	<script type="text/javascript" src="js/lib/jquery.js"></script>
-
-
+	<!-- 
 	<script type="text/javascript" src="cordova.js"></script>
-
-	
-<!-- 
-	<script type="text/javascript" src="js/debug.js"></script>
  -->
-
+	<script type="text/javascript" src="js/debug.js"></script>
 	
 	<script type="text/javascript" src="js/scripts/general.js"></script>
 	<script type="text/javascript" src="js/scripts/mapas.js"></script>
 </head>
 <body>
 	<div class="header">
-		<a href="__inicio.html" class="btn-left">Inicio</a>
+		<a href="index.html" class="btn-left">Inicio</a>
 			
 		<h1 role="heading" aria-level="1">Mapas</h1>
 			
@@ -33,6 +28,9 @@
 
 
 	<div class="wrapper">
+		<div id="map-canvas"></div>
+
+
 		<button class="my_pos" onclick="Contenido.cargar_mi_posicion()">
 			<img src="img/icon_my_ubication.png" alt="Mi posición">
 		</button>
@@ -42,7 +40,6 @@
 				<button class="btn">
 					<img src="img/icon_city.png" alt="Ciudad">
 				</button>
-				
 			</div>
 		</div> -->
 		
@@ -55,8 +52,6 @@
 			</div>
 		</div>
 		-->
-
-		<div id="map-canvas"></div>
 	</div>
 
 
@@ -151,11 +146,11 @@
 					<label for="input-puntos">Calificación:</label>
 					<select id="input-puntos">
 					  <option value="">-- Seleccione uno --</option>
-					  <option value="1">Malo</option>
-					  <option value="2">Regular</option>
-					  <option value="3">Bueno</option>
-					  <option value="4">Muy bueno</option>
 					  <option value="5">Excelente</option>
+					  <option value="4">Muy bueno</option>
+					  <option value="3">Bueno</option>
+					  <option value="2">Regular</option>
+					  <option value="1">Malo</option>
 					</select>
 				</div>
 

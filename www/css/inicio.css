@@ -30,8 +30,8 @@ p{color:#444}
 .servicios-desc{padding:15px;font-size:16px;line-height:20px;margin:0;color:#444;}
 .servicios-desc >strong{display:block;padding-bottom:10px}
 .servicios-desc li{margin-left:20px}
-.input_checkbox{display:block;position:relative;margin-top:10px;overflow:hidden;padding:15px;}
-.input_checkbox label{font-size:20px;line-height:22px;font-style:italic;display:block}
+.input_checkbox{display:block;position:relative;margin-top:10px;overflow:hidden;padding:0;}
+.input_checkbox label{font-size:20px;line-height:22px;font-style:italic;display:block;padding:10px 15px}
 .input_checkbox input{position:absolute;right:10px;top:50%;margin-top:-10px;height:20px;width:20px}
 .input_checkbox.checked{background:#fff}
 .input_text{display:block;position:relative;margin-top:30px;}
@@ -54,6 +54,8 @@ p{color:#444}
 .window .superior .btn-right{float:right;border-left:1px solid #bbb}
 .window .window-content{padding:20px}
 .btn-close{background:transparent;font-weight:bold;font-size:30px;line-height:30px;height:30px;width:30px;color:#444;position:absolute;top:-15px;right:-15px;border:0;text-align:center}
+.icon-internet{display:none;opacity:0;bottom:10px;right:10px;width:20px;height:20px;position:absolute}
+.no-internet .icon-internet{display:block;opacity:1}
 .header{background:#ddd;position:fixed;top:0;left:0;right:0;height:50px;border-bottom:1px solid #bbb;overflow:hidden;z-index:100;text-align:center;}
 .header h1{text-shadow:0 1px 0 #eee;color:#777;font-style:italic;font-size:22px;line-height:50px;text-align:center;display:inline-block;}
 .header a{text-shadow:0 1px 0 #eee;color:#777;font-weight:bold;height:50px;display:block;line-height:50px;font-size:16px;padding:0 10px;vertical-align:top}
@@ -81,6 +83,8 @@ p{color:#444}
 #inicio .navegacion #link-portafolio span{background-position:-21px -31px;width:29px;height:28px}
 #inicio .navegacion #link-asesoria span{background-position:-50px -32px;width:35px;height:28px}
 #inicio .navegacion #link-finanzas span{background-position:-85px -32px;width:26px;height:34px}
+.no-internet #inicio .navegacion a.link-internet:hover,.no-internet #inicio .navegacion a.link-internet:active{background:#526c94}
+.no-internet #inicio .navegacion a.link-internet{background:#526c94;border:1px solid #436292}
 #acerca .ui-content{text-align:center}
 #acerca .ui-content p{margin:0;padding:0}
 #acerca img{vertical-align:middle}

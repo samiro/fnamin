@@ -1579,16 +1579,15 @@ var MapaObjeto = {
             });
         }, 
         function( error ){
-
-            console.log("error")
-            console.log(error)
             //navigator.notification.alert("OMP: " + error.message , "",  "C: " + error.code, "Aceptar");
             if(error.code == PositionError.POSITION_UNAVAILABLE){
-                //navigator.notification.alert("OMP: No es posible localizar tu posición", "", "Error", "Aceptar");
+              console.log("obtener_mi_posicion: POSITION_UNAVAILABLE")
             }else if(error.code == PositionError.TIMEOUT){
-                //navigator.notification.alert("OMP: No es posible localizar tu posición", "", "Tiempo fuera", "Aceptar");
+              console.log("obtener_mi_posicion: TIMEOUT")
             }else if(error.code == PositionError.PERMISSION_DENIED){
-                //navigator.notification.alert("OMP: Permiso denegado", "", "Permiso", "Aceptar");
+              console.log("obtener_mi_posicion: PERMISSION_DENIED")
+            }else{
+              console.log("obtener_mi_posicion: OTRO con codigo " + error.code)
             }
 
             $.loading('hide')
@@ -2058,7 +2057,7 @@ var Contenido = {
                 navigator.notification.alert(
                     "Debes tener conexión a internet para acceder a ésta sección",
                     function(){
-                        window.location.href="__inicio.html"
+                        window.location.href="index.html"
                     }, 
                     "Sin conexión", 
                     "Aceptar")
@@ -2085,11 +2084,12 @@ var Contenido = {
     //
     // verifica si tiene o nó conexión a internet el celular.
     tiene_conexion: function(){
-        if (navigator.connection.type == Connection.NONE){
+        /*if (navigator.connection.type == Connection.NONE){
             return false;
         }else{
             return true;
-        }
+        }*/
+        return true;
     }
 }
 
@@ -2167,16 +2167,15 @@ $(document).on("ready", function(){
     })
 
     cargar_ciudades_select()
-
-
-    google.maps.event.addDomListener(window, 'load', function(){
-        //document.addEventListener("deviceready", function(){
-        //MapaObjeto.obtener_mi_posicion(function(){})
-        Contenido.cargar()
-        //}, false);
-    });
 })
 
+
+/*document.addEventListener("deviceready", function(){*/
+  google.maps.event.addDomListener(window, 'load', function(){
+      console.log("Google loaded.")
+      Contenido.cargar()
+  });
+/*}, false);*/
 
 
 

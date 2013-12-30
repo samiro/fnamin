@@ -54,6 +54,8 @@ p{color:#444}
 .window .superior .btn-right{float:right;border-left:1px solid #bbb}
 .window .window-content{padding:20px}
 .btn-close{background:transparent;font-weight:bold;font-size:30px;line-height:30px;height:30px;width:30px;color:#444;position:absolute;top:-15px;right:-15px;border:0;text-align:center}
+.icon-internet{display:none;opacity:0;bottom:10px;right:10px;width:20px;height:20px;position:absolute}
+.no-internet .icon-internet{display:block;opacity:1}
 .header{background:#ddd;position:fixed;top:0;left:0;right:0;height:50px;border-bottom:1px solid #bbb;overflow:hidden;z-index:100;text-align:center;}
 .header h1{text-shadow:0 1px 0 #eee;color:#777;font-style:italic;font-size:22px;line-height:50px;text-align:center;display:inline-block;}
 .header a{text-shadow:0 1px 0 #eee;color:#777;font-weight:bold;height:50px;display:block;line-height:50px;font-size:16px;padding:0 10px;vertical-align:top}
@@ -69,7 +71,7 @@ p{color:#444}
 .footer #flink-asesoria span{background-position:-47px -3px;width:28px;height:25px}
 .footer #flink-finanzas span{background-position:-77px -3px;width:22px;height:26px}
 .footer a:hover,.footer a:active{background:#1a4990}
-#map-canvas{height:100%;z-index:10}
+#map-canvas{height:100%;z-index:0;position:relative}
 .info-window{padding:20px;max-width:250px;}
 .info-window h2{font-weight:normal;margin:0;font-size:15px;color:#00a5e5}
 .info-window h1{font-weight:bold;margin:0;font-size:20px;color:#00a5e5;margin-bottom:10px}

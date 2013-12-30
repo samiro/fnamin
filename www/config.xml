@@ -61,6 +61,6 @@
     
     <access origin="*" />
 
-    <content src="__inicio.html" />
+    <content src="index.html" />
 
 </widget>

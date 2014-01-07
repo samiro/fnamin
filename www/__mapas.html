@@ -8,15 +8,16 @@
 	<link rel="stylesheet" type="text/css" href="css/mapas.css">
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.9&sensor=true"></script>
 	<script type="text/javascript" src="js/lib/jquery.js"></script>
-	 
-		<script type="text/javascript" src="cordova.js"></script>
+	
+	<script type="text/javascript" src="cordova.js"></script>
  	<!-- 
 	<script type="text/javascript" src="js/debug.js"></script>
 	 -->
 	<script type="text/javascript" src="js/scripts/general.js"></script>
 	<script type="text/javascript" src="js/scripts/mapas.js"></script>
+	
 </head>
-<body>
+<body page="mapas" required-internet="1">
 	<div class="header">
 		<a href="index.html" class="btn-left">Inicio</a>
 			
@@ -182,6 +183,8 @@
 	</div>
 
 
-	
+	<script type="text/javascript" >
+		app.initialize()
+	</script>
 </body>
 </html>

@@ -1651,6 +1651,7 @@ var MapaObjeto = {
     },
     //
     // Funcion que filtra el objeto según los criterios configurador MapaAtributos
+    // El criterio es (PRIMERO AND SEGUNDO) OR (PRIMERO AND TERCERO)
     pasa_filtros: function(obj){
         //return true;
 
@@ -1669,6 +1670,7 @@ var MapaObjeto = {
         // Segundo fitro de si es con costo
         if(MapaAtributos.filtros.sin_costo && sin_costo) return true;
         if(MapaAtributos.filtros.con_costo && con_costo) return true;
+
 
         // Tercer filtro de si es con horario extendido
         if(MapaAtributos.filtros.horario_extendido && hor_extendido) return true;

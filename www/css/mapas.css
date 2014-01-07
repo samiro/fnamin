@@ -98,3 +98,7 @@ p{color:#444}
 .centered{bottom:40%;padding:30px 20px;}
 .centered .my_pos{display:none}
 .centered select{font-size:20px;line-height:20px}
+
+body #map-canvas .gmnoprint{
+	z-index: 999;
+}

@@ -43,7 +43,7 @@ p{color:#444}
 .input_text input:focus + .line{border-color:#666}
 .input_text .line{border-bottom:1px solid #aaa;border-left:1px solid #aaa;border-right:1px solid #aaa;height:5px;position:absolute;bottom:0;left:0;right:0}
 .window{background:#444;background:rgba(0,0,0,0.8);position:fixed;top:0;left:0;bottom:0;right:0;overflow:auto;display:none;z-index:999;}
-.window >div{width:92.5%;max-width:500px;margin:10% auto 15px;padding:0;position:relative;top:-15px;background:none repeat scroll 0 0 #ddd;border-radius:4px;box-shadow:0 0 30px rgba(0,0,0,0.5)}
+.window .window-container >div{width:92.5%;max-width:500px;margin:10% auto 15px;padding:0;position:relative;top:-15px;background:none repeat scroll 0 0 #ddd;border-radius:4px;box-shadow:0 0 30px rgba(0,0,0,0.5)}
 .window .ui-header .ui-title{margin-top:12px;margin-left:10%;margin-right:10%}
 .window .ui-header .ui-title small{color:#aaa}
 .window .superior{text-align:center;border-bottom:1px solid #ccc;}

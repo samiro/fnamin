@@ -51,40 +51,53 @@
             -moz-box-sizing: border-box;
             box-sizing: border-box;
 
-            span
+            label
+                position absolute
+                display block
+                top 50%
+                left 50%
+
+                width 100px
+                margin-left -50px
+                
+                height 80px
+                margin-top -40px
+
+            .span-icon
                 width: 50px;
                 height: 50px;
-                margin: 18px auto 0 auto;
+                margin: 0 auto
                 background: transparent url('../img/sprite.png') no-repeat 0 0;
                 display:  block;
-                padding-top: 5px;
 
-            label
+            .span-label
                 margin: 0 auto;
-                width: 60%;
                 font-size: 17px;
                 line-height: 18px;
                 font-weight: normal;
                 font-style: italic
                 display:  block;
                 padding-top: 5px;
+                text-align center
 
-        #link-puntos span
+        #link-puntos .span-icon
             background-position: 0 -30px;
             width: 22px;
             height: 34px;
 
-        #link-portafolio span
+        #link-portafolio .span-icon
             background-position: -21px -31px;
             width: 29px;
             height: 28px;
+            margin-bottom 6px
 
-        #link-asesoria span
+        #link-asesoria .span-icon
             background-position: -50px -32px;
             width: 35px;
             height: 28px;
+            margin-bottom 6px
 
-        #link-finanzas span
+        #link-finanzas .span-icon
             background-position: -85px -32px;
             width: 26px;
             height: 34px;

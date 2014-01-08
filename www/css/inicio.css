@@ -77,12 +77,13 @@ p{color:#444}
 #inicio .navegacion{position:absolute;bottom:0;height:50%;left:0;width:100%;overflow:hidden;z-index:12;}
 #inicio .navegacion a:hover,#inicio .navegacion a:active{background:#1a4990}
 #inicio .navegacion a{display:block;width:50%;height:50%;background:#1a3c8f;color:#efefef;border:1px solid #12317f;font-size:14px;line-height:16px;text-align:center;float:left;position:relative;text-decoration:none;text-shadow:none;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
-#inicio .navegacion a span{width:50px;height:50px;margin:18px auto 0 auto;background:transparent url("../img/sprite.png") no-repeat 0 0;display:block;padding-top:5px}
-#inicio .navegacion a label{margin:0 auto;width:60%;font-size:17px;line-height:18px;font-weight:normal;font-style:italic;display:block;padding-top:5px}
-#inicio .navegacion #link-puntos span{background-position:0 -30px;width:22px;height:34px}
-#inicio .navegacion #link-portafolio span{background-position:-21px -31px;width:29px;height:28px}
-#inicio .navegacion #link-asesoria span{background-position:-50px -32px;width:35px;height:28px}
-#inicio .navegacion #link-finanzas span{background-position:-85px -32px;width:26px;height:34px}
+#inicio .navegacion a label{position:absolute;display:block;top:50%;left:50%;width:100px;margin-left:-50px;height:80px;margin-top:-40px}
+#inicio .navegacion a .span-icon{width:50px;height:50px;margin:0 auto;background:transparent url("../img/sprite.png") no-repeat 0 0;display:block}
+#inicio .navegacion a .span-label{margin:0 auto;font-size:17px;line-height:18px;font-weight:normal;font-style:italic;display:block;padding-top:5px;text-align:center}
+#inicio .navegacion #link-puntos .span-icon{background-position:0 -30px;width:22px;height:34px}
+#inicio .navegacion #link-portafolio .span-icon{background-position:-21px -31px;width:29px;height:28px;margin-bottom:6px}
+#inicio .navegacion #link-asesoria .span-icon{background-position:-50px -32px;width:35px;height:28px;margin-bottom:6px}
+#inicio .navegacion #link-finanzas .span-icon{background-position:-85px -32px;width:26px;height:34px}
 .no-internet #inicio .navegacion a.link-internet:hover,.no-internet #inicio .navegacion a.link-internet:active{background:#526c94}
 .no-internet #inicio .navegacion a.link-internet{background:#526c94;border:1px solid #436292}
 #acerca .ui-content{text-align:center}

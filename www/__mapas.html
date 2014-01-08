@@ -3,14 +3,16 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
 	<title>Mapas</title>
 	<link rel="stylesheet" type="text/css" href="css/mapas.css">
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.9&sensor=true"></script>
 	<script type="text/javascript" src="js/lib/jquery.js"></script>
+	<script type="text/javascript" src="js/lib/touchscroll.js"></script>
 	
 	<script type="text/javascript" src="cordova.js"></script>
- 	<!-- 
+ 	
+<!-- 
 	<script type="text/javascript" src="js/debug.js"></script>
 	 -->
 	<script type="text/javascript" src="js/scripts/general.js"></script>
@@ -28,10 +30,17 @@
 
 	<div class="wrapper">
 		<div id="map-canvas"></div>
+		<div class="city-content">
+			<select onchange="cambio_ciudad()" id="sel_city"></select>		
+		</div>
 		<button class="my_pos" onclick="Contenido.cargar_mi_posicion()">
-			<img src="img/icon_my_ubication.png" alt="Mi posición">
+				<img src="img/icon_my_ubication.png" alt="Mi posición">
+			</button>
+
+		<button class="see-list" onclick="Contenido.lista_mostrar()">
+			<img src="img/icon_list.png" alt="Ver lista">
 		</button>
-		<select onchange="cambio_ciudad()" id="sel_city"></select>
+		
 		<!-- <div class="btn-city">
 			<div>
 				<button class="btn">
@@ -125,6 +134,29 @@
 
 
 
+	<div id="window_lista" class="window" >
+		<div class="window-container">
+			<div id="lista-mapas">
+
+				<div class="superior">
+					<h1 class="ui-header ui-title">Lista de puntos</h1>
+					<a href="javascript: Contenido.lista_ocultar()" class="btn-right">Cerrar</a>
+				</div>
+
+				<div class="ui-content ui-body-b">
+					<ul class="lista-mapa-items">
+						<li>
+							
+						</li>
+					</ul>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
 
 
 	<div id="window_puntuacion" class="window" >
@@ -185,6 +217,7 @@
 
 	<script type="text/javascript" >
 		app.initialize()
+		touchScroll('window_lista');
 	</script>
 </body>
 </html>

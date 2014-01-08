@@ -66,17 +66,17 @@ function solicitar_llamada(){
                     //navigator.notification.alert(error_msj, "", "Transacción exitosa", "Aceptar")
                     asesoria_exitosa('show')
                   }else{
-                    navigator.notification.alert(error_msj, function(){}, "Ha ocurrido un error", "Aceptar")
+                    navigator.notification.alert(error_msj, function(){}, "Datos inválidos", "Aceptar")
                   }
                 }catch (e) {
-                    navigator.notification.alert("Lo sentimos. Inténtalo de nuevo", function(){}, "Ha ocurrido un error", "Aceptar")
+                    navigator.notification.alert("Verifica tu conexión e intenta de nuevo.", function(){}, "Falló la conexión", "Aceptar")
                 }
           }
         }
         xmlhttp.send(data);	
      }else{
      		 $.loading( "hide" );
-			   navigator.notification.alert(alerta, function(){}, "Error", "Aceptar")
+			   navigator.notification.alert(alerta, function(){}, "Datos inválidos", "Aceptar")
      }
 }
 

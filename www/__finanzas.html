@@ -12,9 +12,9 @@
   
   	<script type="text/javascript" src="cordova.js"></script>
 
-	<!-- 
+	 <!-- 
   	<script type="text/javascript" src="js/debug.js"></script>
- 	-->
+ 	 -->
 
 	<script type="text/javascript" src="js/scripts/general.js"></script>
 	<script type="text/javascript" src="js/scripts/finanzas.js"></script>
@@ -65,6 +65,7 @@
 			<option value="12">Diciembre</option>
 		</select>
 	</h2>
+	
 	<div class="entradas-fechas">
 	    <div class="ui-grid-a">
 	        <div class="ui-block-a">
@@ -92,6 +93,7 @@
 	
 
 	<div id="window_egreso" class="window">
+		<div class="window-container">
 		<div id="egreso">
 			<div class="superior">
 				<h1 class="ui-header ui-title">Agregar gasto</h1>
@@ -100,7 +102,8 @@
 			<div class="ui-content ui-body-b">
 				<div class="window-content">
 					<div class="input_text">
-						<label for="montoEgr">Valor:</label>
+						<label for="montoEgr">Valor en pesos:</label>
+						<small>Sin puntos ni comas</small>
 						<input type="number" name="montoEgr" id="montoEgr" placeholder="Escríbelo aquí" value=""  required>
 						<div class="line"></div>
 					</div>
@@ -130,9 +133,11 @@
 			</div>
 		</div>
 	</div>
+	</div>
 	
 	
 	<div id="window_ingreso" class="window">
+		<div class="window-container">
 		<div id="ingreso">
 			<div class="superior">
 				<h1 class="ui-header ui-title">Agregar Ingreso</h1>
@@ -141,7 +146,8 @@
 			<div class="ui-content ui-body-b">
 				<div class="window-content">
 					<div class="input_text">
-						<label for="montoIng">Valor:</label>
+						<label for="montoIng">Valor en pesos:</label>
+						<small>Sin puntos ni comas</small>
 						<input type="number" name="montoIng" id="montoIng" placeholder="Escríbelo aquí" value="" required>
 						<div class="line"></div>
 					</div>
@@ -165,6 +171,7 @@
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 	
 	

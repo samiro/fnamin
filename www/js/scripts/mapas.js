@@ -99,12 +99,16 @@ var MapaAtributos = {
             zoom: 5,
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             center: new google.maps.LatLng(5.067132, -75.518288),
-            panControl: false,
+            panControl: true,
+            panControlOptions: {
+              position: google.maps.ControlPosition.RIGHT_BOTTOM
+            },
             streetViewControl: false,
             mapTypeControl: false,
             scrollwheel: true,
+            zoomControl: true,
             zoomControlOptions: {
-              position: google.maps.ControlPosition.LEFT_TOP,
+              position: google.maps.ControlPosition.RIGHT_BOTTOM,
               style: google.maps.ZoomControlStyle.DEFAULT
             },
             styles: this.estilo_mapa
@@ -1721,7 +1725,7 @@ var MapaObjeto = {
     //
     // Cargar los puntos que retorna el setdatos
     cargar_todos_puntos: function(por_ciudad, callback){
-        MapaAtributos.mapa.setZoom(17);
+        MapaAtributos.mapa.setZoom(16);
         
         var url = MapaAtributos.general.puntos_json
         
@@ -1757,6 +1761,9 @@ var MapaObjeto = {
                 dataType: 'jsonp',
                 crossDomain: true,
                 success: function (data) {
+                    var lista_mapa = $("#lista-mapas .lista-mapa-items")
+                    lista_mapa.html("")
+        
                     for (var i = 0; i < data.d.length; i++) {
                         if(MapaObjeto.pasa_filtros(data.d[i])){
                             var ubicacion = data.d[i].direccion + " - " + data.d[i].municipio + ", " + data.d[i].departamento
@@ -1794,6 +1801,7 @@ var MapaObjeto = {
                                 clickable: true
                             });
 
+                            
                             markersArray.push(marker);
                             MapaObjeto.cargar_puntos_data.push(data.d[i])
 
@@ -1802,15 +1810,25 @@ var MapaObjeto = {
                             marker.info += '<h3>'+ ubicacion +'</h3> '
                             marker.info += '<div class="info1">Costo transacción: <span>'+ data.d[i].costodetransaccion +'</span></div> '
                             marker.info += '<div class="info1">Horario de atención: <span>'+ horario +'</span></div> '
+                            lista_mapa.append('<li onclick="Contenido.lista_seluno(' + markersArray.length + ')">' + marker.info + ' </div> </div> </li>')
+                            
                             marker.info += '<div class="btns"><button class="btn-blue" onclick="MapaObjeto.mostrar_ruta(\''+data.d[i].latitud+'\', \''+data.d[i].longitud+'\')" type="button" >Como llegar</button> '
-                            marker.info += '<button class="btn-blue" onclick="MapaObjeto.mostrar_puntuacion()" type="button" >Puntuar</button></div> </div> </div>'
+                            marker.info += '<button class="btn-blue" onclick="MapaObjeto.mostrar_puntuacion()" type="button" >Puntuar</button></div>'
+                            
+                            marker.info += ' </div> </div>'
                             marker.punto = data.d[i]
+
+                            
 
                             google.maps.event.addListener(marker, 'click', function() {
                                 info_window.content = this.info;
                                 info_window.maxWidth = 300;
                                 info_window.open(this.getMap(), this);
-                                MapaAtributos.mapa.panTo(this.getPosition());
+                                console.log(this.getPosition().lat())
+                                console.log(this.getPosition().lng())
+                                var pos = new google.maps.LatLng(this.getPosition().lat() + 0.0032, this.getPosition().lng())
+                                MapaAtributos.mapa.panTo(pos);
+
                                 MapaAtributos.punto_seleccionado = this.punto
                             });
                         }
@@ -2092,6 +2110,33 @@ var Contenido = {
             return true;
         }*/
         return true;
+    },
+
+    lista_mostrar: function(){
+      touchScroll('window_lista');
+      $("#window_lista").css("display", "block")
+    },
+
+
+    lista_seluno: function(pos){
+      var marker = markersArray[pos]
+
+      var html = '<div class="info-window-min">'
+      html += marker.info
+      html += '</div>'
+      
+      info_window.content = html;
+      info_window.maxWidth = 200;
+      info_window.open(marker.getMap(), marker);
+
+      MapaAtributos.mapa.panTo(marker.getPosition());
+      MapaAtributos.punto_seleccionado = marker.punto
+
+      $("#window_lista").css("display", "none")
+    },
+
+    lista_ocultar: function(){
+      $("#window_lista").css("display", "none")
     }
 }
 

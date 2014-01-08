@@ -76,13 +76,16 @@ var Insertar = {
         var db = window.openDatabase("bd_finanzas", "1.0", "Mis finanzas", 200000);
         db.transaction(AgregarIngreso, errorOperacion, function(){
 			if(ing_vacios=="S"){
-                navigator.notification.alert("Debe diligenciar el campo valor, éste debe ser numérico y sin puntos.", function(){}, "Error", "Aceptar");
+                navigator.notification.alert("Debe diligenciar el campo valor, éste debe ser numérico y sin puntos.", function(){}, "Campo valor inválido", "Aceptar");
+			}
+			else if(ing_vacios == "NO_INT"){
+				navigator.notification.alert("El valor debe ser numérico.", function(){}, "Campo valor inválido", "Aceptar");
 			}
 			else if(ing_vacios=="NN"){
-                navigator.notification.alert("El valor debe ser numérico, positivo y sin puntos.", function(){}, "Error", "Aceptar");
+                navigator.notification.alert("El valor debe ser numérico.", function(){}, "Campo valor inválido", "Aceptar");
 			}
 			else if(ing_vacios=="NG"){
-                navigator.notification.alert("El valor debe tener máximo 9 digitos.", function(){}, "Error", "Aceptar");
+                navigator.notification.alert("El valor debe tener máximo 9 digitos.", function(){}, "Campo valor inválido", "Aceptar");
 			}
 			else{
                 navigator.notification.alert("Información almacenada.", function(){}, "Transacción exitosa", "Aceptar");
@@ -92,6 +95,24 @@ var Insertar = {
 		});
     }
 	
+	function isNumber(value) {
+	    if ((undefined === value) || (null === value)) {
+	        return false;
+	    }
+	    if (typeof value == 'number') {
+	        return true;
+	    }
+	    return !isNaN(value - 0);
+	}
+
+
+	function isInteger(value) {
+	    if ((undefined === value) || (null === value)) {
+	        return false;
+	    }
+	    return value % 1 == 0;
+	}
+
 	function AgregarIngreso(tx) {
         var today=new Date();
         var dia=today.getDate();
@@ -107,11 +128,16 @@ var Insertar = {
 		
 		if(valor != ""){
 			if(valor.length <= 9){
-				if(!isNaN(valor) && valor > 0 && valor.indexOf(".")== -1 && valor.indexOf(",")== -1){
-					tx.executeSql('INSERT INTO ingresos (fecha_ing, valor_ing, tipo_ing, nota_ing) VALUES ("'+hoy+'", "'+valor+'", "'+tipo+'","'+nota+'")');
+				if (isInteger(valor)){
+					if(!isNaN(valor) && valor > 0 && valor.indexOf(".") == -1 && valor.indexOf(",")== -1){
+						tx.executeSql('INSERT INTO ingresos (fecha_ing, valor_ing, tipo_ing, nota_ing) VALUES ("'+hoy+'", "'+valor+'", "'+tipo+'","'+nota+'")');
+					}else{
+						ing_vacios= "NN";
+					}	
 				}else{
-					ing_vacios= "NN";
+					ing_vacios = "NO_INT"
 				}
+				
 			}else{
 				ing_vacios= "NG";
 			}
@@ -121,7 +147,9 @@ var Insertar = {
     }
 	
 	function errorOperacion(err) {
-        navigator.notification.alert("Ocurrió un fallo, por favor vuelve a intentarlo.", function(){}, "Error", "Aceptar");
+		console.log("Finanzas:errorOperacion: ")
+		console.log(err)
+        //navigator.notification.alert("Ocurrió un fallo, por favor vuelve a intentarlo.", function(){}, "Error", "Aceptar");
     }
 	
 	function RealizarConsultaIngre() {
@@ -189,15 +217,16 @@ var Insertar = {
 
     function SaldoTotal(tx, results) {
 		var egresos = results.rows.item(0).totalEg;
-		var	rtado = dar_formato (window.ingresos - egresos);
+		var dif = window.ingresos - egresos
+		var	rtado = dar_formato(dif);
         var diferencia = "$" +rtado;
 		
-		if(diferencia < 0){
+		if(dif < 0){
 			$("#tit_ahorro").text("Haz gastado más de lo que haz ganado");
 			$("#sActual").html(diferencia);
 			$("#sActual").css("color","#B40404");
 			$("#pie_ahorro").text("Planea mejor tus gastos según tu presupuesto.");
-		}else if(diferencia == 0){
+		}else if(dif == 0){
 			$("#tit_ahorro").text("No haz logrado ahorrar en este periodo");
 			$("#sActual").html(diferencia);
 			$("#sActual").css("color","#1A3C8F");
@@ -218,13 +247,16 @@ var Insertar = {
         var db = window.openDatabase("bd_finanzas", "1.0", "Mis finanzas", 200000);
         db.transaction(AgregarEgreso, errorOperacion, function(){		
 			if(egr_vacios=="S"){
-                navigator.notification.alert("Debe diligenciar el campo valor, éste debe ser numérico y sin puntos.", function(){}, "Error", "Aceptar");
+                navigator.notification.alert("Debe diligenciar el campo valor, éste debe ser numérico y sin puntos.", function(){}, "Campo valor inválido", "Aceptar");
+			}
+			else if(egr_vacios=="NO_INT"){
+                navigator.notification.alert("El valor debe ser numérico.", function(){}, "Campo valor inválido", "Aceptar");
 			}
 			else if(egr_vacios=="NN"){
-                navigator.notification.alert("El valor debe ser numérico, positivo y sin puntos.", function(){}, "Error", "Aceptar");
+                navigator.notification.alert("El valor debe ser numérico.", function(){}, "Campo valor inválido", "Aceptar");
 			}
 			else if(egr_vacios=="NG"){
-                navigator.notification.alert("El valor debe tener máximo 9 digitos.", function(){}, "Error", "Aceptar");
+                navigator.notification.alert("El valor debe tener máximo 9 digitos.", function(){}, "Campo valor inválido", "Aceptar");
 			}
 			else{
                 navigator.notification.alert("Información almacenada.", function(){}, "Transacción exitosa", "Aceptar");
@@ -247,10 +279,14 @@ var Insertar = {
 		egr_vacios = "";
 		if(valor != ""){
 			if(valor.length <= 9){
-				if(!isNaN(valor) && valor > 0 && valor.indexOf(".")== -1 && valor.indexOf(",")== -1){
-					tx.executeSql('INSERT INTO egresos (fecha_eg, valor_eg, tipo_eg, nota_eg) VALUES ("'+hoy+'", "'+valor+'", "'+tipo+'","'+nota+'")');
+				if (isInteger(valor)){
+					if(!isNaN(valor) && valor > 0 && valor.indexOf(".")== -1 && valor.indexOf(",")== -1){
+						tx.executeSql('INSERT INTO egresos (fecha_eg, valor_eg, tipo_eg, nota_eg) VALUES ("'+hoy+'", "'+valor+'", "'+tipo+'","'+nota+'")');
+					}else{
+						egr_vacios= "NN";
+					}
 				}else{
-					egr_vacios= "NN";
+					egr_vacios = "NO_INT"
 				}
 			}else{
 				egr_vacios= "NG";
@@ -339,11 +375,11 @@ function dar_formato(num){
 		{
 			cadena = "," + cadena; 
 		}
-		else if(cont == 6 && num.length > 6)
+		else if(cont == 6 && num.length > 7)
 		{
 			cadena = "'" + cadena; 
 		}
-		else if(cont == 9 && num.length > 9)
+		else if(cont == 9 && num.length > 10)
 		{
 			cadena = "," + cadena; 
 		}

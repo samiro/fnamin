@@ -6,7 +6,7 @@ body *{font-family:'MyriadPro' !important}
 body,html{height:100%;width:100%}
 body,html,h1,h2,h3,h4,h5,li,ul{margin:0;padding:0}
 input:hover,input:active,input:focus,select:hover,select:active,select:focus,button:hover,button:active,button:focus,div:hover,div:active,div:focus,a:hover,a:active,a:focus{outline:none}
-a{text-decoration:none}
+a{text-decoration:none;-webkit-tap-highlight-color:rgba(255,255,255,0)}
 p{color:#444}
 .wrapper{position:absolute;top:51px;bottom:51px;left:0;right:0;overflow:auto;background:#fff}
 .wrapper_content{background:#fff;padding:51px 0}
@@ -76,8 +76,8 @@ p{color:#444}
 .lista-portafolio{margin:0;}
 .lista-portafolio h2{color:#1a3c8f;margin:0;font-style:italic;font-size:22px}
 .lista-portafolio p{color:#aaa;margin-top:5px;font-size:18px}
-.lista-portafolio li{background:linear-gradient(#fff,#f1f1f1) repeat scroll 0 0 #eee;border:1px solid #ccc;border-width:1px 0;color:#222;text-shadow:0 1px 0 #fff;display:block;overflow:visible;position:relative;text-align:left;list-style:none;padding:0;}
-.lista-portafolio li >div{display:block;padding:0;position:relative;padding-left:15px;padding-top:15px;}
-.lista-portafolio li >div .btn-text a{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding-right:40px;display:block}
+.lista-portafolio li{background:linear-gradient(#fff,#f1f1f1) repeat scroll 0 0 #eee;border:1px solid #ccc;border-width:1px 0;color:#222;text-shadow:0 1px 0 #fff;display:block;overflow:visible;position:relative;text-align:left;list-style:none;padding:0;-webkit-tap-highlight-color:rgba(255,255,255,0);}
+.lista-portafolio li >div{display:block;padding:0;position:relative;padding-left:15px;padding-top:15px;-webkit-tap-highlight-color:rgba(255,255,255,0);}
+.lista-portafolio li >div .btn-text a{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding-right:40px;display:block;-webkit-tap-highlight-color:rgba(255,255,255,0)}
 .lista-portafolio li >div .btn-text .heading{font-weight:700;display:block;text-overflow:ellipsis;overflow:hidden;white-space:nowrap}
 .lista-portafolio li .icon{margin-top:-9px;position:absolute;top:50%;right:10px;background-position:-108px -1px}

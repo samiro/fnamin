@@ -5,6 +5,8 @@ var Insertar = {
 			$("#window_ingreso").css("display", "block")
 		}else if(accion == 'hide'){
 			$("#window_ingreso").css("display", "none")
+			$("#montoIng").val("")
+			$("#notaIng").val("")
 		}
 	},
 
@@ -14,6 +16,8 @@ var Insertar = {
 			$("#window_egreso").css("display", "block")
 		}else if(accion == 'hide'){
 			$("#window_egreso").css("display", "none")
+			$("#montoEgr").val("")
+			$("#notaEgr").val("")
 		}
 	},
 	

@@ -1988,7 +1988,7 @@ var MapaObjeto = {
                         //$.mobile.changePage("#map-page")
                         MapaObjeto.ocultar_puntuacion()
                         
-                        $("#input-puntos").val(1)
+                        $("#input-puntos").val("")
                         /*$("#input-puntos-txt").text(1)*/
                         $("#input-tipo").val("")
                         $("#input-opinion").val("")

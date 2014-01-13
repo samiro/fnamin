@@ -73,6 +73,7 @@ p{color:#444}
 .footer #flink-asesoria span{background-position:-47px -3px;width:28px;height:25px}
 .footer #flink-finanzas span{background-position:-77px -3px;width:22px;height:26px}
 .footer a:hover,.footer a:active{background:#1a4990;-webkit-tap-highlight-color:rgba(255,255,255,0)}
+label{-webkit-tap-highlight-color:rgba(255,255,255,0)}
 #inicio_finanzas{padding-bottom:70px;}
 #inicio_finanzas .imagen-head{max-height:auto;height:200px;}
 #inicio_finanzas .imagen-head .balance{position:absolute;color:#fff;font-size:18px;line-height:22px;top:20px;left:20px;right:20px;text-align:center;font-style:italic}

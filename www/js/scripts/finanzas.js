@@ -3,7 +3,9 @@ var Insertar = {
 	agr_ingreso: function(accion){
 		if(accion == 'show'){
 			$("#window_ingreso").css("display", "block")
+			$("#mes").hide()
 		}else if(accion == 'hide'){
+			$("#mes").show()
 			$("#window_ingreso").css("display", "none")
 			$("#montoIng").val("")
 			$("#notaIng").val("")
@@ -14,7 +16,9 @@ var Insertar = {
 	agr_egreso: function(accion){
 		if(accion == 'show'){
 			$("#window_egreso").css("display", "block")
+			$("#mes").hide()
 		}else if(accion == 'hide'){
+			$("#mes").show()
 			$("#window_egreso").css("display", "none")
 			$("#montoEgr").val("")
 			$("#notaEgr").val("")
@@ -23,10 +27,12 @@ var Insertar = {
 	
 	ver_historia: function(accion){
 		if(accion == 'show'){
+			$("#mes").hide()
 			$("#window_historia").css("display", "block")
 			ConsultarHistoriaIngre();
 			ConsultarHistoriaEgr();
 		}else if(accion == 'hide'){
+			$("#mes").show()
 			$("#window_historia").css("display", "none")
 		}
 	}

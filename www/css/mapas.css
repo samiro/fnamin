@@ -108,5 +108,7 @@ p{color:#444}
 .centered{bottom:40%;padding:30px 20px;}
 .centered .my_pos{display:none}
 .centered select{font-size:20px;line-height:20px}
+#lista-mapas{bottom:20px;position:absolute;margin:10% 3.5% 15px;overflow:hidden;}
+#lista-mapas .ui-content{max-height:90%;overflow:hidden}
 #lista-mapas ul{list-style:none}
 #lista-mapas .info-window{max-width:none;background:#eee;border-bottom:1px solid #ccc}

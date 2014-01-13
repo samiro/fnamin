@@ -93,6 +93,9 @@ var Insertar = {
 			else if(ing_vacios=="NN"){
                 navigator.notification.alert("El valor debe ser numérico.", function(){}, "Campo valor inválido", "Aceptar");
 			}
+			else if(ing_vacios=="CERO"){
+                navigator.notification.alert("El valor no debe contener ceros a la izquierda.", function(){}, "Campo valor inválido", "Aceptar");
+			}
 			else if(ing_vacios=="NG"){
                 navigator.notification.alert("El valor debe tener máximo 9 digitos.", function(){}, "Campo valor inválido", "Aceptar");
 			}
@@ -132,21 +135,27 @@ var Insertar = {
         var hoy = anio+"-"+setDateZero(mes)+"-"+setDateZero(dia);
         var tipo = $("#ingreso [name='tipoIng']").val();
         var nota = $("#ingreso input[name='notaIng']").val();
-		
+				
 		ing_vacios = "";
 		
 		if(valor != ""){
 			if(valor.length <= 9){
 				if (isInteger(valor)){
-					if(!isNaN(valor) && valor > 0 && valor.indexOf(".") == -1 && valor.indexOf(",")== -1){
-						tx.executeSql('INSERT INTO ingresos (fecha_ing, valor_ing, tipo_ing, nota_ing) VALUES ("'+hoy+'", "'+valor+'", "'+tipo+'","'+nota+'")');
+					var montoValidar =valor.toString();
+					var primerNumero =montoValidar.substring(0,1);  
+					//console.log(primerNumero);
+					if(primerNumero != "0"){
+						if(!isNaN(valor) && valor > 0 && valor.indexOf(".") == -1 && valor.indexOf(",")== -1){
+							tx.executeSql('INSERT INTO ingresos (fecha_ing, valor_ing, tipo_ing, nota_ing) VALUES ("'+hoy+'", "'+valor+'", "'+tipo+'","'+nota+'")');
+						}else{
+							ing_vacios= "NN";
+						}	
 					}else{
-						ing_vacios= "NN";
-					}	
+							ing_vacios= "CERO";
+						}	
 				}else{
 					ing_vacios = "NO_INT"
-				}
-				
+				}				
 			}else{
 				ing_vacios= "NG";
 			}
@@ -264,6 +273,9 @@ var Insertar = {
 			else if(egr_vacios=="NN"){
                 navigator.notification.alert("El valor debe ser numérico.", function(){}, "Campo valor inválido", "Aceptar");
 			}
+			else if(egr_vacios=="CERO"){
+                navigator.notification.alert("El valor no debe contener ceros a la izquierda.", function(){}, "Campo valor inválido", "Aceptar");
+			}
 			else if(egr_vacios=="NG"){
                 navigator.notification.alert("El valor debe tener máximo 9 digitos.", function(){}, "Campo valor inválido", "Aceptar");
 			}
@@ -289,10 +301,16 @@ var Insertar = {
 		if(valor != ""){
 			if(valor.length <= 9){
 				if (isInteger(valor)){
-					if(!isNaN(valor) && valor > 0 && valor.indexOf(".")== -1 && valor.indexOf(",")== -1){
-						tx.executeSql('INSERT INTO egresos (fecha_eg, valor_eg, tipo_eg, nota_eg) VALUES ("'+hoy+'", "'+valor+'", "'+tipo+'","'+nota+'")');
+					var montoValidar = valor.toString();
+					var primerNumero = montoValidar.substring(0,1);  
+					if(primerNumero != "0"){
+						if(!isNaN(valor) && valor > 0 && valor.indexOf(".")== -1 && valor.indexOf(",")== -1){
+							tx.executeSql('INSERT INTO egresos (fecha_eg, valor_eg, tipo_eg, nota_eg) VALUES ("'+hoy+'", "'+valor+'", "'+tipo+'","'+nota+'")');
+						}else{
+							egr_vacios= "NN";
+						}
 					}else{
-						egr_vacios= "NN";
+							egr_vacios= "CERO";
 					}
 				}else{
 					egr_vacios = "NO_INT"
@@ -375,8 +393,7 @@ function dar_formato(num){
 	var aux; 
 	var cont = 0,m,k;  
 	 
-	num=num.toString();  
-	  	  
+	num=num.toString();  	  	
 	for(m=num.length-1; m>=0; m--){ 	  
 		cadena = num.charAt(m) + cadena; 	  
 		cont++;
@@ -384,7 +401,7 @@ function dar_formato(num){
 		{
 			cadena = "," + cadena; 
 		}
-		else if(cont == 6 && num.length > 7)
+		else if(cont == 6 && num.length >= 7)
 		{
 			cadena = "'" + cadena; 
 		}

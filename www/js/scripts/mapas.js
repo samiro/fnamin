@@ -1555,7 +1555,7 @@ var MapaObjeto = {
 
                         var ciudad       = results[results.length - 3].address_components[0].long_name
                         var departamento = results[results.length - 3].address_components[1].long_name
-                        
+
                         /*console.log(results)*/
 
                         MapaAtributos.ciudad = ciudad.toUpperCase()
@@ -1812,7 +1812,12 @@ var MapaObjeto = {
                             marker.info += '<div class="info1">Horario de atención: <span>'+ horario +'</span></div> '
                             lista_mapa.append('<li onclick="Contenido.lista_seluno(' + markersArray.length + ')">' + marker.info + ' </div> </div> </li>')
                             
-                            marker.info += '<div class="btns"><button class="btn-blue" onclick="MapaObjeto.mostrar_ruta(\''+data.d[i].latitud+'\', \''+data.d[i].longitud+'\')" type="button" >Como llegar</button> '
+                            marker.info += '<div class="btns">'
+                            
+                            if(MapaAtributos.mi_ciudad == MapaAtributos.ciudad){
+                              marker.info += '<button class="btn-blue btn-mapa-ruta" onclick="MapaObjeto.mostrar_ruta(\''+data.d[i].latitud+'\', \''+data.d[i].longitud+'\')" type="button" >Como llegar</button>'
+                            }
+                            
                             marker.info += '<button class="btn-blue" onclick="MapaObjeto.mostrar_puntuacion()" type="button" >Puntuar</button></div>'
                             
                             marker.info += ' </div> </div>'

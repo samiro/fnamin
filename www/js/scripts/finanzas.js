@@ -45,8 +45,7 @@ var Insertar = {
         var mon=d.getMonth();
         var year=d.getFullYear();        
        // var hoy = year+"-"+setDateZero(mon)+"-"+setDateZero(dat);
-              
-        $( "#mes" ).val(mon+1);
+        $( "#mes" ).val(setDateZero(mon+1));
         configurar_db()
         RealizarLaConsulta();
 	});

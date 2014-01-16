@@ -1569,7 +1569,7 @@ var MapaObjeto = {
                         $("#sel_city").val(MapaAtributos.ciudad+ "@" + MapaAtributos.departamento)
 
                     }catch(e){
-                        navigator.notification.alert("No pudimos localizar tu ciudad.", function(){}, "Error", "Aceptar");
+                        navigator.notification.alert("No pudimos localizar tu ciudad.", function(){}, "Sin localización", "Aceptar");
                     }
 
                     if(callback!=undefined)
@@ -1578,20 +1578,28 @@ var MapaObjeto = {
                 } else {
                     if(callback!=undefined)
                         callback()
-                    navigator.notification.alert("No pudimos localizar tu ciudad.", function(){}, "Error", "Aceptar");
+                    navigator.notification.alert("No pudimos localizar tu ciudad.", function(){}, "Sin localización", "Aceptar");
                 }
             });
         }, 
         function( error ){
             //navigator.notification.alert("OMP: " + error.message , "",  "C: " + error.code, "Aceptar");
             if(error.code == PositionError.POSITION_UNAVAILABLE){
+              
               console.log("obtener_mi_posicion: POSITION_UNAVAILABLE")
+              navigator.notification.alert("No está disponible la localización", function(){}, "Lo sentimos", "Aceptar");
+
             }else if(error.code == PositionError.TIMEOUT){
               console.log("obtener_mi_posicion: TIMEOUT")
+              navigator.notification.alert("No está disponible la localización", function(){}, "Lo sentimos", "Aceptar");
+
             }else if(error.code == PositionError.PERMISSION_DENIED){
               console.log("obtener_mi_posicion: PERMISSION_DENIED")
+              navigator.notification.alert("No está disponible la localización", function(){}, "Lo sentimos", "Aceptar");
+
             }else{
               console.log("obtener_mi_posicion: OTRO con codigo " + error.code)
+              navigator.notification.alert("No está disponible la localización", function(){}, "Lo sentimos", "Aceptar");
             }
 
             $.loading('hide')
@@ -1622,7 +1630,7 @@ var MapaObjeto = {
     ubicarme: function(callback){
         if(MapaAtributos.mapa != null){
 
-            if(MapaAtributos.mi_posicion != null){
+            if( MapaAtributos.mi_posicion != null ){
                 var position = MapaAtributos.mi_posicion
                 var lat = position.coords.latitude
                 var lon = position.coords.longitude
@@ -2088,15 +2096,27 @@ var Contenido = {
                     "Aceptar")
             }
     },
+    
+    /*
+
+
+
+
+              OJO CAMBIE CLEAROVERLAYS() DE POSICION A QUE ESTÉ DENTRO DE UBICACION. ANTES ESTABA
+              AL PRINCIPIO DEL METODO.
+
+
+    */
     // Carga el contenido segun la petición de página que le halla llegado
     cargar_mi_posicion: function(){
-        clearOverlays()
+        
         $.loading( "hide" );
         $.loading( 'show', "Ubicando mi posición");
         
         MapaAtributos.mi_posicion = null
 
         MapaObjeto.ubicarme( function(){
+            clearOverlays()
             $.loading( "hide" );
             $.loading('show', "Cargando puntos FNA");
             MapaObjeto.cargar_todos_puntos( true, function(){

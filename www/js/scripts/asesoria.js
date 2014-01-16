@@ -1,3 +1,12 @@
+function fake_solicitar_llamada(){
+  /*asesoria_exitosa('show')*/
+
+  setTimeout( function() {
+      $(window).scrollTop()
+      asesoria_exitosa('show')
+  }, 1000 );
+
+}
 
 function solicitar_llamada(){
     $.loading( 'show', "Solicitando asesoría...");

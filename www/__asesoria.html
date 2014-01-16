@@ -8,12 +8,12 @@
 	<link rel="stylesheet" type="text/css" href="css/asesoria.css">
 	
 	<script type="text/javascript" src="js/lib/jquery.js"></script>
-	
-	<script type="text/javascript" src="cordova.js"></script>
-	 
 	<!-- 
+	<script type="text/javascript" src="cordova.js"></script>
+	 --> 
+	
 	<script type="text/javascript" src="js/debug.js"></script>
- 	 -->
+ 	
 	<script type="text/javascript" src="js/scripts/general.js"></script>
 	<script type="text/javascript" src="js/scripts/asesoria.js"></script>
 </head>
@@ -56,7 +56,7 @@
 			</div>
 			<div class="btns-center">
 				<button onclick="limpiar_campos()" class="btn-limpiar btn-white">Limpiar</button>
-				<button onclick="solicitar_llamada()" class="btn-solicitar btn-blue">Solicitar asesoría</button>
+				<button onclick="fake_solicitar_llamada()" class="btn-solicitar btn-blue">Solicitar asesoría</button>
 			</div>
 		</div>
 	</div>
@@ -84,25 +84,32 @@
 
 	<div id="window_compartir" class="window">
 		<div class="window-container">
-		<div id="compartir">
-			<div class="superior">
-				<h1 class="ui-header ui-title">FNA Social</h1>
-				<a href="javascript: Funciones.compartir('hide')" class="btn-right">Cerrar</a>
-			</div>
-			<div class="ui-content ui-body-b">
-				<div class="window-content">
-					<button class="btn-blue btn-block" onclick="window.open('https://plus.google.com/share?url=http://fna.gov.co', '_system');">Google+</button>
-	
-					<button class="btn-blue btn-block" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=http://fna.gov.co', '_system');">Facebook</button>
+			<div id="compartir">
+				<div class="superior">
+					<h1 class="ui-header ui-title">FNA Social</h1>
+					<a href="javascript: Funciones.compartir('hide')" class="btn-right">Cerrar</a>
+				</div>
+				<div class="ui-content ui-body-b">
+					<div class="window-content">
+						<button class="btn-blue btn-block btn-google" onclick="window.open('https://plus.google.com/share?url=http://fna.gov.co', '_system');">
+							<img src="img/icon_google.png" alt="Google+"><span>Google+</span>
+						</button>
+		
+						<button class="btn-blue btn-block btn-facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=http://fna.gov.co', '_system');">
+							<img src="img/icon_facebook.png" alt="Facebook"><span>Facebook</span>
+						</button>
 
-					<button class="btn-blue btn-block" onclick="window.open('https://twitter.com/intent/tweet?text=Visita fna.gov.co', '_system');">Twitter</button>
+						<button class="btn-blue btn-block btn-twitter" onclick="window.open('https://twitter.com/intent/tweet?text=Visita%20fna.gov.co', '_system');">
+							<img src="img/icon_twitter.png" alt="Twitter"><span>Twitter</span>
+						</button>
 
-					<button class="btn-blue btn-block" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=http://fna.gov.co', '_system');">Linkedin</button>
-					
+						<button class="btn-blue btn-block btn-linkedin" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=http://fna.gov.co', '_system');">
+							<img src="img/icon_linkedin.png" alt="Linkedin"><span>Linkedin</span>
+						</button>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 	</div>
 
 

@@ -99,3 +99,14 @@ var app = {
 	    }
 	},
 };
+
+
+
+function openLinkInBrowser(url){
+    if (navigator!=undefined && navigator.app!=undefined && navigator.app.loadUrl !=undefined) {
+        navigator.app.loadUrl( url,  { openExternal: true });  
+    } else {
+        window.open(url, "_system");
+    }
+    
+}

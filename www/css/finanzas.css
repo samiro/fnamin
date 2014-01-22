@@ -36,10 +36,10 @@ p{color:#444}
 #window_compartir .window-content{text-align:center}
 .imagen-head{position:relative;overflow:hidden;max-height:150px}
 .imagen-head img{width:100%;left:0;top:0}
-.imagen-head .titulo{position:absolute;color:#fff;font-size:22px;line-height:28px;top:10px;left:40px;right:40px;text-align:center;font-weight:normal;text-shadow:none}
+.imagen-head .titulo{position:absolute;color:#fff;font-size:26px;line-height:30px;top:22px;left:40px;right:40px;margin:0;text-align:center;font-weight:normal;font-style:italic;text-shadow:0 0 4px #000}
 .servicios-tit{padding:0 15px 5px;margin:20px 0 0 0;color:#1a3c8f;font-weight:bold}
 .servicios-tit strong{font-size:24px;line-height:26px;font-style:italic;font-weight:bold;text-align:center;display:block}
-.servicios-desc{padding:15px;font-size:16px;line-height:20px;margin:0;color:#444;}
+.servicios-desc{padding:15px;font-size:16px;line-height:20px;margin:0;color:#444;text-align:justify;}
 .servicios-desc >strong{display:block;padding-bottom:10px}
 .servicios-desc li{margin-left:20px}
 .input_checkbox{display:block;position:relative;margin-top:10px;overflow:hidden;padding:0;}
@@ -87,7 +87,7 @@ p{color:#444}
 .footer a:hover,.footer a:active{background:#1a4990;-webkit-tap-highlight-color:rgba(255,255,255,0)}
 label{-webkit-tap-highlight-color:rgba(255,255,255,0)}
 #inicio_finanzas{padding-bottom:70px;}
-#inicio_finanzas .imagen-head{max-height:auto;height:200px;}
+#inicio_finanzas .imagen-head{max-height:170px;height:170px;}
 #inicio_finanzas .imagen-head .balance{position:absolute;color:#fff;font-size:18px;line-height:22px;top:20px;left:20px;right:20px;text-align:center;font-style:italic}
 #inicio_finanzas .imagen-head label{display:block;text-shadow:0 0 2px #000}
 #inicio_finanzas .imagen-head p{color:#000;margin:0;padding:5px 0;font-size:45px;line-height:40px;font-weight:bold}
@@ -99,7 +99,7 @@ label{-webkit-tap-highlight-color:rgba(255,255,255,0)}
 #inicio_finanzas .entradas-fechas div.ui-input-text{padding:5px 0;margin:0;margin-right:10px;display:inline-block;}
 #inicio_finanzas .entradas-fechas div.ui-input-text input{width:100%;color:#eee;background:#444;border:1px solid #333;border-bottom-width:2px;border-radius:4px;padding:5px 0;font-size:16px}
 #inicio_finanzas .entrada-finanzas{padding:10px;border-bottom:1px solid #b1d4f5;background:#deeefc;}
-#inicio_finanzas .entrada-finanzas .fecha{display:block;font-size:14px;line-height:14px}
+#inicio_finanzas .entrada-finanzas .fecha{display:block;font-size:14px;line-height:14px;word-wrap:break-word}
 #inicio_finanzas .entrada-finanzas .valor{display:block;font-size:25px;line-height:30px;font-weight:bold;font-style:italic;color:#1a3c8f}
 #inicio_finanzas #entradas-ingresos .entrada-finanzas{border-right:1px solid #bbb}
 #inicio_finanzas #entradas-egresos .entrada-finanzas{border-left:1px solid #bbb}

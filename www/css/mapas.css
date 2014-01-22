@@ -121,6 +121,7 @@ p{color:#444}
 .centered .my_pos{display:none}
 .centered select{font-size:20px;line-height:20px}
 #lista-mapas{bottom:20px;position:absolute;margin:10% 3.5% 15px;overflow:hidden;}
-#lista-mapas .ui-content{max-height:90%;overflow:hidden}
+#lista-mapas .ui-content{max-height:90%;overflow:auto}
 #lista-mapas ul{list-style:none}
 #lista-mapas .info-window{max-width:none;background:#eee;border-bottom:1px solid #ccc}
+#lista-mapas .no-lista{font-size:25px;line-height:33px;text-align:center;width:80%;margin:30% auto 0 auto;font-style:italic;color:#888}

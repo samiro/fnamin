@@ -35,6 +35,81 @@ var Insertar = {
 			$("#mes").show()
 			$("#window_historia").css("display", "none")
 		}
+	},
+
+
+	eliminar_ingreso: function(id){
+		var db = window.openDatabase("bd_finanzas", "1.0", "Mis finanzas", 200000);
+        db.transaction(
+        	function(tx){
+        		tx.executeSql(
+	        		"SELECT * FROM ingresos WHERE id = ?", 
+	        		[id], 
+	        		function(tx, results){
+	        			if(results.rows.length>0){
+	        				navigator.notification.alert(
+	        					"Deseas borrar el ingreso de "+dar_formato(results.rows.item(0).valor_ing) + " de " + results.rows.item(0).tipo_ing + "?", 
+	        					function(){
+	        						tx.executeSql(
+	        							"DELETE FROM ingresos WHERE id = ?",
+	        							[id],
+	        							function(){
+	        								window.location.href = "__finanzas.html";
+	        							}, function(){
+	        								console.log("eliminar_ingreso: error eliminando ")
+	        							})
+	        					},
+	        					"Borrar ingreso", 
+	        					"Borrar");
+	        			}
+	        		}, 
+	        		function(error){
+			            console.log("eliminar_ingreso: consultando id")
+			        });
+	        }, 
+	        function(){
+	        	console.log("eliminar_ingreso: Error consultando 1 ")
+	        }, 
+	        function(){
+	        	console.log("eliminar_ingreso: Exito consultando 2 ")
+	        });
+	},
+
+	eliminar_egreso: function(id){
+		var db = window.openDatabase("bd_finanzas", "1.0", "Mis finanzas", 200000);
+        db.transaction(
+        	function(tx){
+        		tx.executeSql(
+	        		"SELECT * FROM egresos WHERE id = ?", 
+	        		[id], 
+	        		function(tx, results){
+	        			if(results.rows.length>0){
+	        				navigator.notification.alert(
+	        					"Deseas borrar el egreso de $"+dar_formato(results.rows.item(0).valor_eg) + " de " + results.rows.item(0).tipo_eg + "?", 
+	        					function(){
+	        						tx.executeSql(
+	        							"DELETE FROM egresos WHERE id = ?",
+	        							[id],
+	        							function(){
+	        								window.location.href = "__finanzas.html";
+	        							}, function(){
+	        								console.log("eliminar_egreso: error eliminando ")
+	        							})
+	        					},
+	        					"Borrar egreso", 
+	        					"Borrar");
+	        			}
+	        		}, 
+	        		function(error){
+			            console.log("eliminar_egreso: consultando id")
+			        });
+	        }, 
+	        function(){
+	        	console.log("eliminar_egreso: Error consultando 1 ")
+	        }, 
+	        function(){
+	        	console.log("eliminar_egreso: Exito consultando 2 ")
+	        });
 	}
 }
 
@@ -55,8 +130,8 @@ var Insertar = {
 	function configurar_db(){
 
         function execute(tx){
-            tx.executeSql('CREATE TABLE IF NOT EXISTS ingresos (fecha_ing, valor_ing, tipo_ing, nota_ing)');
-            tx.executeSql('CREATE TABLE IF NOT EXISTS egresos (fecha_eg, valor_eg, tipo_eg, nota_eg)');
+            tx.executeSql('CREATE TABLE IF NOT EXISTS ingresos (id INTEGER PRIMARY KEY AUTOINCREMENT, fecha_ing, valor_ing, tipo_ing, nota_ing)');
+            tx.executeSql('CREATE TABLE IF NOT EXISTS egresos (id INTEGER PRIMARY KEY AUTOINCREMENT, fecha_eg, valor_eg, tipo_eg, nota_eg)');
         }
 
         function error(error){
@@ -198,7 +273,7 @@ var Insertar = {
 					nota = results.rows.item(i).nota_ing;
 				}	
 				var formatValor = dar_formato(results.rows.item(i).valor_ing);				
-				$("#entradas-ingresos").append('<div class="entrada-finanzas"><label class="fecha">'+results.rows.item(i).fecha_ing+"  "+results.rows.item(i).tipo_ing+'</label><label class="valor">$'+formatValor+'</label><label class="fecha">'+nota+'</label></div>')
+				$("#entradas-ingresos").append('<div class="entrada-finanzas" onclick="Insertar.eliminar_ingreso('+results.rows.item(i).id+')"><label class="fecha">'+results.rows.item(i).fecha_ing+"  "+results.rows.item(i).tipo_ing+'</label><label class="valor">$'+formatValor+'</label><label class="fecha">'+nota+'</label></div>')
 			}		
 		}else{
 			$("#entradas-ingresos").append('<div class="entrada-finanzas"><label class="fecha">No hay registro de ingresos en este mes</label><label class="valor">$0</label><label class="fecha">  </label></div>')
@@ -348,7 +423,7 @@ var Insertar = {
 					nota = results.rows.item(i).nota_eg;
 				}	
 				var formatValor = dar_formato(results.rows.item(i).valor_eg);
-				$("#entradas-egresos").append('<div class="entrada-finanzas"><label class="fecha">'+results.rows.item(i).fecha_eg+" - "+results.rows.item(i).tipo_eg+'</label><label class="valor">$'+formatValor+'</label><label class="fecha">'+nota+'</label></div>')
+				$("#entradas-egresos").append('<div class="entrada-finanzas" onclick="Insertar.eliminar_egreso('+results.rows.item(i).id+')"><label class="fecha">'+results.rows.item(i).fecha_eg+" - "+results.rows.item(i).tipo_eg+'</label><label class="valor">$'+formatValor+'</label><label class="fecha">'+nota+'</label></div>')
 			}
 		}else{
 			$("#entradas-egresos").append('<div class="entrada-finanzas"><label class="fecha">No hay registro de gastos en este mes</label><label class="valor">$0</label><label class="fecha">  </label></div>')

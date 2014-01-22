@@ -98,12 +98,17 @@ function validar_datos(){
                     $("#form_info_personal input[name='celular']").val()!=""){
                     //if(solo_numeros($("#form_info_personal input[name='cedula']").val()) &&
                        // $("#form_info_personal input[name='cedula']").val() != ""){
+                      if($("#form_info_personal input[name='celular']").val().length != 10){
+                        NoCumple = "El número de celular debe componerse de 10 dígitos"
+                      }else{
                         if ($("#form_info_personal input[name='email']").val() != "" &&
                             validarEmail($("#form_info_personal input[name='email']").val())){
                                  NoCumple = "";
-                         }else{
+                        }else{
                             NoCumple = "Debes diligenciar el correo correctamente"
                         }
+
+                      }
                     // }else{
                     //    NoCumple = "Debes diligenciar la cédula correctamente"
                     //}

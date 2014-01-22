@@ -36,10 +36,10 @@ p{color:#444}
 #window_compartir .window-content{text-align:center}
 .imagen-head{position:relative;overflow:hidden;max-height:150px}
 .imagen-head img{width:100%;left:0;top:0}
-.imagen-head .titulo{position:absolute;color:#fff;font-size:22px;line-height:28px;top:10px;left:40px;right:40px;text-align:center;font-weight:normal;text-shadow:none}
+.imagen-head .titulo{position:absolute;color:#fff;font-size:26px;line-height:30px;top:22px;left:40px;right:40px;margin:0;text-align:center;font-weight:normal;font-style:italic;text-shadow:0 0 4px #000}
 .servicios-tit{padding:0 15px 5px;margin:20px 0 0 0;color:#1a3c8f;font-weight:bold}
 .servicios-tit strong{font-size:24px;line-height:26px;font-style:italic;font-weight:bold;text-align:center;display:block}
-.servicios-desc{padding:15px;font-size:16px;line-height:20px;margin:0;color:#444;}
+.servicios-desc{padding:15px;font-size:16px;line-height:20px;margin:0;color:#444;text-align:justify;}
 .servicios-desc >strong{display:block;padding-bottom:10px}
 .servicios-desc li{margin-left:20px}
 .input_checkbox{display:block;position:relative;margin-top:10px;overflow:hidden;padding:0;}

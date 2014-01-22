@@ -2164,7 +2164,26 @@ var Contenido = {
     },
 
     lista_mostrar: function(){
-      touchScroll('window_lista');
+      touchScroll('lista-mapas-content')
+      touchScroll('window_lista')
+
+      if($("#lista-mapas-content .lista-mapa-items").html() == ""){
+        console.log("mostrar lista: esta vacio")
+        if(MapaAtributos.ciudad == ''){
+          console.log("mostrar lista: sin ciudad escojida")
+          $("#window_lista .no-lista-sinpuntos").hide()
+          $("#window_lista .no-lista-sinciudad").show()
+        } else {
+          console.log("mostrar lista: con ciudad escojida")
+          $("#window_lista .no-lista-sinpuntos").show()
+          $("#window_lista .no-lista-sinciudad").hide()
+        }
+      } else {
+        console.log("mostrar lista: si hay items")
+        $("#window_lista .no-lista-sinpuntos").hide()
+        $("#window_lista .no-lista-sinciudad").hide()
+      }
+      
       $("#window_lista").css("display", "block")
     },
 

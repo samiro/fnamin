@@ -32,6 +32,7 @@ var directionsService = new google.maps.DirectionsService();
 var info_window = new google.maps.InfoWindow({content: ''});
 var markersArray = [];
 var markerPersona = null;
+var MapaMarkerSelected = null;
 /*
     Éste objeto tiene todos los atributos usados para la sección mapas del FNA
 */
@@ -99,9 +100,9 @@ var MapaAtributos = {
             zoom: 5,
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             center: new google.maps.LatLng(5.067132, -75.518288),
-            panControl: true,
+            panControl: false,
             panControlOptions: {
-              position: google.maps.ControlPosition.RIGHT_BOTTOM
+              position: google.maps.ControlPosition.LEFT_BOTTOM
             },
             streetViewControl: false,
             mapTypeControl: false,
@@ -1812,36 +1813,43 @@ var MapaObjeto = {
                             
                             markersArray.push(marker);
                             MapaObjeto.cargar_puntos_data.push(data.d[i])
-
-                            marker.info  = '<div ><div class="info-window"><h2>'+ (bool_atencion? 'Punto de atención FNA': 'Punto de recaudo') +'</h2> '
+                            //
+                            //
+                            // Se crea la maquetación para el marker
+                            //
+                            marker.info  = '<div class="info-window-min" onclick="MapaObjeto.mostrar_detalles()"><div class="info-window"><h2>'+ (bool_atencion? 'Punto de atención FNA': 'Punto de recaudo') +'</h2> '
                             marker.info += '<h1>'+ data.d[i].tipodeentidad +'</h1> '
                             marker.info += '<h3>'+ ubicacion +'</h3> '
                             marker.info += '<div class="info1">Costo transacción: <span>'+ data.d[i].costodetransaccion +'</span></div> '
                             marker.info += '<div class="info1">Horario de atención: <span>'+ horario +'</span></div> '
-                            lista_mapa.append('<li onclick="Contenido.lista_seluno(' + markersArray.length + ')">' + marker.info + ' </div> </div> </li>')
-                            
                             marker.info += '<div class="btns">'
-                            
                             if(MapaAtributos.mi_ciudad == MapaAtributos.ciudad){
                               marker.info += '<button class="btn-blue btn-mapa-ruta" onclick="MapaObjeto.mostrar_ruta(\''+data.d[i].latitud+'\', \''+data.d[i].longitud+'\')" type="button" >Como llegar</button>'
                             }
-                            
                             marker.info += '<button class="btn-blue" onclick="MapaObjeto.mostrar_puntuacion()" type="button" >Puntuar</button></div>'
-                            
                             marker.info += ' </div> </div>'
                             marker.punto = data.d[i]
-
-                            
-
+                            //
+                            //
+                            // Se crea la maquetación para la lista
+                            //
+                            var info_lista  = '<div><div class="info-window"><h2>'+ (bool_atencion? 'Punto de atención FNA': 'Punto de recaudo') +'</h2> '
+                            info_lista += '<h1>'+ data.d[i].tipodeentidad +'</h1> '
+                            info_lista += '<h3>'+ ubicacion +'</h3> '
+                            info_lista += '<div class="info1">Costo transacción: <span>'+ data.d[i].costodetransaccion +'</span></div> '
+                            info_lista += '<div class="info1">Horario de atención: <span>'+ horario +'</span></div> '
+                            lista_mapa.append('<li onclick="Contenido.lista_seluno(' + markersArray.length + ')">' + info_lista + ' </div> </div> </li>')
+                            //
+                            //
+                            // Se crea el evento del click sobre el marker
+                            //
                             google.maps.event.addListener(marker, 'click', function() {
                                 info_window.content = this.info;
                                 info_window.maxWidth = 300;
                                 info_window.open(this.getMap(), this);
-                                console.log(this.getPosition().lat())
-                                console.log(this.getPosition().lng())
-                                var pos = new google.maps.LatLng(this.getPosition().lat() + 0.0032, this.getPosition().lng())
+                                /* 0.0032 se le suma a latitud para bajar*/
+                                var pos = new google.maps.LatLng(this.getPosition().lat() + 0.0025, this.getPosition().lng())
                                 MapaAtributos.mapa.panTo(pos);
-
                                 MapaAtributos.punto_seleccionado = this.punto
                             });
                         }
@@ -1894,8 +1902,25 @@ var MapaObjeto = {
         }
     },
     //
+    //
+    mostrar_detalles: function(){
+      if(info_window!=null){
+        console.log("mostrar")
+        var content = $(info_window.content).attr("onclick", "")
+        $("#detail-map-content").html(content)
+        $("#window_punto_detalle").show()
+      }
+    },
+    //
+    //
+    ocultar_detalles: function(){
+      console.log("ocultar")
+      $("#window_punto_detalle").hide()
+    },
+    //
     // Carga la ruta desde mi punto de ubicacion hasta el punto fna o recaudo señalado
     mostrar_ruta: function(lat, lon){
+        MapaObjeto.ocultar_detalles()
         if( MapaAtributos.mi_posicion != null && MapaAtributos.mi_ciudad == MapaAtributos.ciudad){
             var position = MapaAtributos.mi_posicion
             var start = new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
@@ -1935,6 +1960,7 @@ var MapaObjeto = {
     //
     //Mostrar la ventana de la puntuación
     mostrar_puntuacion: function(){
+        MapaObjeto.ocultar_detalles()
         $("#window_puntuacion").css("display", "block")
         //$.mobile.changePage("#puntuar", {transition: 'pop', role: 'dialog'})
     },
@@ -2144,17 +2170,21 @@ var Contenido = {
 
 
     lista_seluno: function(pos){
-      var marker = markersArray[pos]
+      var marker = markersArray[pos-1]
 
-      var html = '<div class="info-window-min">'
+      /*var html = '<div class="info-window-min">'
       html += marker.info
-      html += '</div>'
+      html += '</div>'*/
+
+      /*var html = $(marker.info).attr("onclick", "")*/
+      var html = marker.info
       
       info_window.content = html;
       info_window.maxWidth = 200;
       info_window.open(marker.getMap(), marker);
 
-      MapaAtributos.mapa.panTo(marker.getPosition());
+      var pos = new google.maps.LatLng(marker.getPosition().lat() + 0.0025, marker.getPosition().lng())
+      MapaAtributos.mapa.panTo(pos);
       MapaAtributos.punto_seleccionado = marker.punto
 
       $("#window_lista").css("display", "none")

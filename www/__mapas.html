@@ -10,12 +10,12 @@
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.9&sensor=true"></script>
 	<script type="text/javascript" src="js/lib/jquery.js"></script>
 	<script type="text/javascript" src="js/lib/touchscroll.js"></script>
-	
+	<!-- 
 	<script type="text/javascript" src="cordova.js"></script>
- 	
-<!-- 
+ 	 -->
+	
 	<script type="text/javascript" src="js/debug.js"></script>
-	 -->
+	
 	<script type="text/javascript" src="js/scripts/general.js"></script>
 	<script type="text/javascript" src="js/scripts/mapas.js"></script>
 	
@@ -25,6 +25,7 @@
 		<a href="index.html" class="btn-left">Inicio</a>
 		<h1 role="heading" aria-level="1">Mapas</h1>
 		<a href="javascript: MapaWindow.filtro('show')" class="btn-right">Filtro</a>
+		<a href="javascript: Contenido.lista_mostrar()" class="btn-right">Lista</a>
 	</div>
 
 
@@ -37,10 +38,10 @@
 		<button class="my_pos" onclick="Contenido.cargar_mi_posicion()">
 				<img src="img/icon_my_ubication.png" alt="Mi posición">
 			</button>
-
+<!-- 
 		<button class="see-list" onclick="Contenido.lista_mostrar()">
 			<img src="img/icon_list.png" alt="Ver lista">
-		</button>
+		</button> -->
 		
 		<!-- <div class="btn-city">
 			<div>
@@ -151,6 +152,25 @@
 						</li>
 					</ul>
 
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<div id="window_punto_detalle" class="window" >
+		<div class="window-container">
+			<div>
+				<div class="superior">
+					<h1 class="ui-header ui-title">Detalles del punto</h1>
+					<a href="javascript: MapaObjeto.ocultar_detalles()" class="btn-right">Cerrar</a>
+				</div>
+
+				<div  class="ui-content ui-body-b">
+					<div id="detail-map-content">
+					</div>
 				</div>
 			</div>
 		</div>

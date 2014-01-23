@@ -1570,7 +1570,7 @@ var MapaObjeto = {
                         $("#sel_city").val(MapaAtributos.ciudad+ "@" + MapaAtributos.departamento)
 
                     }catch(e){
-                        navigator.notification.alert("No pudimos localizar tu ciudad.", function(){}, "Sin localización", "Aceptar");
+                        navigator.notification.alert("No pudimos localizar su ciudad.", function(){}, "Sin localización", "Aceptar");
                     }
 
                     if(callback!=undefined)
@@ -1579,7 +1579,7 @@ var MapaObjeto = {
                 } else {
                     if(callback!=undefined)
                         callback()
-                    navigator.notification.alert("No pudimos localizar tu ciudad.", function(){}, "Sin localización", "Aceptar");
+                    navigator.notification.alert("No pudimos localizar su ciudad.", function(){}, "Sin localización", "Aceptar");
                 }
             });
         }, 
@@ -1824,7 +1824,7 @@ var MapaObjeto = {
                             marker.info += '<div class="info1">Horario de atención: <span>'+ horario +'</span></div> '
                             marker.info += '<div class="btns">'
                             if(MapaAtributos.mi_ciudad == MapaAtributos.ciudad){
-                              marker.info += '<button class="btn-blue btn-mapa-ruta" onclick="MapaObjeto.mostrar_ruta(\''+data.d[i].latitud+'\', \''+data.d[i].longitud+'\')" type="button" >Como llegar</button>'
+                              marker.info += '<button class="btn-blue btn-mapa-ruta" onclick="MapaObjeto.mostrar_ruta(\''+data.d[i].latitud+'\', \''+data.d[i].longitud+'\')" type="button" >Cómo llegar</button>'
                             }
                             marker.info += '<button class="btn-blue" onclick="MapaObjeto.mostrar_puntuacion()" type="button" >Puntuar</button></div>'
                             marker.info += ' </div> </div>'
@@ -1862,7 +1862,7 @@ var MapaObjeto = {
                     }
                 },
                 error: function (x, y, z) {
-                    navigator.notification.alert("Se ha reiniciado la conexión con el servidor. Por favor intentalo más tarde.", function(){}, "Error", "Aceptar");
+                    navigator.notification.alert("Se ha reiniciado la conexión con el servidor. Por favor inténtelo más tarde.", function(){}, "Error", "Aceptar");
                 }
             });
     },
@@ -1938,17 +1938,17 @@ var MapaObjeto = {
                 directionsDisplay.setDirections(response);
               }else if(status == google.maps.DirectionsStatus.NOT_FOUND || status == google.maps.DirectionsStatus.ZERO_RESULTS ){
                 info_window.close()
-                navigator.notification.alert("No es posible calcular ruta hasta ése destino.", function(){}, "Lo sentimos", "Aceptar");
+                navigator.notification.alert("No es posible calcular ruta hasta ese destino.", function(){}, "Lo sentimos", "Aceptar");
               }else if(status == google.maps.DirectionsStatus.OVER_QUERY_LIMIT || status == google.maps.DirectionsStatus.REQUEST_DENIED ){
                 info_window.close()
-                navigator.notification.alert("Ésta funcionalidad no es posible usarla por el momento. Intenta más tarde.", function(){}, "Lo sentimos", "Aceptar");
+                navigator.notification.alert("Ésta funcionalidad no es posible usarla por el momento. Intente más tarde.", function(){}, "Lo sentimos", "Aceptar");
               }else{
                 info_window.close()
-                navigator.notification.alert("No es posible calcular ruta hasta ése destino.", function(){}, "Lo sentimos", "Aceptar");
+                navigator.notification.alert("No es posible calcular ruta hasta ese destino.", function(){}, "Lo sentimos", "Aceptar");
               }
             });
         }else{
-            navigator.notification.alert("Debes estar en tu ciudad por ubicación satelital, para poder usar ésta función", function(){}, "Atención", "Aceptar");
+            navigator.notification.alert("Debe estar en su ciudad por ubicación satelital, para poder usar esta función", function(){}, "Atención", "Aceptar");
         }
     },
     //
@@ -1981,12 +1981,12 @@ var MapaObjeto = {
         var opinion = $("#input-opinion").val()
 
         if(puntos == "" ){
-            navigator.notification.alert("Debes dar una calificación.", function(){}, "Error", "Aceptar");
+            navigator.notification.alert("Debe dar una calificación.", function(){}, "Error", "Aceptar");
             return false;
         }
 
         if(tipo == "" ){
-            navigator.notification.alert("Debes seleccionar lo que calificas.", function(){}, "Error", "Aceptar");
+            navigator.notification.alert("Debe seleccionar lo que califica.", function(){}, "Error", "Aceptar");
             return false;
         }
 
@@ -2033,7 +2033,7 @@ var MapaObjeto = {
                         $("#input-opinion").val("")
                     }
                 }catch (e) {
-                    navigator.notification.alert("Lo sentimos. Intentalo de nuevo.", function(){}, "Ha ocurrido un error", "Aceptar");
+                    navigator.notification.alert("Lo sentimos. Inténtelo de nuevo.", function(){}, "Ha ocurrido un error", "Aceptar");
                 }
             }
         }
@@ -2114,7 +2114,7 @@ var Contenido = {
                 })
             } else {
                 navigator.notification.alert(
-                    "Debes tener conexión a internet para acceder a ésta sección",
+                    "Debe tener conexión a internet para acceder a esta sección",
                     function(){
                         window.location.href="index.html"
                     }, 
@@ -2358,7 +2358,7 @@ var MapaWindow = {
 function cargar_ciudades_select(){
     var ciudades = MapaAtributos.ciudades.sort()
     var select = $("#sel_city").html("")
-        select.append('<option value="">Selecciona tu ciudad</option>')
+        select.append('<option value="">Seleccione su ciudad</option>')
     var ciudades_select = {}
 
     for( var i = 0; i < ciudades.length; i++ ){

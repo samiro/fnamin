@@ -78,7 +78,7 @@ function solicitar_llamada(){
                     navigator.notification.alert(error_msj, function(){}, "Datos inválidos", "Aceptar")
                   }
                 }catch (e) {
-                    navigator.notification.alert("Verifica tu conexión e intenta de nuevo.", function(){}, "Falló la conexión", "Aceptar")
+                    navigator.notification.alert("Verifique su conexión e intente de nuevo.", function(){}, "Falló la conexión", "Aceptar")
                 }
           }
         }
@@ -105,7 +105,7 @@ function validar_datos(){
                             validarEmail($("#form_info_personal input[name='email']").val())){
                                  NoCumple = "";
                         }else{
-                            NoCumple = "Debes diligenciar el correo correctamente"
+                            NoCumple = "Debe diligenciar el correo correctamente"
                         }
 
                       }
@@ -113,13 +113,13 @@ function validar_datos(){
                     //    NoCumple = "Debes diligenciar la cédula correctamente"
                     //}
                 }else{
-                    NoCumple = "Debes diligenciar el celular correctamente"
+                    NoCumple = "Debe diligenciar el celular correctamente"
                 }
             }else{
-                 NoCumple = "Debes diligenciar la dirección correctamente"
+                 NoCumple = "Debe diligenciar la dirección correctamente"
             }
         }else{
-            NoCumple = "Debes diligenciar el nombre correctamente"
+            NoCumple = "Debe diligenciar el nombre correctamente"
         }
 
         return NoCumple;

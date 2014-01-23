@@ -79,7 +79,7 @@ var app = {
     		app.with_internet = false
     		if($("body").attr("required-internet") == "1"){
     			navigator.notification.alert(
-    				"Ésta sección requiere acceso a internet.", 
+    				"Esta sección requiere acceso a internet.", 
     				function(){
     					window.location.href = "index.html"
     				}, "Sin conexión a internet", "Ir al inicio");

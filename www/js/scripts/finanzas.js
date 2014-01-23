@@ -48,7 +48,7 @@ var Insertar = {
 	        		function(tx, results){
 	        			if(results.rows.length>0){
 	        				navigator.notification.alert(
-	        					"Deseas borrar el ingreso de "+dar_formato(results.rows.item(0).valor_ing) + " de " + results.rows.item(0).tipo_ing + "?", 
+	        					"Desea borrar el ingreso de "+dar_formato(results.rows.item(0).valor_ing) + " de " + results.rows.item(0).tipo_ing + "?", 
 	        					function(){
 	        						tx.executeSql(
 	        							"DELETE FROM ingresos WHERE id = ?",
@@ -85,7 +85,7 @@ var Insertar = {
 	        		function(tx, results){
 	        			if(results.rows.length>0){
 	        				navigator.notification.alert(
-	        					"Deseas borrar el egreso de $"+dar_formato(results.rows.item(0).valor_eg) + " de " + results.rows.item(0).tipo_eg + "?", 
+	        					"Desea borrar el egreso de $"+dar_formato(results.rows.item(0).valor_eg) + " de " + results.rows.item(0).tipo_eg + "?", 
 	        					function(){
 	        						tx.executeSql(
 	        							"DELETE FROM egresos WHERE id = ?",
@@ -315,20 +315,20 @@ var Insertar = {
         var diferencia = "$" +rtado;
 		
 		if(dif < 0){
-			$("#tit_ahorro").text("Haz gastado más de lo que haz ganado");
+			$("#tit_ahorro").text("Ha gastado más de lo que ha ganado");
 			$("#sActual").html(diferencia);
 			$("#sActual").css("color","#B40404");
-			$("#pie_ahorro").text("Planea mejor tus gastos según tu presupuesto.");
+			$("#pie_ahorro").text("Planee mejor sus gastos según su presupuesto.");
 		}else if(dif == 0){
-			$("#tit_ahorro").text("No haz logrado ahorrar en este periodo");
+			$("#tit_ahorro").text("No ha logrado ahorrar en este periodo");
 			$("#sActual").html(diferencia);
 			$("#sActual").css("color","#1A3C8F");
-			$("#pie_ahorro").text("Mejora tu plan de gastos según tu presupuesto.");
+			$("#pie_ahorro").text("Mejore su plan de gastos según su presupuesto.");
 		}else{
-			$("#tit_ahorro").text("Haz ahorrado en este periodo");
+			$("#tit_ahorro").text("Ha ahorrado en este periodo");
 			$("#sActual").html(diferencia);
 			$("#sActual").css("color","#C1D82F");
-			$("#pie_ahorro").text("Puedes acercarte a una oficina fna para invertir tu ahorro.");
+			$("#pie_ahorro").text("Puede acercarse a una oficina fna para invertir su ahorro.");
 		}
     }
 	

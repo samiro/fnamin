@@ -92,14 +92,27 @@ var Insertar = {
 	        					function( buttonIndex ){
                                     console.log("ButtonIndex: " + buttonIndex)
                                     if(buttonIndex == 1){
-                                        tx.executeSql(
-                                            "DELETE FROM egresos WHERE id = ?",
-                                            [id],
+                                        var bd_finan = window.openDatabase("bd_finanzas", "1.0", "Mis finanzas", 200000);
+                                        bd_finan.transaction(
+                                            function(tx){
+                                                console.log("Voy a ejecutar el Delete")
+                                                tx.executeSql(
+                                                    "DELETE FROM egresos WHERE id = ?",
+                                                    [id],
+                                                    function(){
+                                                        window.location.href = "__finanzas.html";
+                                                    }, function(){
+                                                        console.log("eliminar_egreso: error eliminando ")
+                                                    })
+                                                console.log("Termine de ejecutarlo")
+                                            },
+                                            function(error){
+                                                console.log("eliminar_egreso: Error ejecutando delete ")
+                                            },
                                             function(){
-                                                window.location.href = "__finanzas.html";
-                                            }, function(){
-                                                console.log("eliminar_egreso: error eliminando ")
+                                                console.log("eliminar_egreso: Bien ejecutando delete ")
                                             })
+                                        console.log("Despues de llamar crear el bd_finan")
                                     }
 	        					},
 	        					"Borrar egreso",

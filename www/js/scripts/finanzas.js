@@ -50,9 +50,8 @@ var Insertar = {
                             navigator.notification.confirm(
                                 "Desea borrar el ingreso de "+dar_formato(results.rows.item(0).valor_ing) + " de " + results.rows.item(0).tipo_ing + "?",
                                 function(buttonIndex){
-
+                                    console.log("ButtonIndex: " + buttonIndex)
                                     if(buttonIndex == 1){
-
                                         tx.executeSql(
                                             "DELETE FROM ingresos WHERE id = ?",
                                             [id],
@@ -64,7 +63,7 @@ var Insertar = {
                                     }
                                 },
                                 "Borrar ingreso",
-                                "Borrar, Cancelar")
+                                ["Borrar", "Cancelar"])
 	        			}
 	        		},
 	        		function(error){
@@ -91,7 +90,7 @@ var Insertar = {
 	        				navigator.notification.confirm(
 	        					"Desea borrar el egreso de $"+dar_formato(results.rows.item(0).valor_eg) + " de " + results.rows.item(0).tipo_eg + "?",
 	        					function( buttonIndex ){
-
+                                    console.log("ButtonIndex: " + buttonIndex)
                                     if(buttonIndex == 1){
                                         tx.executeSql(
                                             "DELETE FROM egresos WHERE id = ?",
@@ -104,7 +103,7 @@ var Insertar = {
                                     }
 	        					},
 	        					"Borrar egreso",
-	        					"Borrar, Cancelar");
+	        					["Borrar", "Cancelar"]);
 	        			}
 	        		},
 	        		function(error){

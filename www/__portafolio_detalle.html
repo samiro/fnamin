@@ -1,49 +1,58 @@
 <!doctype html>
-<html lang="en" >
-<head >
+<html lang="en">
+<head>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
-	<title>Portafolio</title>
+	<title></title>
 	<link rel="stylesheet" type="text/css" href="css/portafolio.css">
 
-    <script type="text/javascript" src="js/lib/jquery.js"></script>
-<!--
-	<script type="text/javascript" src="cordova.js"></script>
+		<script type="text/javascript" src="js/lib/jquery.js"></script>
+	<!--
+		<script type="text/javascript" src="cordova.js"></script>
  -->
 
-	<script type="text/javascript" src="js/debug.js"></script>
+		<script type="text/javascript" src="js/debug.js"></script>
 
 
 	<script type="text/javascript" src="js/scripts/general.js"></script>
     <script type="text/javascript" src="js/scripts/portafolio.js"></script>
-
 </head>
-<body page="portafolio" required-internet="0" >
+<body page="port-ahorro" required-internet="0">
 	<div class="header">
-		<a href="index.html" class="btn-left">Inicio</a>
-		<h1 role="heading" aria-level="1">Portafolio</h1>
+		<a href="__portafolio.html" class="btn-left">Portafolio</a>
+
+		<h1 role="heading" aria-level="1" id="servicio-nombre"></h1>
+
 		<a href="javascript: Funciones.compartir('show')" class="btn-right tap-compartir">Compartir</a>
 	</div>
 
 
 
 	<div class="wrapper_content">
-		<div class="ui-content ui-content-portafolio">
-			<div class="imagen-head">
-				<img src="img/portafolio.jpg">
-			</div>
 
-            <div class="servicios-tit">
-                <strong>
-                    <label>Conozca todos nuestros servicios</label>
-                </strong>
+		<div>
+            <div class="imagen-head">
+            	<img id="servicio-imagen" src="">
             </div>
+    		<div class="servicios-tit">
+    			<strong>
+    				<label id="servicio-titulo"></label>
+    			</strong>
+            </div>
+    	</div>
 
-	        <ul class="lista-portafolio">
-	       	</ul>
+    	<div class="">
+    		<div class="p">
+    			<div class="servicios-desc">
+                    <div id="servicio-destalle"></div>
+                    <br><br>
+                    <strong style='text-align: left;'>Beneficios:</strong>
+                    <div id="servicio-beneficios"></div>
+    			</div>
+    		</div>
+    	</div>
 
-	    </div>
 	</div>
 
 
@@ -67,10 +76,10 @@
 	</div>
 
 
-
-	<div id="window_compartir" class="window">
+	<div id="window_compartir" class="window" >
 		<div class="window-container">
 		<div id="compartir">
+
 			<div class="superior">
 				<h1 class="ui-header ui-title">FNA Social</h1>
 				<a href="javascript: Funciones.compartir('hide')" class="btn-right">Cerrar</a>
@@ -93,21 +102,20 @@
 							<img src="img/icon_linkedin.png" alt="Linkedin"><span>Linkedin</span>
 						</button>
 					</div>
-    			</div>
-    		</div>
+			</div>
 		</div>
+	</div>
 	</div>
 
 
-
 	<div id="loading" class="ui-loader ui-corner-all ui-body-a ui-loader-verbose">
-        <span class="ui-icon ui-icon-loading"></span>
-        <h1> -- </h1>
-    </div>
+		<span class="ui-icon ui-icon-loading"></span>
+		<h1> -- </h1>
+	</div>
 
 	<script type="text/javascript" >
 		app.initialize()
-        Portafolio.cargar_todos()
+        Portafolio.cargar_detalle()
 	</script>
 </body>
 </html>

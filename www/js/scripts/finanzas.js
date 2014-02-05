@@ -50,7 +50,9 @@ var Insertar = {
                             navigator.notification.confirm(
                                 "Desea borrar el ingreso de "+dar_formato(results.rows.item(0).valor_ing) + " de " + results.rows.item(0).tipo_ing + "?",
                                 function(buttonIndex){
-                                    if(buttonIndex == 0){
+
+                                    if(buttonIndex == 1){
+
                                         tx.executeSql(
                                             "DELETE FROM ingresos WHERE id = ?",
                                             [id],
@@ -89,7 +91,8 @@ var Insertar = {
 	        				navigator.notification.confirm(
 	        					"Desea borrar el egreso de $"+dar_formato(results.rows.item(0).valor_eg) + " de " + results.rows.item(0).tipo_eg + "?",
 	        					function( buttonIndex ){
-                                    if(buttonIndex == 0){
+
+                                    if(buttonIndex == 1){
                                         tx.executeSql(
                                             "DELETE FROM egresos WHERE id = ?",
                                             [id],

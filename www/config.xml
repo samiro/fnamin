@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.engenial.fnaentubolsillo" 
-    version="1.0.0" 
-    xmlns="http://www.w3.org/ns/widgets" 
+<widget id="com.engenial.fnaentubolsillo"
+    version="1.0.0"
+    xmlns="http://www.w3.org/ns/widgets"
     xmlns:gap="http://phonegap.com/ns/1.0" >
 
     <preference name="phonegap-version" value="2.9.0" />
@@ -28,6 +28,11 @@
     <feature name="Geolocation">
       <param name="android-package" value="org.apache.cordova.GeoBroker"/>
       <param name="ios-package" value="CDVLocation"/>
+    </feature>
+
+    <feature name="Notification">
+        <param name="android-package" value="org.apache.cordova.Notification" />
+        <param name="ios-package" value="CDVNotification" />
     </feature>
 
     <feature name="Device">
@@ -88,7 +93,7 @@
     <gap:splash gap:platform="ios" height="1024" src="res/screen/ios/screen-ipad-portrait.png" width="768" />
     <gap:splash gap:platform="ios" height="768" src="res/screen/ios/screen-ipad-landscape.png" width="1024" />
     <gap:splash gap:platform="winphone" src="res/screen/windows-phone/screen-portrait.jpg" />
-    
+
     <access origin="*" />
 
     <content src="index.html" />

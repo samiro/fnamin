@@ -1,3 +1,9 @@
+/*
+
+adb logcat | grep 'Web Console'
+
+*/
+
 var Connection = {
     NONE: 'no',
     TIENE: 'tiene'

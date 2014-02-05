@@ -324,7 +324,7 @@ var Insertar = {
 			$("#sActual").html(diferencia);
 			$("#sActual").css("color","#1A3C8F");
 			$("#pie_ahorro").text("Mejore su plan de gastos según su presupuesto.");
-		} else if(dif => window.ingresos * 0.1){
+		} else if(dif >= window.ingresos * 0.1){
             /*Si la diferencia es igual o superior al 10% de los ingresos*/
             $("#tit_ahorro").text("Ha ahorrado en este periodo");
             $("#sActual").html(diferencia);
@@ -334,7 +334,7 @@ var Insertar = {
 			$("#tit_ahorro").text("Ha ahorrado en este periodo");
 			$("#sActual").html(diferencia);
 			$("#sActual").css("color","#C1D82F");
-			$("#pie_ahorro").text(".");
+			$("#pie_ahorro").text("Continúe ahorrando para gozar los beneficios del FNA.");
 		}
     }
 

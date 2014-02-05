@@ -36,7 +36,7 @@ p{color:#444}
 #window_compartir .window-content{text-align:center}
 .imagen-head{position:relative;overflow:hidden;max-height:150px}
 .imagen-head img{width:100%;left:0;top:0}
-.imagen-head .titulo{position:absolute;color:#fff;font-size:26px;line-height:30px;top:22px;left:40px;right:40px;margin:0;text-align:center;font-weight:normal;font-style:italic;text-shadow:0 0 4px #000}
+.imagen-head .titulo{position:absolute;color:#fff;color:#1a3c8f;font-size:26px;line-height:30px;top:22px;left:40px;right:40px;margin:0;text-align:center;font-weight:normal;font-style:italic;text-shadow:0 1px 4px #eee}
 .servicios-tit{padding:0 15px 5px;margin:20px 0 0 0;color:#1a3c8f;font-weight:bold}
 .servicios-tit strong{font-size:24px;line-height:26px;font-style:italic;font-weight:bold;text-align:center;display:block}
 .servicios-desc{padding:15px;font-size:16px;line-height:20px;margin:0;color:#444;text-align:justify;}
@@ -87,11 +87,13 @@ p{color:#444}
 .footer a:hover,.footer a:active{background:#1a4990;-webkit-tap-highlight-color:rgba(255,255,255,0)}
 label{-webkit-tap-highlight-color:rgba(255,255,255,0)}
 #inicio_finanzas{padding-bottom:70px;}
-#inicio_finanzas .imagen-head{max-height:170px;height:170px;}
-#inicio_finanzas .imagen-head .balance{position:absolute;color:#fff;font-size:18px;line-height:22px;top:20px;left:20px;right:20px;text-align:center;font-style:italic}
-#inicio_finanzas .imagen-head label{display:block;text-shadow:0 0 2px #000}
+#inicio_finanzas .fecha-hoy{font-size:25px;line-height:30px;padding:0;margin:0;color:#444;font-style:italic;font-weight:bold;text-align:center}
+#inicio_finanzas .imagen-head{max-height:none;}
+#inicio_finanzas .imagen-head .balance{color:#fff;font-size:18px;line-height:22px;padding:30px;text-align:center;font-style:italic;}
+#inicio_finanzas .imagen-head .balance p{padding:8px 0}
+#inicio_finanzas .imagen-head label{display:block;text-shadow:0 0 4px #ccc;color:#444}
 #inicio_finanzas .imagen-head p{color:#000;margin:0;padding:5px 0;font-size:45px;line-height:40px;font-weight:bold}
-#inicio_finanzas .subtitulo{font-size:20px;line-height:22px;color:#888;text-align:center;font-weight:bold;font-style:italic;margin:20px 0;}
+#inicio_finanzas .subtitulo{font-size:20px;line-height:22px;color:#888;text-align:center;font-weight:bold;font-style:italic;padding:20px 0 0 0;margin:0;}
 #inicio_finanzas .subtitulo .meses{background:#1a3c8f;padding:5px 20px;border:1px solid #12317f;border-radius:2px;color:#fff;font-size:20px;line-height:20px;font-style:italic;height:36px;min-width:200px}
 #inicio_finanzas .entradas-fechas{padding:0;}
 #inicio_finanzas .entradas-fechas .titulo-bg{margin:0}

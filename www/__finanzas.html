@@ -34,8 +34,28 @@
 
 	<div class="wrapper_content" id="inicio_finanzas">
 
+
      	<div class="imagen-head">
-	        <img src="img/finanzas.png">
+	        <img src="img/finanzas_sin.jpg">
+
+            <h2 class="subtitulo">
+                <!--Periodo: -->
+                <select id="mes" class="meses" name="mes" onchange="RealizarLaConsulta()">
+                    <option value="01">Enero</option>
+                    <option value="02">Febrero</option>
+                    <option value="03">Marzo</option>
+                    <option value="04">Abril</option>
+                    <option value="05">Mayo</option>
+                    <option value="06">Junio</option>
+                    <option value="07">Julio</option>
+                    <option value="08">Agosto</option>
+                    <option value="09">Septiembre</option>
+                    <option value="10">Octubre</option>
+                    <option value="11">Noviembre</option>
+                    <option value="12">Diciembre</option>
+                </select>
+            </h2>
+
 	        <div class="balance">
 	          <label id="tit_ahorro">Ahorro en el periodo</label>
 	          <p id="sActual">0</p>
@@ -47,48 +67,32 @@
      	</div>
 
 
-	<h2 class="subtitulo">
-		<!--Periodo: -->
-		<select id="mes" class="meses" name="mes" onchange="RealizarLaConsulta()">
-			<option value="01">Enero</option>
-			<option value="02">Febrero</option>
-			<option value="03">Marzo</option>
-			<option value="04">Abril</option>
-			<option value="05">Mayo</option>
-			<option value="06">Junio</option>
-			<option value="07">Julio</option>
-			<option value="08">Agosto</option>
-			<option value="09">Septiembre</option>
-			<option value="10">Octubre</option>
-			<option value="11">Noviembre</option>
-			<option value="12">Diciembre</option>
-		</select>
-	</h2>
 
-	<div class="entradas-fechas">
-	    <div class="ui-grid-a">
-	        <div class="ui-block-a">
-	          <div class="titulo-bg btn-agregar-ingreso" onclick="Insertar.agr_ingreso('show')">
-	            <label>Ingresos</label>
-	            <button type="button" >+</button>
-	          </div>
-	        </div>
 
-	        <div class="ui-block-b">
-	          <div class="titulo-bg btn-agregar-egreso" onclick="Insertar.agr_egreso('show')">
-	            <label>Egresos</label>
-	            <button type="button">+</button>
-	          </div>
-	        </div>
-	    </div>
+    	<div class="entradas-fechas">
+    	    <div class="ui-grid-a">
+    	        <div class="ui-block-a">
+    	          <div class="titulo-bg btn-agregar-ingreso" onclick="Insertar.agr_ingreso('show')">
+    	            <label>Ingresos</label>
+    	            <button type="button" >+</button>
+    	          </div>
+    	        </div>
 
-		<div class="ui-grid-a">
-	        <div id="entradas-ingresos" class="ui-block-a">
-	        </div>
-	        <div  id="entradas-egresos" class="ui-block-b">
-	        </div>
-	    </div>
-    </div>
+    	        <div class="ui-block-b">
+    	          <div class="titulo-bg btn-agregar-egreso" onclick="Insertar.agr_egreso('show')">
+    	            <label>Egresos</label>
+    	            <button type="button">+</button>
+    	          </div>
+    	        </div>
+    	    </div>
+
+    		<div class="ui-grid-a">
+    	        <div id="entradas-ingresos" class="ui-block-a">
+    	        </div>
+    	        <div  id="entradas-egresos" class="ui-block-b">
+    	        </div>
+    	    </div>
+        </div>
 
 
 	<div id="window_egreso" class="window">
@@ -100,6 +104,9 @@
 			</div>
 			<div class="ui-content ui-body-b">
 				<div class="window-content">
+                    <p class="fecha-hoy">
+                        -- de --
+                    </p>
 					<div class="input_text">
 						<label for="montoEgr">Valor en pesos:</label>
 						<small>Sin puntos ni comas</small>
@@ -145,6 +152,9 @@
 			</div>
 			<div class="ui-content ui-body-b">
 				<div class="window-content">
+                    <p class="fecha-hoy">
+                        -- de --
+                    </p>
 					<div class="input_text">
 						<label for="montoIng">Valor en pesos:</label>
 						<small>Sin puntos ni comas</small>

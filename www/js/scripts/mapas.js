@@ -2091,6 +2091,15 @@ var MapaObjeto = {
 
 
 var Contenido = {
+    bienvenido: function(accion){
+        if(accion == 'show'){
+            $("#window_bienvenido").show()
+        }else if(accion == 'hide'){
+            var skip = $('#skip_bienvenido').is(':checked')? 'yes': 'no'
+            window.localStorage.setItem("skip", skip)
+            $("#window_bienvenido").hide()
+        }
+    },
     // Carga el contenido de los mapas, consultando inicialmente la posición del
     // usuario
     cargar: function(){
@@ -2288,6 +2297,12 @@ $(document).on("ready", function(){
     })
 
     cargar_ciudades_select()
+
+
+    var skip = window.localStorage.getItem("skip")
+    if(skip != "yes"){
+        Contenido.bienvenido('show')
+    }
 })
 
 
@@ -2394,7 +2409,7 @@ function cargar_ciudades_select(){
 function cambio_ciudad(){
     $("#message-txt").text("")
     var sel = $("#sel_city").val()
-    if(sel!=''){
+    if( sel != '' ){
         $("#message-window-mapa").removeClass("centered")
         var datos = sel.split('@')
         var ciudad = datos[0]

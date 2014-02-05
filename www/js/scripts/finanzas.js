@@ -47,20 +47,22 @@ var Insertar = {
 	        		[id],
 	        		function(tx, results){
 	        			if(results.rows.length>0){
-	        				navigator.notification.alert(
-	        					"Desea borrar el ingreso de "+dar_formato(results.rows.item(0).valor_ing) + " de " + results.rows.item(0).tipo_ing + "?",
-	        					function(){
-	        						tx.executeSql(
-	        							"DELETE FROM ingresos WHERE id = ?",
-	        							[id],
-	        							function(){
-	        								window.location.href = "__finanzas.html";
-	        							}, function(){
-	        								console.log("eliminar_ingreso: error eliminando ")
-	        							})
-	        					},
-	        					"Borrar ingreso",
-	        					"Borrar");
+                            navigator.notification.confirm(
+                                "Desea borrar el ingreso de "+dar_formato(results.rows.item(0).valor_ing) + " de " + results.rows.item(0).tipo_ing + "?",
+                                function(buttonIndex){
+                                    if(buttonIndex == 0){
+                                        tx.executeSql(
+                                            "DELETE FROM ingresos WHERE id = ?",
+                                            [id],
+                                            function(){
+                                                window.location.href = "__finanzas.html";
+                                            }, function(){
+                                                console.log("eliminar_ingreso: error eliminando ")
+                                            })
+                                    }
+                                },
+                                "Borrar ingreso",
+                                "Borrar, Cancelar")
 	        			}
 	        		},
 	        		function(error){
@@ -84,20 +86,22 @@ var Insertar = {
 	        		[id],
 	        		function(tx, results){
 	        			if(results.rows.length>0){
-	        				navigator.notification.alert(
+	        				navigator.notification.confirm(
 	        					"Desea borrar el egreso de $"+dar_formato(results.rows.item(0).valor_eg) + " de " + results.rows.item(0).tipo_eg + "?",
-	        					function(){
-	        						tx.executeSql(
-	        							"DELETE FROM egresos WHERE id = ?",
-	        							[id],
-	        							function(){
-	        								window.location.href = "__finanzas.html";
-	        							}, function(){
-	        								console.log("eliminar_egreso: error eliminando ")
-	        							})
+	        					function( buttonIndex ){
+                                    if(buttonIndex == 0){
+                                        tx.executeSql(
+                                            "DELETE FROM egresos WHERE id = ?",
+                                            [id],
+                                            function(){
+                                                window.location.href = "__finanzas.html";
+                                            }, function(){
+                                                console.log("eliminar_egreso: error eliminando ")
+                                            })
+                                    }
 	        					},
 	        					"Borrar egreso",
-	        					"Borrar");
+	        					"Borrar, Cancelar");
 	        			}
 	        		},
 	        		function(error){
@@ -119,6 +123,8 @@ var Insertar = {
         var dat=d.getDate();
         var mon=d.getMonth();
         var year=d.getFullYear();
+        var MESES = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+        $(".fecha-hoy").html(dat+" de "+MESES[mon])
        // var hoy = year+"-"+setDateZero(mon)+"-"+setDateZero(dat);
         $( "#mes" ).val(setDateZero(mon+1));
         configurar_db()
@@ -281,7 +287,7 @@ var Insertar = {
        RealizarSumaIngresos();
     }
 
-	 function RealizarSumaIngresos() {
+	function RealizarSumaIngresos() {
         var db = window.openDatabase("bd_finanzas", "1.0", "Mis finanzas", 200000);
         db.transaction(SumarIngresos, errorOperacion, exito);
     }

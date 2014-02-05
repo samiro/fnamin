@@ -11,5 +11,15 @@ navigator.notification.alert = function(mensaje, callback, titulo, boton){
         callback()
 }
 
+navigator.notification.confirm = function(message, confirmCallback, title, buttonLabels){
+    var r = window.confirm(message)
+    if (r){
+        if(confirmCallback!="")
+            confirmCallback()
+    }
+}
+
+
+
 PositionError = {}
 

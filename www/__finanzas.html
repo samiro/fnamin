@@ -6,15 +6,15 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
 	<title>Mis Finanzas</title>
 	<link rel="stylesheet" type="text/css" href="css/finanzas.css">
-	
+
    	<script type="text/javascript" src="js/lib/jquery.js"></script>
 
-   
+
   	<script type="text/javascript" src="cordova.js"></script>
 
-	<!-- 
+<!--
   	<script type="text/javascript" src="js/debug.js"></script>
- 	 -->
+ -->
 
 	<script type="text/javascript" src="js/scripts/general.js"></script>
 	<script type="text/javascript" src="js/scripts/finanzas.js"></script>
@@ -22,15 +22,15 @@
 <body page="finanzas" required-internet="0">
 	<div class="header">
 		<a href="index.html" class="btn-left">Inicio</a>
-			
+
 		<h1 role="heading" aria-level="1">Mis Finanzas</h1>
-			
+
 		<a href="javascript: Funciones.compartir('show')" class="btn-right tap-compartir">Compartir</a>
 	</div>
 
-	<!-- 
+	<!--
 	Si ahorro es positivo: Haz ahorrado en el periodo 50000 Puedes acercarte a una oficina fna para invertir tu ahorro.  Solicitar asesoría.
-	si no: Haz gastado más de lo que haz ganado -5000 Planea mejor tus gastos según tu presupuesto.  
+	si no: Haz gastado más de lo que haz ganado -5000 Planea mejor tus gastos según tu presupuesto.
 	-->
 
 	<div class="wrapper_content" id="inicio_finanzas">
@@ -65,20 +65,20 @@
 			<option value="12">Diciembre</option>
 		</select>
 	</h2>
-	
+
 	<div class="entradas-fechas">
 	    <div class="ui-grid-a">
 	        <div class="ui-block-a">
 	          <div class="titulo-bg btn-agregar-ingreso" onclick="Insertar.agr_ingreso('show')">
 	            <label>Ingresos</label>
-	            <button type="button" >+</button>	
+	            <button type="button" >+</button>
 	          </div>
 	        </div>
 
 	        <div class="ui-block-b">
 	          <div class="titulo-bg btn-agregar-egreso" onclick="Insertar.agr_egreso('show')">
 	            <label>Egresos</label>
-	            <button type="button">+</button>	
+	            <button type="button">+</button>
 	          </div>
 	        </div>
 	    </div>
@@ -86,11 +86,11 @@
 		<div class="ui-grid-a">
 	        <div id="entradas-ingresos" class="ui-block-a">
 	        </div>
-	        <div  id="entradas-egresos" class="ui-block-b"> 
+	        <div  id="entradas-egresos" class="ui-block-b">
 	        </div>
 	    </div>
     </div>
-	
+
 
 	<div id="window_egreso" class="window">
 		<div class="window-container">
@@ -135,8 +135,8 @@
 		</div>
 	</div>
 	</div>
-	
-	
+
+
 	<div id="window_ingreso" class="window">
 		<div class="window-container">
 		<div id="ingreso">
@@ -158,7 +158,7 @@
 						  <option value="Salario">Salario</option>
 						  <option value="Renta">Arrendamientos</option>
 						  <option value="Otros">Otros</option>
-						</select> 
+						</select>
 						<div class="line"></div>
 					</div>
 					<div class="input_text">
@@ -175,9 +175,9 @@
 		</div>
 	</div>
 	</div>
-	
-	
-	
+
+
+
 <!--<div id="window_historia" class="window">
 		<div id="historia">
 			<div class="superior">
@@ -185,11 +185,11 @@
 				<a href="javascript: Insertar.ver_historia('hide')" class="btn-right">Cerrar</a>
 			</div>
 			<div class="ui-content ui-body-b">
-				
+
 				<div class="titulo-bg">
 					<label>Ingresos</label>
 				</div>
-					
+
 				<div data-role="fieldcontain">
 					<table data-role="table" id="ingresos_historico" data-mode="no-reflow" class="table-stroke">
 						<thead>
@@ -208,7 +208,7 @@
 				<div class="titulo-bg">
 					<label>Egresos</label>
 				</div>
-				<div data-role="fieldcontain"> 
+				<div data-role="fieldcontain">
 					<table data-role="table" id="egresos_historico" data-mode="no-reflow" class="table-stroke">
 						<thead>
 							<tr>
@@ -225,7 +225,7 @@
 			</div>
 		</div>
 	</div>-->
-	
+
 
 
 	<div class="footer">
@@ -258,7 +258,7 @@
 						<button class="btn-blue btn-block btn-google" onclick="openLinkInBrowser('https://plus.google.com/share?url=http://fna.gov.co');">
 							<img src="img/icon_google.png" alt="Google+"><span>Google+</span>
 						</button>
-		
+
 						<button class="btn-blue btn-block btn-facebook" onclick="openLinkInBrowser('https://www.facebook.com/sharer/sharer.php?u=http://fna.gov.co');">
 							<img src="img/icon_facebook.png" alt="Facebook"><span>Facebook</span>
 						</button>
@@ -281,7 +281,7 @@
 		<span class="ui-icon ui-icon-loading"></span>
 		<h1> -- </h1>
 	</div>
-	
+
 	<script type="text/javascript" >
 		app.initialize()
 	</script>

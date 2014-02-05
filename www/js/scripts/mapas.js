@@ -8,7 +8,7 @@ $filter
 
 $
 
-Simular bogota 
+Simular bogota
 
 lat: 4.598269
 long: -74.075112
@@ -119,10 +119,10 @@ var MapaAtributos = {
     general: {
             puntos_json: 'http://servicedatosabiertoscolombia.cloudapp.net/v1/Fondo_Nacional_Ahorro/puntosatencion08082013?$format=json',
             pin_persona: 'img/pines/persona.png',
-            pin_fnaconcosto: 'img/pines/fna_concosto.png',
+            pin_fnaconcosto: 'img/pines/fna_sincosto.png',
             pin_fnasincosto: 'img/pines/fna_sincosto.png',
             pin_recaudoconcosto: 'img/pines/recaudo_concosto.png',
-            pin_recaudosincosto: 'img/pines/recaudo_sincosto.png',
+            pin_recaudosincosto: 'img/pines/recaudo_concosto.png',
             txt_punto_atencion: "Punto de atención FNA - Punto Empresaria FNA"
     },
     //
@@ -1531,7 +1531,7 @@ var MapaObjeto = {
         var map           = new google.maps.Map(document.getElementById('map-canvas'), MapaAtributos.opciones_mapa);
         geocoder          = new google.maps.Geocoder();
         directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers : true});
-        
+
         directionsDisplay.setMap(map);
         google.maps.visualRefresh = true;
         MapaAtributos.mapa = map
@@ -1544,7 +1544,7 @@ var MapaObjeto = {
     obtener_mi_posicion: function(callback){
         navigator.geolocation.getCurrentPosition( function(position){
             MapaAtributos.mi_posicion = position
-            
+
             var lat = position.coords.latitude
             var lon = position.coords.longitude
             var point = new google.maps.LatLng(lat, lon)
@@ -1582,11 +1582,11 @@ var MapaObjeto = {
                     navigator.notification.alert("No pudimos localizar su ciudad.", function(){}, "Sin localización", "Aceptar");
                 }
             });
-        }, 
+        },
         function( error ){
             //navigator.notification.alert("OMP: " + error.message , "",  "C: " + error.code, "Aceptar");
             if(error.code == PositionError.POSITION_UNAVAILABLE){
-              
+
               console.log("obtener_mi_posicion: POSITION_UNAVAILABLE")
               navigator.notification.alert("No está disponible la localización", function(){}, "Lo sentimos", "Aceptar");
 
@@ -1707,7 +1707,7 @@ var MapaObjeto = {
 
         // Pasó los filtros
         return true;*/
-        
+
     },
     //
     //Centrar a la ciudad
@@ -1735,9 +1735,9 @@ var MapaObjeto = {
     // Cargar los puntos que retorna el setdatos
     cargar_todos_puntos: function(por_ciudad, callback){
         MapaAtributos.mapa.setZoom(16);
-        
+
         var url = MapaAtributos.general.puntos_json
-        
+
         //Ésta instrucción debe estar habilitada para que funcione en Manizales
         //MapaAtributos.ciudad = ''
 
@@ -1772,7 +1772,7 @@ var MapaObjeto = {
                 success: function (data) {
                     var lista_mapa = $("#lista-mapas .lista-mapa-items")
                     lista_mapa.html("")
-        
+
                     for (var i = 0; i < data.d.length; i++) {
                         if(MapaObjeto.pasa_filtros(data.d[i])){
                             var ubicacion = data.d[i].direccion + " - " + data.d[i].municipio + ", " + data.d[i].departamento
@@ -1786,7 +1786,7 @@ var MapaObjeto = {
 
                             var latitud = normalizeLatLong(data.d[i].latitud)
                             var longitud = normalizeLatLong(data.d[i].longitud)
-                            
+
                             var point = new google.maps.LatLng(latitud, longitud)
                             MapaObjeto.cargar_puntos_bounds.extend(point);
 
@@ -1810,7 +1810,7 @@ var MapaObjeto = {
                                 clickable: true
                             });
 
-                            
+
                             markersArray.push(marker);
                             MapaObjeto.cargar_puntos_data.push(data.d[i])
                             //
@@ -1990,7 +1990,7 @@ var MapaObjeto = {
             return false;
         }
 
-        
+
 
         $.loading('show',"Enviando puntuación");
 
@@ -2026,7 +2026,7 @@ var MapaObjeto = {
                         //alert("ir a mapas")
                         //$.mobile.changePage("#map-page")
                         MapaObjeto.ocultar_puntuacion()
-                        
+
                         $("#input-puntos").val("")
                         /*$("#input-puntos-txt").text(1)*/
                         $("#input-tipo").val("")
@@ -2057,7 +2057,7 @@ var MapaObjeto = {
                         ciudades_cargar(data.d[data.d.length-1].no)
                     else
                         ciudades_finalizar()
-                    
+
                 },
                 error: function (x, y, z) {
                     navigator.notification.alert("Ocurrió un error al buscar las ciudades donde está presente el FNA.", function(){}, "Error", "Aceptar");
@@ -2102,7 +2102,7 @@ var Contenido = {
                     $.loading('show', "Ubicando mi posición");
 
                     MapaObjeto.ubicarme( function(){
-                        
+
                         $.loading( "hide" );
                         $.loading('show', "Cargando puntos FNA");
                         MapaObjeto.cargar_todos_puntos( true, function(){
@@ -2117,12 +2117,12 @@ var Contenido = {
                     "Debe tener conexión a internet para acceder a esta sección",
                     function(){
                         window.location.href="index.html"
-                    }, 
-                    "Sin conexión", 
+                    },
+                    "Sin conexión",
                     "Aceptar")
             }
     },
-    
+
     /*
 
 
@@ -2135,10 +2135,10 @@ var Contenido = {
     */
     // Carga el contenido segun la petición de página que le halla llegado
     cargar_mi_posicion: function(){
-        
+
         $.loading( "hide" );
         $.loading( 'show', "Ubicando mi posición");
-        
+
         MapaAtributos.mi_posicion = null
 
         MapaObjeto.ubicarme( function(){
@@ -2183,7 +2183,7 @@ var Contenido = {
         $("#window_lista .no-lista-sinpuntos").hide()
         $("#window_lista .no-lista-sinciudad").hide()
       }
-      
+
       $("#window_lista").css("display", "block")
     },
 
@@ -2197,7 +2197,7 @@ var Contenido = {
 
       /*var html = $(marker.info).attr("onclick", "")*/
       var html = marker.info
-      
+
       info_window.content = html;
       info_window.maxWidth = 200;
       info_window.open(marker.getMap(), marker);
@@ -2399,7 +2399,7 @@ function cambio_ciudad(){
         var datos = sel.split('@')
         var ciudad = datos[0]
         var depto = datos[1]
-    
+
         MapaAtributos.ciudad = ciudad
         MapaAtributos.departamento = depto
         MapaWindow.filtro_listo()

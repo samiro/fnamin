@@ -64,6 +64,8 @@ var Portafolio = {
         db.transaction(function(tx){
             /*Ejecutar*/
             tx.executeSql('CREATE TABLE IF NOT EXISTS servicios (key, nombre_servicio, mensaje, titulo, descripcion, beneficios, logo)');
+            tx.executeSql('DELETE FROM servicios WHERE 1 = 1');
+
             for (var i = 0; i < datos.length; i++) {
                 var key = datos[i].RowKey
                 var nombre_servicio = datos[i].servicios

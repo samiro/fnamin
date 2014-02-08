@@ -8,6 +8,12 @@ function fake_solicitar_llamada(){
 
 }
 
+
+
+
+
+
+
 function solicitar_llamada(){
     $.loading( 'show', "Solicitando asesoría...");
 
@@ -20,15 +26,15 @@ function solicitar_llamada(){
       localStorage.setItem("direccion", $("#form_info_personal input[name='direccion']").val());
       localStorage.setItem("email", $("#form_info_personal input[name='email']").val());
       localStorage.setItem("cedula", $("#form_info_personal input[name='cedula']").val());
-      
+
   		var nombre = $("#form_info_personal input[name='nombre']").val();
   		var celular = $("#form_info_personal input[name='celular']").val();
   		var direccion = $("#form_info_personal input[name='direccion']").val();
   		var correo = $("#form_info_personal input[name='email']").val();
 
-  		//$.loading( "hide" );		
+  		//$.loading( "hide" );
 
-      //Llamado al web service		
+      //Llamado al web service
   		var data =	'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:isol="http://SolicitudAtencionClienteModule/ISolicitarAtencionWebService">'+
 					'<soapenv:Header/>'+
 					'<soapenv:Body>'+
@@ -48,8 +54,8 @@ function solicitar_llamada(){
 							'</datosSolicitudCliente>'+
 						'</isol:solicitarAtencionCliente>'+
 					'</soapenv:Body>'+
-					'</soapenv:Envelope>';					
-					
+					'</soapenv:Envelope>';
+
 
         var xmlhttp = new window.XMLHttpRequest();
         xmlhttp.open('POST', 'https://www.fna.gov.co:8445/SolicitudAtencionClienteModuleWeb/sca/SolicitarAtencionWebService', true);
@@ -60,18 +66,18 @@ function solicitar_llamada(){
                 try {
                   var parser = new DOMParser();
                   var xmlDoc = parser.parseFromString(this.responseText, "text/xml");
-                  
+
                   var error = xmlDoc.getElementsByTagName("codigo")[0].childNodes[0].nodeValue;
                   var error_msj = xmlDoc.getElementsByTagName("mensaje")[0].childNodes[0].nodeValue;
-                  
+
                   if(error == "0"){
                     $("#asesoria-exitosa .respuesta h1").html(error_msj)
-                    
+
                     /*$("#nombre").val("");
                     $("#celular").val("");
                     $("#direccion").val("");
                     $("#email").val("");*/
-                    
+
                     //navigator.notification.alert(error_msj, "", "Transacción exitosa", "Aceptar")
                     asesoria_exitosa('show')
                   }else{
@@ -82,7 +88,7 @@ function solicitar_llamada(){
                 }
           }
         }
-        xmlhttp.send(data);	
+        xmlhttp.send(data);
      }else{
      		 $.loading( "hide" );
 			   navigator.notification.alert(alerta, function(){}, "Datos inválidos", "Aceptar")
@@ -151,7 +157,7 @@ function limpiar_campos(){
   	$("#form_info_personal input[name='email']").val("");
 }
 
- 
+
 function asesoria_exitosa(accion){
   if(accion=='show'){
     $("#window_asesoria-exitosa").show()

@@ -1577,9 +1577,10 @@ var MapaObjeto = {
                         callback()
 
                 } else {
+                    navigator.notification.alert("No pudimos localizar su ciudad.", function(){}, "Sin localización", "Aceptar");
                     if(callback!=undefined)
                         callback()
-                    navigator.notification.alert("No pudimos localizar su ciudad.", function(){}, "Sin localización", "Aceptar");
+
                 }
             });
         },
@@ -1843,6 +1844,7 @@ var MapaObjeto = {
                             //
                             // Se crea el evento del click sobre el marker
                             //
+
                             google.maps.event.addListener(marker, 'click', function() {
                                 info_window.content = this.info;
                                 info_window.maxWidth = 300;

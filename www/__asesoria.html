@@ -36,22 +36,22 @@
 			</p>
 			<div class="input_text">
 				<label for="nombre">Nombres y apellidos:</label>
-				<input type="text" name="nombre" id="nombre" placeholder="Escríbalo aquí" required>
+				<input type="text" name="nombre" id="nombre" placeholder="Escríbalo aquí" maxlength="100" required>
 				<div class="line"></div>
 			</div>
 			<div class="input_text">
 				<label for="celular">Número de celular o fijo:</label>
-				<input type="number" name="celular" id="celular" placeholder="Escríbalo aquí" required>
+				<input type="number" name="celular" id="celular" maxlength="10" placeholder="Escríbalo aquí" required>
 				<div class="line"></div>
 			</div>
 			<div class="input_text">
 				<label for="direccion">Dirección:</label>
-				<input type="text" name="direccion" id="direccion" placeholder="Escríbalo aquí" required>
+				<input type="text" name="direccion" id="direccion" maxlength="200" placeholder="Escríbalo aquí" required>
 				<div class="line"></div>
 			</div>
 			<div class="input_text">
 				<label for="email">Correo electrónico:</label>
-				<input type="email" name="email" id="email" placeholder="Escríbalo aquí" required>
+				<input type="email" name="email" id="email" maxlength="150" placeholder="Escríbalo aquí" required>
 				<div class="line"></div>
 			</div>
 			<div class="btns-center">
@@ -152,6 +152,15 @@
 
 	<script type="text/javascript" >
 		app.initialize()
+
+        $("input").on('focus', function(){
+            $(".header").css({position:'absolute'})
+            //$(window).scrollTop(0)
+        })
+
+        $("input").on('blur', function(){
+            $(".header").css({position:'fixed'})
+        })
 	</script>
 </body>
 </html>

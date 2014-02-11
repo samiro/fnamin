@@ -11,14 +11,16 @@ var Portafolio = {
             success: function( data ) {
                 $.loading( 'hide' )
                 var servicios = data.d
-                for (var i = 0; i < servicios.length; i++) {
-                    var servicio = "<li><div><div class='btn-text'><a href=\"javascript: Portafolio.ir_a('" +servicios[i].RowKey+ "')\">"
-                        servicio+= '<h2>'+servicios[i].servicios+'</h2>'
-                        servicio+= '<p>'+servicios[i].mensaje+'</p></a></div><span class="icon">&nbsp;</span></div></li>'
+                Portafolio.guardar_datos( servicios, function(){
+                    for (var i = 0; i < servicios.length; i++) {
+                        var servicio = "<li><div><div class='btn-text'><a href=\"javascript: Portafolio.ir_a('" +servicios[i].RowKey+ "')\">"
+                            servicio+= '<h2>'+servicios[i].servicios+'</h2>'
+                            servicio+= '<p>'+servicios[i].mensaje+'</p></a></div><span class="icon">&nbsp;</span></div></li>'
 
-                    $(".lista-portafolio").append(servicio)
-                }
-                Portafolio.guardar_datos( servicios )
+                        $(".lista-portafolio").append(servicio)
+                    }
+                })
+
             },
             error: function (x, y, z) {
                 console.log("cargar_todos: Error cargando Portafolio Todos")
@@ -59,23 +61,31 @@ var Portafolio = {
         window.localStorage.setItem("key_servicio", key);
         window.location.href = "__portafolio_detalle.html"
     },
-    guardar_datos: function( datos ){
+    guardar_datos: function( datos , callback){
         var db = window.openDatabase("bd_servicios", "1.0", "Servicios", 200000);
         db.transaction(function(tx){
             /*Ejecutar*/
             tx.executeSql('CREATE TABLE IF NOT EXISTS servicios (key, nombre_servicio, mensaje, titulo, descripcion, beneficios, logo)');
-            tx.executeSql('DELETE FROM servicios WHERE 1 = 1');
+            tx.executeSql('DELETE FROM servicios WHERE 1 = 1',
+                function(){
+                    console.log("Error borrando datos")
+                }, function(){
 
-            for (var i = 0; i < datos.length; i++) {
-                var key = datos[i].RowKey
-                var nombre_servicio = datos[i].servicios
-                var mensaje = datos[i].mensaje
-                var titulo = datos[i].titulo
-                var descripcion = datos[i].descripciondelservicio
-                var beneficios = datos[i].beneficios
-                var logo = datos[i].logodelservicio
-                tx.executeSql('INSERT INTO servicios (key, nombre_servicio, mensaje, titulo, descripcion, beneficios, logo) VALUES ("'+key+'", "'+nombre_servicio+'", "'+mensaje+'", "'+titulo+'", "'+descripcion+'", "'+beneficios+'", "'+logo+'")');
-            }
+                    for (var i = 0; i < datos.length; i++) {
+                        var key = datos[i].RowKey
+                        var nombre_servicio = datos[i].servicios
+                        var mensaje = datos[i].mensaje
+                        var titulo = datos[i].titulo
+                        var descripcion = datos[i].descripciondelservicio
+                        var beneficios = datos[i].beneficios
+                        var logo = datos[i].logodelservicio
+                        tx.executeSql('INSERT INTO servicios (key, nombre_servicio, mensaje, titulo, descripcion, beneficios, logo) VALUES ("'+key+'", "'+nombre_servicio+'", "'+mensaje+'", "'+titulo+'", "'+descripcion+'", "'+beneficios+'", "'+logo+'")');
+                    }
+
+
+                });
+
+
         },
         function(error){
             /*Error*/
@@ -83,6 +93,9 @@ var Portafolio = {
             console.log(error)
         },
         function(){
+            if(callback){
+                callback()
+            }
             console.log("guadar_datos portafolio bien")
         });
     }

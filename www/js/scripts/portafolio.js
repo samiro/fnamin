@@ -39,6 +39,7 @@ var Portafolio = {
                             $("#servicio-nombre").html(servicio.nombre_servicio)
                             $("#servicio-imagen").html(servicio.logo)
                             $("#servicio-titulo").html(servicio.titulo)
+                            alert(servicio.descripcion);
                             $("#servicio-detalle").html(servicio.descripcion.replace(/•/g, "<br />•"))
                             $("#servicio-beneficios").html(servicio.beneficios)
                         }

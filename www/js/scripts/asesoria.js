@@ -32,10 +32,7 @@ function solicitar_llamada(){
   		var direccion = $("#form_info_personal input[name='direccion']").val();
   		var correo = $("#form_info_personal input[name='email']").val();
 
-  		//$.loading( "hide" );
-
-      //Llamado al web service
-  		var data =	'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:isol="http://SolicitudAtencionClienteModule/ISolicitarAtencionWebService">'+
+        var data =	'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:isol="http://SolicitudAtencionClienteModule/ISolicitarAtencionWebService">'+
 					'<soapenv:Header/>'+
 					'<soapenv:Body>'+
 						'<isol:solicitarAtencionCliente>'+

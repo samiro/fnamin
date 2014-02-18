@@ -1,4 +1,3 @@
-
 $.loading = function(accion, texto){
 	if(texto != undefined)
 		$("#loading h1").text(texto)
@@ -8,21 +7,6 @@ $.loading = function(accion, texto){
 		$("#loading").hide()
 	}
 }
-
-/*document.addEventListener("offline", function(){
-	navigator.notification.alert(
-        "Debes tener conexión a internet para acceder a ésta sección",
-        function(){
-        	window.location.href="index.html"
-        },
-        "Sin conexión",
-        "Aceptar")
-}, false);*/
-
-
-/*$( "#window_compartir, #window_acerca" ).tap(function(event){
-	$(this).css("display", "none")
-})*/
 
 
 var Funciones = {
@@ -79,7 +63,7 @@ var app = {
     		app.with_internet = false
     		if($("body").attr("required-internet") == "1"){
     			navigator.notification.alert(
-    				"Esta sección requiere acceso a internet.", 
+    				"Esta sección requiere acceso a internet.",
     				function(){
     					window.location.href = "index.html"
     				}, "Sin conexión a internet", "Ir al inicio");
@@ -104,9 +88,16 @@ var app = {
 
 function openLinkInBrowser(url){
     if (navigator!=undefined && navigator.app!=undefined && navigator.app.loadUrl !=undefined) {
-        navigator.app.loadUrl( url,  { openExternal: true });  
+        navigator.app.loadUrl( url,  { openExternal: true });
     } else {
         window.open(url, "_system");
     }
-    
+}
+
+
+var CONFIGURACION = {
+    URL_PUNTUACION_PRUEBAS: "http://172.16.123.110:7804/Adptch",
+    URL_PUNTUACION_CERTIFICACION: "https://www.fna.gov.co:8445/PuntuacionHackatonServiceWeb/sca/WSPuntuacionServiceExport",
+    URL_ASESORIA_PRUEBAS: "http://172.16.123.110:7804/Adptch",
+    URL_ASESORIA_CERTIFICACION: "https://www.fna.gov.co:8445/SolicitudAtencionClienteModuleWeb/sca/SolicitarAtencionWebService"
 }

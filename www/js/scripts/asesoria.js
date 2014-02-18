@@ -1,19 +1,3 @@
-function fake_solicitar_llamada(){
-  /*asesoria_exitosa('show')*/
-
-  setTimeout( function() {
-      $(window).scrollTop()
-      asesoria_exitosa('show')
-  }, 1000 );
-
-}
-
-
-
-
-
-
-
 function solicitar_llamada(){
     $.loading( 'show', "Solicitando asesoría...");
 
@@ -55,7 +39,7 @@ function solicitar_llamada(){
 
 
         var xmlhttp = new window.XMLHttpRequest();
-        xmlhttp.open('POST', 'https://www.fna.gov.co:8445/SolicitudAtencionClienteModuleWeb/sca/SolicitarAtencionWebService', true);
+        xmlhttp.open('POST', CONFIGURACION.URL_ASESORIA_PRUEBAS, true);
         xmlhttp.setRequestHeader('Content-Type', 'text/xml;charset=UTF-8');
         xmlhttp.onreadystatechange = function () {
             $.loading( "hide" );
@@ -69,13 +53,6 @@ function solicitar_llamada(){
 
                   if(error == "0"){
                     $("#asesoria-exitosa .respuesta h1").html(error_msj)
-
-                    /*$("#nombre").val("");
-                    $("#celular").val("");
-                    $("#direccion").val("");
-                    $("#email").val("");*/
-
-                    //navigator.notification.alert(error_msj, "", "Transacción exitosa", "Aceptar")
                     asesoria_exitosa('show')
                   }else{
                     navigator.notification.alert(error_msj, function(){}, "Datos inválidos", "Aceptar")
@@ -87,8 +64,8 @@ function solicitar_llamada(){
         }
         xmlhttp.send(data);
      }else{
-     		 $.loading( "hide" );
-			   navigator.notification.alert(alerta, function(){}, "Datos inválidos", "Aceptar")
+     	$.loading( "hide" );
+		navigator.notification.alert(alerta, function(){}, "Datos inválidos", "Aceptar")
      }
 }
 
@@ -112,9 +89,6 @@ function validar_datos(){
                         }
 
                       }
-                    // }else{
-                    //    NoCumple = "Debes diligenciar la cédula correctamente"
-                    //}
                 }else{
                     NoCumple = "Debe diligenciar el celular correctamente"
                 }

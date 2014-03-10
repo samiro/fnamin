@@ -623,7 +623,7 @@ var MapaObjeto = {
 
         var xmlhttp = new window.XMLHttpRequest();
 
-        xmlhttp.open('POST', CONFIGURACION.URL_PUNTUACION_PRUEBAS, true);
+        xmlhttp.open('POST', CONFIGURACION.URL_PUNTUACION_CERTIFICACION, true);
 
         xmlhttp.setRequestHeader('Content-Type', 'text/xml');
 

@@ -97,7 +97,7 @@ function openLinkInBrowser(url){
 
 var CONFIGURACION = {
     URL_PUNTUACION_PRUEBAS: "http://172.16.123.110:7804/Adptch",
-    URL_PUNTUACION_CERTIFICACION: "https://www.fna.gov.co:8445/PuntuacionHackatonServiceWeb/sca/WSPuntuacionServiceExport",
+    URL_PUNTUACION_CERTIFICACION: "http://172.16.123.105:7804/Adptch",
     URL_ASESORIA_PRUEBAS: "http://172.16.123.110:7804/Adptch",
-    URL_ASESORIA_CERTIFICACION: "https://www.fna.gov.co:8445/SolicitudAtencionClienteModuleWeb/sca/SolicitarAtencionWebService"
+    URL_ASESORIA_CERTIFICACION: "http://172.16.123.105:7804/Adptch"
 }

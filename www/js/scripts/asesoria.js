@@ -39,7 +39,7 @@ function solicitar_llamada(){
 
 
         var xmlhttp = new window.XMLHttpRequest();
-        xmlhttp.open('POST', CONFIGURACION.URL_ASESORIA_PRUEBAS, true);
+        xmlhttp.open('POST', CONFIGURACION.URL_ASESORIA_CERTIFICACION, true);
         xmlhttp.setRequestHeader('Content-Type', 'text/xml;charset=UTF-8');
         xmlhttp.onreadystatechange = function () {
             $.loading( "hide" );

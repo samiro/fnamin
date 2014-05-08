@@ -36,8 +36,9 @@ var Portafolio = {
                     function(tx, results){
                         if(results.rows.length > 0){
                             var servicio = results.rows.item(0)
+
                             $("#servicio-nombre").html(servicio.nombre_servicio)
-                            $("#servicio-imagen").html(servicio.logo)
+                            $("#servicio-imagen").attr("src", servicio.logo)
                             $("#servicio-titulo").html(servicio.titulo)
                             $("#servicio-detalle").html(servicio.descripcion.replace(/•/g, "<br />•"))
                             $("#servicio-beneficios").html(servicio.beneficios)
